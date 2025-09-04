@@ -1,6 +1,6 @@
 ## 1. Syntax Arduino
 
-**Kode Program: **
+* **Kode Program:**
 ```cpp
     void setup() {
     // put your setup code here, to run once:
