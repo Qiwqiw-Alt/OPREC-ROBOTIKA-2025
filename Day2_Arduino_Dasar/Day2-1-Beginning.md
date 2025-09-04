@@ -3,7 +3,7 @@
 ## Link Penting 
 
 * **Arduino IDE:**
-    * [Arduino IDE](https://www.arduino.cc/en/software/)
+    * [Arduino IDE Download](https://www.arduino.cc/en/software/)
 
 * **Cara Install dan Download Arduino IDE:**
     * [Cara Download dan Install ARDUINO IDE di Laptop](https://youtu.be/sX2Py0k32uE?si=xnhtI5-ERC1PSli-)
