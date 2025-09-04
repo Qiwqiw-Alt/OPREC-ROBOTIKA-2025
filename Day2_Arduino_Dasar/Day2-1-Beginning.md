@@ -23,7 +23,7 @@
 
     * **2. Library LiquidCrystal_I2C**
         * **Cara pakai/install:**
-        * **1.Buka Arduino IDE**
+        * **1. Buka Arduino IDE**
         * **2. Klik Sketch → Include Library → Manage Libraries...**
         * **3. Di kolom pencarian ketik: LiquidCrystal I2C**
         * **4. Akan muncul beberapa pilihan (misalnya by Frank de Brabander atau by Marco Schwartz).**
