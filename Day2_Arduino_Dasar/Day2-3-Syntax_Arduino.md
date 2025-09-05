@@ -1,6 +1,6 @@
 ## Syntax Dasar Arduino
 
-**Kode Program:**
+**Kode program yang akan tampil ketika baru membuka Arduino IDE:**
 ```cpp
     void setup() {
     // put your setup code here, to run once:
@@ -24,3 +24,6 @@
     * Memberikan logika perhitungan atau pengambilan keputusan.
     * Mengontrol aktuator seperti LED, motor, buzzer, dsb.
     * Mengirim/menampilkan data ke serial monitor atau LCD.
+
+---
+**Contoh kode program menyalakan LED:**
