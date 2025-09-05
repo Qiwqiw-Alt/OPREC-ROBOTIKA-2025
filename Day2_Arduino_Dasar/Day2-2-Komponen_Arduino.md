@@ -47,4 +47,4 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
 # Penjelasan Komponen Arduino
 
 **1. Arduino Uno R3**
-![Arduino UNO R3](Day2_Arduino_Dasar/Images/arduino_edit.png)
+![Arduino UNO R3](Images/arduino_edit.png)
