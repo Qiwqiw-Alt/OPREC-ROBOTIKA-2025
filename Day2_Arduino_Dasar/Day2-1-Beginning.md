@@ -15,14 +15,14 @@
 
 * **Library yang digunakan:**
     * **1. Library Servo**
-        **Cara pakai/install:**
+    * **Cara pakai/install:**
         * **1. Buka Arduino IDE**
         * **2. Klik menu Sketch → Include Library → Manage Libraries...**
         * **3. Cari Servo di kolom pencarian**
         * **4. Pilih Servo by Arduino → klik Install**
 
     * **2. Library LiquidCrystal_I2C**
-        **Cara pakai/install:**
+    * **Cara pakai/install:**
         * **1. Buka Arduino IDE**
         * **2. Klik Sketch → Include Library → Manage Libraries...**
         * **3. Di kolom pencarian ketik: LiquidCrystal I2C**
