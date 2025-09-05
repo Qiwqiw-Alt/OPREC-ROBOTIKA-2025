@@ -14,14 +14,15 @@ Breadboard adalah komponen elekronika yang berbentuk seperti papan yang memiliki
 
 **3. Kabel Jumper**
 
+<div align="center">
 ![Kabel Jumper Male to Male](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0WwBXz4eA8hSjtPsSaFB5rT6FIj2NZbC1xKpTKa38czXK61tjwFuCH7xxdRUAdVzU8Uqx2_f9BHsmJzYNFdLtvG_JuLzjDNs95f0x2LE8T3P5SGU3-il_OntZb9eK-_LiZhD7Ro0V9AlLDKJjHsqhZlhX6NJNiAlNFA-vqe-NjQIMU2vGDYcI8-Jg/s500/male%20to%20male.jpg)
-
+</div>
 Kabel jumper adalah kabel elektrik yang mempunyai pin konektor disetiap ujungnya dan memungkinkan untuk menghubungkan dua komponen yang melibatkan Arduino tanpa memerlukan solder. Kabel jumper banyak jenisnya, yaitu kabel jumper male to male, male to female dan female to female.
 
 **4. Resistor**
-
+<div align= "center">
 ![Resistor](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYgswCAN-MaOYNtnACfDuSMjKNCeyH6V1QEZJrvkHbpe6d8Zo567COM2JRfeDg-v3jyGSDEOV1FQe4ipOsIp3nF7c4fCShcQuKymg_8M_2W7Zh-cTvPUmeXkWhkFV2DBnmymmJtcM_Bt0/w320-h224/Electronic-Axial-Lead-Resistors-Array+%2528FILEminimizer%2529.jpg)
-
+</div>
 Resistor adalah komponen elektronik yang memiliki dua pin dan didesain untuk mengatur tegangan listrik dan arus listrik, dengan resistansi tertentu (tahanan) dapat memproduksi tegangan listrik di antara kedua pin, nilai tegangan terhadap resistansi berbanding lurus dengan arus yang mengalir.
 
 **5. Servo**
