@@ -1,4 +1,4 @@
-## B. Syntax Dasar Arduino
+## Syntax Dasar Arduino
 
 * **Kode Program:**
 ```cpp
@@ -14,4 +14,4 @@
 ```
 
 **Penjelasan Sintaks:**
-    * **`void setup(){}`: merupakan tempat tempat inisialisasi yang hanya dijalankan satu kali ketika Arduino pertama kali dinyalakan atau setelah di-reset.**
+     **`void setup(){}`: merupakan tempat tempat inisialisasi yang hanya dijalankan satu kali ketika Arduino pertama kali dinyalakan atau setelah di-reset.**

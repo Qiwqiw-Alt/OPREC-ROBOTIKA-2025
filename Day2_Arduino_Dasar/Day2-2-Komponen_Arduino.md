@@ -1,4 +1,4 @@
-# A. Komponen Arduino
+# Komponen Arduino
 
 **1. Arduino Uno R3**
 
@@ -43,3 +43,5 @@ LCD I2C adalah salah satu media penampil yang digunakan sebagai interface anatar
 Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gelombang ultrasonik yaitu gelombang yang umum digunakan untuk mendeteksi keberadaan suatu benda dengan memperkirakan jarak antara sensor dan benda tersebut.
 
 ---
+
+# Penjelasan Komponen Arduino
