@@ -47,4 +47,17 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
 # Penjelasan Komponen Arduino
 
 **1. Arduino Uno R3**
+
 ![Arduino UNO R3](Images/arduino_edit.png)
+
+* **Kotak Merah (Power Pin)**
+    * Vin → Input tegangan eksternal (7–12V biasanya).
+    * 3.3V → Output tegangan 3.3V.
+    * 5V → Output tegangan 5V (banyak dipakai untuk modul).
+    * GND → Ground (negatif), ada beberapa pin GND.
+    * IOREF → Memberi referensi tegangan untuk mikrokontroler.
+    * RESET → Untuk me-reset board (juga bisa disambungkan ke tombol reset eksternal).
+* **Kotak Oren (Analog Pins (A0–A5))**
+    * Digunakan untuk membaca input analog (sensor).
+    * Resolusi ADC (Analog to Digital Converter) = 10-bit (nilai 0–1023).
+    * Bisa juga digunakan sebagai digital pin jika dibutuhkan.
