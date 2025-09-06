@@ -78,7 +78,7 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
     * Biasanya digunakan sebagai rail positif.
     * Jalur ini kemudian dihubungkan ke pin VCC Arduino (5V atau 3.3V).
     * Dengan begitu, jalur + di breadboard bisa dipakai untuk membagikan tegangan ke banyak sensor atau modul sekaligus, tanpa harus mencolok langsung ke pin VCC Arduino berkali-kali.
-* **Tanda min(-)**
+* **Tanda min (-)**
     * Biasanya digunakan sebagai rail negatif.
     * Jalur ini dihubungkan ke pin GND Arduino.
     * Dengan begitu, jalur – di breadboard bisa dipakai untuk membagikan ground ke banyak sensor atau modul sekaligus.
@@ -108,7 +108,7 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
     * Pin ini dihubungkan ke digital pin Arduino (misalnya D9, D10, atau pin lain yang bisa output PWM).
     * Sinyal PWM ini yang menentukan sudut putaran servo.
 
-* **5. Ultrasonik HC-SR04**
+**5. Ultrasonik HC-SR04**
 
 ![HC-SR04](Images/Ultrasonik-HC-SR04.png)
 

@@ -26,4 +26,41 @@
     * Mengirim/menampilkan data ke serial monitor atau LCD.
 
 ---
-**Contoh kode program menyalakan LED:**
+**Contoh projek menyalakan LED dengan arduino:**
+
+* **Rangkaian Arduino**
+![Rangkaian_LED_Arduino](Images/rangkaian_LED_Sederhana.png)
+
+* **Komponen yang dibutuhkan:**
+    * Lampu LED (3)
+    * Arduino UNO (1)
+    * Breadboard (1)
+    * Resistor 220 Ohm (3)
+    * Kabel jumper (Secukupnya)
+
+* **Program menyalakan LED dengan arduino**
+```cpp
+    #define LED1 2
+    #define LED2 3
+    #define LED3 4
+
+    void setup(){
+        pinMode(LED1, OUTPUT);
+        pinMode(LED2, OUTPUT);
+        pinMode(LED3, OUTPUT);
+        
+        Serial.begin(9600);
+    }
+
+    void loop(){
+        digitalWrite(LED1, HIGH);
+        delay(500); 
+        digitalWrite(LED1, LOW);
+        digitalWrite(LED2, HIGH);
+        delay(500); 
+        digitalWrite(LED2, LOW);
+        digitalWrite(LED3, HIGH);
+        delay(500);
+        digitalWrite(LED3, LOW);
+    }
+```
