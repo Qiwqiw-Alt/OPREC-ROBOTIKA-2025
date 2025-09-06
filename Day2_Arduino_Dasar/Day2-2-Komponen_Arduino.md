@@ -61,3 +61,11 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
     * Digunakan untuk membaca input analog (sensor).
     * Resolusi ADC (Analog to Digital Converter) = 10-bit (nilai 0–1023).
     * Bisa juga digunakan sebagai digital pin jika dibutuhkan.
+* **Kotak Kuning (Digital Pins (0–13))**
+    * Pin 0 (RX) dan 1 (TX) → digunakan untuk komunikasi serial (UART).
+    * Pin 2–13 → digital input/output.
+    * Pin dengan tanda ~ (misalnya 3, 5, 6, 9, 10, 11) → mendukung PWM (Pulse Width Modulation).
+* **Kotak Hijau (USB Port)
+    USB Port → untuk komunikasi dan suplai daya.
+* **Kotak Biru (Jack Barrel)**
+    Jack DC Barrel → untuk suplai daya eksternal (7–12V).
