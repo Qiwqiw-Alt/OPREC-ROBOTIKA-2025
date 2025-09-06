@@ -83,7 +83,7 @@ int angka = 5; // Komentar juga bisa diletakkan di akhir baris kode.
 | `bool` | Logika kebenaran (benar atau salah) | `true`, `false` |
 | `string` | Kumpulan karakter (teks) | `"Robotika"` |
 
-**Contoh Penggunaan:**
+### Contoh Penggunaan:
 
 ```cpp
 #include <iostream>
@@ -98,34 +98,6 @@ int main() {
     char kelas = 'D';
     double ipk = 3.5;
     bool isStudent = true;
-
-    // Menampilkan nilai variabel
-    cout << "Nama: " << nama << endl;
-    cout << "Umur: " << umur << endl;
-    cout << "Kelas: " << kelas << endl;
-
-    return 0;
-}
-```
-
-### Keyword auto
-**auto** adalah kata kunci di C++ yang fungsinya untuk menentukan tipe data sebuah variabel secara **otomatis**.
-
-**Contoh Penggunaan auto:**
-
-```cpp
-#include <iostream>
-#include <string> 
-
-using namespace std;
-
-int main() {
-    // Deklarasi dan inisialisasi variabel
-    auto nama = "Budi";
-    auto umur = 20;
-    auto kelas = 'D';
-    auto ipk = 3.5;
-    auto isStudent = true;
 
     // Menampilkan nilai variabel
     cout << "Nama: " << nama << endl;
@@ -152,10 +124,10 @@ int main() {
     int umur;
     string nama;
     
-    cout << "Masukkan namamu: ";
+    cout << "Masukkan nama: ";
     cin >> nama; // Mengambil satu baris input string
     
-    cout << "Masukkan umurmu: ";
+    cout << "Masukkan umur: ";
     cin >> umur; // Mengambil input integer dari keyboard
 
     cout << "Halo, " << nama << "! Kamu berumur " << umur << " tahun." << endl;
@@ -175,7 +147,7 @@ int main() {
 | **Perbandingan**| `==`, `!=`, `>`, `<`, `>=`, `<=` | `jarak < 10` |
 | **Logika** | `&&` (AND), `\|\|` (OR), `!` (NOT) | `true && false`|
 
-**Contoh Kode Matematika:**
+### Contoh:
 
 ```cpp
 #include <iostream>
@@ -202,6 +174,21 @@ int main() {
 ## 6\. Percabangan (if, else if, else)
 
 Digunakan untuk membuat keputusan dalam program. Kode di dalam blok `if` hanya akan dijalankan jika kondisinya bernilai `true`.
+
+### Sintaks Dasar:
+```cpp
+if (kondisi_1) {
+    // Blok kode ini dijalankan jika kondisi_1 benar (true).
+} 
+else if (kondisi_2) {
+    // Blok ini dijalankan jika kondisi_1 salah,
+    // DAN kondisi_2 benar.
+} 
+else {
+    // Blok ini dijalankan jika semua kondisi di atas salah.
+}
+```
+### Contoh:
 
 ```cpp
 #include <iostream>
@@ -234,6 +221,24 @@ int main() {
 ## 7\. Percabangan (switch case)
 
 Alternatif dari `if-else if` yang lebih rapi jika digunakan untuk memeriksa satu variabel dengan banyak kemungkinan nilai.
+
+### Sintaks Dasar:
+```cpp
+switch (variabel) {
+    case nilai_1:
+        // Blok kode yang dijalankan jika variabel == nilai_1
+        break;
+    case nilai_2:
+        // Blok kode yang dijalankan jika variabel == nilai_2
+        break;
+    // ... bisa ada banyak case lain
+    default:
+        // Blok kode yang dijalankan jika tidak ada case yang cocok
+        break;
+}
+```
+
+### Contoh: 
 
 ```cpp
 #include <iostream>
@@ -506,35 +511,54 @@ Blok kode di dalam `do` dieksekusi terlebih dahulu. Kemudian, kondisi `pilihan !
 
 **Fungsi** adalah blok kode yang bisa diberi nama dan dipanggil berulang kali untuk melakukan tugas spesifik. Ini membuat kodemu lebih rapi, terorganisir, dan mudah dikelola.
 
+### Sintaks Fungsi dalam C++
+
+Sebuah fungsi dalam C++ mengikuti format umum berikut:
+
+```cpp
+return_type function_name(parameter_list) {
+    // code
+}
+```
+
+Setiap bagian memiliki peran spesifik:
+
+  * **Return type:** Menentukan jenis nilai yang akan dikembalikan oleh fungsi (**`int`, `bool`, `string`**). Gunakan kata kunci **`void`** jika fungsi tersebut tidak mengembalikan nilai apa pun.
+
+  * **Function name:** Nama unik yang akan digunakan untuk memanggil (menjalankan) fungsi tersebut.
+
+  * **Parameter list:** Masukan (input) yang diterima oleh fungsi untuk diolah. Bagian ini bisa dikosongkan jika fungsi tidak memerlukan masukan apa pun.
+
+  * **Function Body:** Blok kode di dalam kurung kurawal `{}` yang berisi serangkaian perintah. Kode inilah yang akan dijalankan ketika fungsi dipanggil.
+
+### Contoh
+
 ```cpp
 #include <iostream>
 
 using namespace std;
 
-// Fungsi yang tidak mengembalikan nilai (void)
-void cekJarak(int jarak) {
-    if (jarak < 20) {
-        cout << "Berhenti!" << endl;
-    } else {
-        cout << "Maju." << endl;
-    }
+
+void halo() {
+    cout << "Halo" << endl;
 }
 
-// Fungsi yang mengembalikan nilai (return value)
-int hitungLuas(int panjang, int lebar) {
-    int hasil = panjang * lebar;
-    return hasil;
+int pangkat(int x) {
+    return x * x;
 }
 
 int main() {
-    // Memanggil fungsi void
-    cekJarak(15); // Output: Berhenti!
-    cekJarak(50); // Output: Maju.
 
-    // Memanggil fungsi yang mengembalikan nilai
-    int luasArea = hitungLuas(10, 5);
-    cout << "Luas area: " << luasArea << endl; // Output: 50
+    halo();
+
+    int hasil = pangkat(5);
+    cout << "Hasil: " << hasil << endl;
 
     return 0;
 }
 ```
+
+## Tambahan (Belum di update)
+* Penggunaa `#include <bits/stdc++.h>` untuk include semua library
+* Tipe data memakai `auto`
+* `#define` 
