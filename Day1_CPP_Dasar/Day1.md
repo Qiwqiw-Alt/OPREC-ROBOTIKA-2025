@@ -506,34 +506,48 @@ Blok kode di dalam `do` dieksekusi terlebih dahulu. Kemudian, kondisi `pilihan !
 
 **Fungsi** adalah blok kode yang bisa diberi nama dan dipanggil berulang kali untuk melakukan tugas spesifik. Ini membuat kodemu lebih rapi, terorganisir, dan mudah dikelola.
 
+### Sintaks Fungsi dalam C++
+
+Sebuah fungsi dalam C++ mengikuti format umum berikut:
+
+```cpp
+return_type function_name(parameter_list) {
+    // code
+}
+```
+
+Setiap bagian memiliki peran spesifik:
+
+  * **Return type:** Menentukan jenis nilai yang akan dikembalikan oleh fungsi (**`int`, `bool`, `string`**). Gunakan kata kunci **`void`** jika fungsi tersebut tidak mengembalikan nilai apa pun.
+
+  * **Function name:** Nama unik yang akan digunakan untuk memanggil (menjalankan) fungsi tersebut.
+
+  * **Parameter list:** Masukan (input) yang diterima oleh fungsi untuk diolah. Bagian ini bisa dikosongkan jika fungsi tidak memerlukan masukan apa pun.
+
+  * **Function Body:** Blok kode di dalam kurung kurawal `{}` yang berisi serangkaian perintah. Kode inilah yang akan dijalankan ketika fungsi dipanggil.
+
+### Contoh
+
 ```cpp
 #include <iostream>
 
 using namespace std;
 
-// Fungsi yang tidak mengembalikan nilai (void)
-void cekJarak(int jarak) {
-    if (jarak < 20) {
-        cout << "Berhenti!" << endl;
-    } else {
-        cout << "Maju." << endl;
-    }
+
+void halo() {
+    cout << "Halo" << endl;
 }
 
-// Fungsi yang mengembalikan nilai (return value)
-int hitungLuas(int panjang, int lebar) {
-    int hasil = panjang * lebar;
-    return hasil;
+int pangkat(int x) {
+    return x * x;
 }
 
 int main() {
-    // Memanggil fungsi void
-    cekJarak(15); // Output: Berhenti!
-    cekJarak(50); // Output: Maju.
 
-    // Memanggil fungsi yang mengembalikan nilai
-    int luasArea = hitungLuas(10, 5);
-    cout << "Luas area: " << luasArea << endl; // Output: 50
+    halo();
+
+    int hasil = pangkat(5);
+    cout << "Hasil: " << hasil << endl;
 
     return 0;
 }
