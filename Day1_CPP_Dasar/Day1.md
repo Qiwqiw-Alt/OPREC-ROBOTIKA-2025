@@ -83,7 +83,7 @@ int angka = 5; // Komentar juga bisa diletakkan di akhir baris kode.
 | `bool` | Logika kebenaran (benar atau salah) | `true`, `false` |
 | `string` | Kumpulan karakter (teks) | `"Robotika"` |
 
-**Contoh Penggunaan:**
+### Contoh Penggunaan:
 
 ```cpp
 #include <iostream>
@@ -98,34 +98,6 @@ int main() {
     char kelas = 'D';
     double ipk = 3.5;
     bool isStudent = true;
-
-    // Menampilkan nilai variabel
-    cout << "Nama: " << nama << endl;
-    cout << "Umur: " << umur << endl;
-    cout << "Kelas: " << kelas << endl;
-
-    return 0;
-}
-```
-
-### Keyword auto
-**auto** adalah kata kunci di C++ yang fungsinya untuk menentukan tipe data sebuah variabel secara **otomatis**.
-
-**Contoh Penggunaan auto:**
-
-```cpp
-#include <iostream>
-#include <string> 
-
-using namespace std;
-
-int main() {
-    // Deklarasi dan inisialisasi variabel
-    auto nama = "Budi";
-    auto umur = 20;
-    auto kelas = 'D';
-    auto ipk = 3.5;
-    auto isStudent = true;
 
     // Menampilkan nilai variabel
     cout << "Nama: " << nama << endl;
@@ -152,10 +124,10 @@ int main() {
     int umur;
     string nama;
     
-    cout << "Masukkan namamu: ";
+    cout << "Masukkan nama: ";
     cin >> nama; // Mengambil satu baris input string
     
-    cout << "Masukkan umurmu: ";
+    cout << "Masukkan umur: ";
     cin >> umur; // Mengambil input integer dari keyboard
 
     cout << "Halo, " << nama << "! Kamu berumur " << umur << " tahun." << endl;
@@ -175,7 +147,7 @@ int main() {
 | **Perbandingan**| `==`, `!=`, `>`, `<`, `>=`, `<=` | `jarak < 10` |
 | **Logika** | `&&` (AND), `\|\|` (OR), `!` (NOT) | `true && false`|
 
-**Contoh Kode Matematika:**
+### Contoh:
 
 ```cpp
 #include <iostream>
@@ -202,6 +174,21 @@ int main() {
 ## 6\. Percabangan (if, else if, else)
 
 Digunakan untuk membuat keputusan dalam program. Kode di dalam blok `if` hanya akan dijalankan jika kondisinya bernilai `true`.
+
+### Sintaks Dasar:
+```cpp
+if (kondisi_1) {
+    // Blok kode ini dijalankan jika kondisi_1 benar (true).
+} 
+else if (kondisi_2) {
+    // Blok ini dijalankan jika kondisi_1 salah,
+    // DAN kondisi_2 benar.
+} 
+else {
+    // Blok ini dijalankan jika semua kondisi di atas salah.
+}
+```
+### Contoh:
 
 ```cpp
 #include <iostream>
@@ -234,6 +221,24 @@ int main() {
 ## 7\. Percabangan (switch case)
 
 Alternatif dari `if-else if` yang lebih rapi jika digunakan untuk memeriksa satu variabel dengan banyak kemungkinan nilai.
+
+### Sintaks Dasar:
+```cpp
+switch (variabel) {
+    case nilai_1:
+        // Blok kode yang dijalankan jika variabel == nilai_1
+        break;
+    case nilai_2:
+        // Blok kode yang dijalankan jika variabel == nilai_2
+        break;
+    // ... bisa ada banyak case lain
+    default:
+        // Blok kode yang dijalankan jika tidak ada case yang cocok
+        break;
+}
+```
+
+### Contoh: 
 
 ```cpp
 #include <iostream>
@@ -552,3 +557,8 @@ int main() {
     return 0;
 }
 ```
+
+## Tambahan (Belum di update)
+* Penggunaa `#include <bits/stdc++.h>` untuk include semua library
+* Tipe data memakai `auto`
+* `#define` 
