@@ -74,11 +74,11 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
 
 ![Breadboard](Images/Breadboard.png)
 
-** Tanda plus (+)**
+**Tanda plus (+)**
     * Biasanya digunakan sebagai rail positif.
     * Jalur ini kemudian dihubungkan ke pin VCC Arduino (5V atau 3.3V).
     * Dengan begitu, jalur + di breadboard bisa dipakai untuk membagikan tegangan ke banyak sensor atau modul sekaligus, tanpa harus mencolok langsung ke pin VCC Arduino berkali-kali.
-** Tanda min(-)**
+**Tanda min(-)**
     * Biasanya digunakan sebagai rail negatif.
     * Jalur ini dihubungkan ke pin GND Arduino.
     * Dengan begitu, jalur – di breadboard bisa dipakai untuk membagikan ground ke banyak sensor atau modul sekaligus.
@@ -88,22 +88,22 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
 
 ![LCD I2C](Images/LCD_I2C.png)
 
-** Pin VCC → Untuk memberi daya (biasanya 5V dari Arduino).**
-** Pin GND → Ground (harus disambungkan ke GND Arduino).**
-** SDA (Serial Data) → Jalur data untuk komunikasi I²C dan dihubungkan ke pin A4 di Arduino.**
-** SCL (Serial Clock) → Jalur clock untuk komunikasi I²C dan dihubungkan ke pin A5 di Arduino.**
+**Pin VCC → Untuk memberi daya (biasanya 5V dari Arduino).**
+**Pin GND → Ground (harus disambungkan ke GND Arduino).**
+**SDA (Serial Data) → Jalur data untuk komunikasi I²C dan dihubungkan ke pin A4 di Arduino.**
+**SCL (Serial Clock) → Jalur clock untuk komunikasi I²C dan dihubungkan ke pin A5 di Arduino.**
 
 **4. Servo**
 
 ![Servo](Images/Servo.png)
 
-** Kabel Coklat / Hitam → GND (Ground)**
+**Kabel Coklat / Hitam → GND (Ground)**
     * Kabel ini dihubungkan ke GND Arduino atau power supply.
     * Fungsinya sebagai jalur negatif / referensi tegangan.
-** Kabel Merah (VCC)**
+**Kabel Merah (VCC)**
     * Kabel ini dihubungkan ke VCC Arduino atau power supply.
     * Fungsinya sebagai jalur positif
-** Kabel Oren (Signal Pin)**
+**Kabel Oren (Signal Pin)**
     * Kabel ini menerima sinyal PWM (Pulse Width Modulation) dari Arduino.
     * Pin ini dihubungkan ke digital pin Arduino (misalnya D9, D10, atau pin lain yang bisa output PWM).
     * Sinyal PWM ini yang menentukan sudut putaran servo.
@@ -112,12 +112,12 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
 
 ![HC-SR04](Images/Ultrasonik-HC-SR04.png)
 
-** Pin VCC → Untuk memberi daya (biasanya 5V dari Arduino).**
-** Pin GND → Ground (harus disambungkan ke GND Arduino).**
-** TRIG**
+**Pin VCC → Untuk memberi daya (biasanya 5V dari Arduino).**
+**Pin GND → Ground (harus disambungkan ke GND Arduino).**
+**TRIG**
     * Pin input dari Arduino.
     * Arduino memberi pulsa HIGH singkat (10 µs) ke pin ini untuk memicu sensor mengirim gelombang ultrasonik.
-** ECHO**
+**ECHO**
     * Pin output dari sensor ke Arduino.
     * Sensor akan memberi sinyal HIGH selama gelombang ultrasonik berjalan ke objek dan kembali lagi (pantulan).
     * Lama durasi HIGH inilah yang dipakai Arduino untuk menghitung jarak.
