@@ -32,11 +32,14 @@
 ![Rangkaian_LED_Arduino](Images/rangkaian_LED_Sederhana.png)
 
 * **Komponen yang dibutuhkan:**
-    * Lampu LED (3)
-    * Arduino UNO (1)
-    * Breadboard (1)
-    * Resistor 220 Ohm (3)
+    * Lampu LED (3 buah)
+    * Arduino UNO (1 buah)
+    * Breadboard (1 buah)
+    * Resistor 220 Ohm (3 buah)
     * Kabel jumper (Secukupnya)
+
+* **Penjelasan rangkaian:**
+    * 
 
 * **Program menyalakan LED dengan arduino**
 ```cpp
