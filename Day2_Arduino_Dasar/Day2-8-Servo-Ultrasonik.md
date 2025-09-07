@@ -66,8 +66,8 @@
         untuk keluaran (intput), dalam hal ini untuk menyalakan ECHO.
         **/
 
-        myServo1.attach(SERVO1); // menghubungkan objek servo dengan digital pin 2. Artinya, motor servo bisa dikontrol 
-        myServo2.attach(SERVO2); // menghubungkan objek servo dengan digital pin 3. Artinya, motor servo bisa dikontrol 
+        myServo1.attach(SERVO1); // menghubungkan objek myServo dengan digital pin 2. Artinya, motor servo bisa dikontrol 
+        myServo2.attach(SERVO2); // menghubungkan objek myServo dengan digital pin 3. Artinya, motor servo bisa dikontrol 
             
         Serial.begin(9600);
     }

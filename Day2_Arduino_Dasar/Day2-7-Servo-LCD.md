@@ -4,7 +4,7 @@
 
 * **Rangkaian Arduino**
 
-![Rangkaian_LCD_Servo](Images/rangkaian_Ultrasonik_2servo.png)
+![Rangkaian_LCD_Servo](Images/rangkaian_LCD_Servo.png)
 
 * **Komponen yang dibutuhkan:**
     * LCD I2C (1 buah)

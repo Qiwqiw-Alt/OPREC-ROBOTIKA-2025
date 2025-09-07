@@ -1,6 +1,6 @@
 ## LCD dan Ultrasonik
 
-**Menggerakan servo berdasarkan ultrasonik**
+**Menampilkan jarak berdasarkan ultrasonik dengan LCD**
 
 * **Rangkaian Arduino**
 
