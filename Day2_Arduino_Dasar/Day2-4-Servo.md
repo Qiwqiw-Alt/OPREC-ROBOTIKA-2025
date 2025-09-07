@@ -1,6 +1,6 @@
 ## Servo/Motor Servo
 
-** Menggerakana servo dengan Arduino**
+**Menggerakan servo dengan Arduino**
 
 * **Rangkaian Arduino**
 
@@ -13,12 +13,12 @@
 
 * **Penjelasan rangkaian:**
     * GND Arduino dihubungkan ke pin Ground Servo (kabel hitam)
-    * VCC Arduino dihubungkan ke pin power Servo (kabel merah)
+    * 5V Arduino dihubungkan ke pin power Servo (kabel merah)
     * Digital pins 2 pada Arduino dihubungkan ke signal Servo (kabel orange)
 
 * **Program menyalakan Servo dengan Arduino**
 ```cpp
-    #include <Servo.h> // mengimpor library bawaan Arduino untuk mengontrol motor servo. 
+    #include <Servo.h> // mengimpor library bawaan Arduino untuk mengontrol motor servo
     Servo servo; // membuat sebuah objek bernama servo yang akan dipakai untuk mengendalikan motor
 
     #define SERVO1 2 // digunakan untuk memberi nama alias untuk pin 2 di Arduino
