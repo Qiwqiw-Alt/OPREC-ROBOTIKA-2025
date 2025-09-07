@@ -39,26 +39,31 @@
     * Kabel jumper (Secukupnya)
 
 * **Penjelasan rangkaian:**
-    * 
+    * GND Arduino dihubungkan ke jalur negatif di breadboard
+    * Kaki LED yang lebih pendek (katoda) dihubungkan ke jalur negatif di breadboard
+    * Digital pins pada Arduino (2, 3, 4) dihubungkan ke beradboard seperti pada gambar
+    * Kaki LED yang lebih panjang (anoda) dihubungkan ke pin digital yang sudah terhubung pada breadboard melalui resistor
 
 * **Program menyalakan LED dengan arduino**
 ```cpp
-    #define LED1 2
-    #define LED2 3
-    #define LED3 4
+    #define LED1 2 // digunakan untuk memberi nama alias untuk pin 2 di Arduino
+    #define LED2 3 // digunakan untuk memberi nama alias untuk pin 3 di Arduino
+    #define LED3 4 // digunakan untuk memberi nama alias untuk pin 4 di Arduino
 
     void setup(){
         pinMode(LED1, OUTPUT);
         pinMode(LED2, OUTPUT);
         pinMode(LED3, OUTPUT);
+        //pinMode(..., OUTOUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan untuk keluaran (output), dalam hal ini untuk menyalakan LED.
         
         Serial.begin(9600);
+        // memulai komunikasi serial dengan kecepatan 9600 bps, biasanya untuk debugging
     }
 
     void loop(){
-        digitalWrite(LED1, HIGH);
-        delay(500); 
-        digitalWrite(LED1, LOW);
+        digitalWrite(LED1, HIGH); // digunakan untuk menyalakan LED1 (HIGH artinya menyala)
+        delay(500); // memberi jeda selama 500 ms
+        digitalWrite(LED1, LOW); // digunakan untuk mematikan LED1 (HIGH artinya mati)
         digitalWrite(LED2, HIGH);
         delay(500); 
         digitalWrite(LED2, LOW);
