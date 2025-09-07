@@ -3,7 +3,8 @@
 ## Link Penting 🔗
 
 * **Compiler:**
-    * [MinGW-w64 (Untuk Windows)](https://www.mingw-w64.org/)
+    * [MinGW-w64 (C/C++ Compiler)](https://www.mingw-w64.org/)
+    * [Video Tutorial Install](https://youtu.be/A_M4KSQFx-Y?si=WMm6KPe4cCgS6fUp)
 
 * **Teks Editor / IDE:**
     * [Visual Studio Code](https://code.visualstudio.com/)
@@ -32,7 +33,6 @@ Mempelajari C++ sangat penting untuk robotika karena bahasa ini menawarkan **per
 **Kode Program (`main.cpp`):**
 ```cpp
 #include <iostream>
-
 using namespace std;
 
 int main() {
@@ -88,7 +88,6 @@ int angka = 5; // Komentar juga bisa diletakkan di akhir baris kode.
 ```cpp
 #include <iostream>
 #include <string> // Wajib disertakan untuk menggunakan string
-
 using namespace std;
 
 int main() {
@@ -117,7 +116,6 @@ Program interaktif dengan meminta input dari pengguna menggunakan `cin`.
 ```cpp
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int main() {
@@ -144,15 +142,15 @@ Operator adalah simbol khusus yang digunakan untuk melakukan operasi pada variab
 
 | Kategori | Operator / Fungsi | Contoh |
 | :--- | :--- | :--- |
-| **Aritmatika** | `+`, `-`, `*`, `/`, `%` (modulo) | `5 + 3` |
-| **Penugasan** | `=`, `+=`, `-=`, `++`, `--` | `x += 5` |
-| **Perbandingan**| `==`, `!=`, `>`, `<`, `>=`, `<=` | `jarak < 10` |
-| **Logika** | `&&` (AND), `\|\|` (OR), `!` (NOT) | `isReady && isSafe`|
-| **Matematika (`cmath`)** | `sqrt()`, `pow()`, `sin()`, `cos()` | `sqrt(25)`|
+| **Arithmetic** | `+`, `-`, `*`, `/`, `%` (modulo) | `5 + 3` |
+| **Assigment** | `=`, `+=`, `-=`, `++`, `--` | `x += 5` |
+| **Comparison**| `==`, `!=`, `>`, `<`, `>=`, `<=` | `jarak < 10` |
+| **Logical** | `&&` (AND), `\|\|` (OR), `!` (NOT) | `isReady && isSafe`|
+| **Math (`cmath`)** | `sqrt()`, `pow()`, `sin()`, `cos()` | `sqrt(25)`|
 
 -----
 
-#### a. Operator Aritmatika
+#### a. Arithmetic
 
 Digunakan untuk operasi matematika dasar seperti penjumlahan, pengurangan, perkalian, dan pembagian.
 
@@ -174,7 +172,7 @@ int main() {
 }
 ```
 
-#### b. Operator Penugasan
+#### b. Assignment
 
 Digunakan untuk memberikan atau memperbarui nilai sebuah variabel.
 
@@ -193,7 +191,7 @@ int main() {
 }
 ```
 
-#### c. Operator Perbandingan
+#### c. Comparison
 
 Digunakan untuk membandingkan dua nilai. Hasil dari operasi ini selalu berupa nilai boolean (`true` atau `false`).
 
@@ -211,7 +209,7 @@ int main() {
 }
 ```
 
-#### d. Operator Logika
+#### d. Logical
 
 Digunakan untuk menggabungkan beberapa kondisi boolean.
 
@@ -276,10 +274,7 @@ else {
 
 ```cpp
 #include <iostream>
-
 using namespace std;
-
-#include <iostream>
 
 int main() {
     int suhu;
@@ -327,7 +322,6 @@ switch (variabel) {
 ```cpp
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int main() {
@@ -372,58 +366,53 @@ int main() {
 
 -----
 
-## 8\. Arrays & Vector
+## 8. Array & Vector
 
-### a. Array
+Untuk menyimpan banyak data sejenis, C++ punya dua "wadah" utama: **Array** yang statis dan **Vector** yang dinamis.
 
-**Array** adalah struktur data fundamental yang menyimpan koleksi elemen dengan tipe data identik dalam blok memori yang **berurutan (kontinu)**. Ukuran array bersifat **tetap (statis)**, artinya jumlah elemennya ditentukan saat kompilasi dan tidak bisa diubah saat program berjalan.
+-----
 
-**Karakteristik Utama:**
+### a. Array (Ukuran Tetap)
 
-  * **Ukuran Tetap:** Jumlah elemen harus diketahui saat kode ditulis.
-  * **Akses Cepat:** Akses ke elemen mana pun sangat cepat karena posisinya di memori bisa dihitung langsung menggunakan indeks.
-  * **Manajemen Manual:** Tidak memiliki fitur bawaan untuk mengetahui ukurannya sendiri.
+**Array** adalah kumpulan data sejenis dengan **ukuran yang sudah ditetapkan** dan tidak bisa diubah.
 
-**Kapan Digunakan?**
-Gunakan Array ketika kamu tahu persis jumlah elemen yang akan disimpan dan jumlah tersebut tidak akan pernah berubah. Contoh: menyimpan nama hari dalam seminggu (selalu ada 7).
+**Kelebihan & Kekurangan:**
+
+  * ✅ **Cepat:** Akses data lewat nomor indeks (urutan) sangat cepat.
+  * ❌ **Kaku:** Ukurannya tidak bisa diubah setelah dibuat.
+
+**Kapan Digunakan?** Saat jumlah data **sudah pasti** dan tidak akan pernah berubah, misalnya menyimpan 7 nama hari.
 
 **Contoh Kode:**
 
 ```cpp
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    // Deklarasi array integer dengan 5 elemen
+    // Array 'nilai' hanya bisa menampung 5 angka.
     int nilai[5] = {80, 95, 75, 88, 92};
 
-    // Mengakses elemen (indeks dimulai dari 0)
-    cout << "Nilai pertama: " << nilai[0] << endl; // Output: 80
-    cout << "Nilai ketiga: " << nilai[2] << endl;  // Output: 75
-
-    // Mengubah nilai elemen
-    nilai[0] = 85;
-    cout << "Nilai pertama setelah diubah: " << nilai[0] << endl; // Output: 85
-
+    // Mengakses data di "lubang" ke-0 (indeks pertama)
+    cout << "Nilai pertama: " << nilai[0] << endl; 
+    
     return 0;
 }
 ```
 
 -----
 
-### b. Vector
+### b. Vector (Ukuran Fleksibel)
 
-**Vector** adalah struktur data dari *Standard Template Library* (STL) yang mirip dengan array, tetapi dengan keunggulan utama: ukurannya **dinamis**. Artinya, `vector` bisa tumbuh atau menyusut secara otomatis saat program berjalan.
+**Vector** adalah versi "pintar" dari array. Ukurannya **dinamis**, artinya bisa ditambah atau dikurangi kapan saja.
 
-**Karakteristik Utama:**
+**Kelebihan & Kekurangan:**
 
-  * **Ukuran Dinamis:** Bisa menambah (`push_back`) atau mengurangi elemen kapan saja.
-  * **Manajemen Otomatis:** Memiliki banyak fungsi bawaan yang berguna, seperti `.size()` untuk mengetahui jumlah elemen, `.empty()` untuk mengecek apakah kosong, dan lainnya.
-  * **Sedikit *Overhead***: Karena sifatnya yang dinamis, `vector` memiliki sedikit *overhead* performa dibandingkan array C-style, namun perbedaannya seringkali tidak signifikan untuk sebagian besar aplikasi.
+  * ✅ **Fleksibel:** Ukuran bisa berubah sesuai kebutuhan.
+  * ✅ **Banyak Fitur:** Punya fungsi bawaan seperti `.size()` untuk cek ukuran dan lainnya.
+  * ⚠️ **Sedikit *Overhead***: Sedikit lebih lambat dari array karena fleksibilitasnya.
 
-**Kapan Digunakan?**
-Gunakan `vector` di hampir semua kasus, kecuali jika performa level mikro dan ukuran yang benar-benar statis adalah prioritas utama. Ini adalah pilihan yang lebih aman dan fleksibel untuk pemrograman C++ modern.
+**Kapan Digunakan?** Di **hampir semua kasus**. Ini adalah pilihan standar yang lebih aman dan modern di C++.
 
 **Contoh Kode:**
 
@@ -431,58 +420,57 @@ Gunakan `vector` di hampir semua kasus, kecuali jika performa level mikro dan uk
 #include <iostream>
 #include <vector> // Wajib menyertakan header vector
 #include <string>
-
 using namespace std;
 
 int main() {
-    // Deklarasi vector string
-    vector<string> nama_buah;
+    // Vector 'buah' awalnya kosong.
+    vector<string> buah;
 
-    // Menambah elemen ke dalam vector
-    nama_buah.push_back("Apel");
-    nama_buah.push_back("Jeruk");
-    nama_buah.push_back("Mangga");
+    // Menambah data ke dalam daftar
+    buah.push_back("Apel");
+    buah.push_back("Jeruk");
 
-    // Mengakses elemen (sama seperti array)
-    cout << "Buah pertama: " << nama_buah[0] << endl;
-
-    // Mengetahui jumlah elemen saat ini
-    cout << "Jumlah buah di keranjang: " << nama_buah.size() << endl;
+    cout << "Buah pertama: " << buah[0] << endl;
+    cout << "Jumlah buah sekarang: " << buah.size() << endl;
 
     return 0;
 }
 ```
 
-### Perbandingan Singkat
+-----
+
+### Array vs Vector
 
 | Fitur | Array | Vector |
 | :--- | :--- | :--- |
 | **Ukuran** | Statis (Tetap) | Dinamis (Fleksibel) |
-| **Manajemen Memori** | Manual | Otomatis |
-| **Fungsi Bawaan** | Tidak ada | Banyak (`.size()`, `.push_back()`, dll.) |
-| **Penggunaan** | Kasus spesifik dengan ukuran pasti | Pilihan utama dalam C++ modern |
+| **Pilihan Terbaik** | Untuk data yang jumlahnya absolut tetap. | Pilihan utama untuk hampir semua kebutuhan. |
+-----
+
+## 9. Perulangan (Loops) 🔁
+
+Loop digunakan untuk menjalankan blok kode secara berulang agar lebih efisien dan ringkas.
 
 -----
 
-## 9\. Loop
-
-Perulangan atau *loop* adalah struktur kontrol fundamental yang memungkinkan eksekusi blok kode secara berulang berdasarkan kondisi tertentu. Penggunaan loop sangat esensial untuk efisiensi, karena menghindari redundansi penulisan kode.
-
 ### a. For Loop
+For loop digunakan ketika jumlah perulangan sudah diketahui secara pasti dari awal.
 
-*For loop* adalah jenis perulangan terstruktur yang ideal digunakan ketika jumlah iterasi (putaran) **sudah diketahui secara pasti** sebelum loop dimulai.
+Sintaks Dasar:
 
-**Karakteristik Utama:** Strukturnya terdiri dari tiga bagian utama: inisialisasi, kondisi, dan pembaruan (increment/decrement).
+```C++
+for (inisialisasi; kondisi; pembaruan) {
+    // Blok kode yang diulang
+}
+```
+Contoh Kode:
 
-**Contoh Kode:**
-
-```cpp
+```C++
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    // Loop akan berjalan sebanyak 5 kali
+    // Ulangi dari i=1 sampai i<=5, naikkan i setiap putaran
     for (int i = 1; i <= 5; i++) {
         cout << "Iterasi ke-" << i << endl;
     }
@@ -490,42 +478,52 @@ int main() {
 }
 ```
 
-**Struktur dan Cara Kerja:**
-
-1.  **Inisialisasi (`int i = 1`):** Dieksekusi **satu kali** di awal untuk mendeklarasikan dan menginisialisasi variabel kontrol.
-2.  **Kondisi (`i <= 5`):** Dievaluasi **sebelum** setiap iterasi. Jika `true`, blok kode dieksekusi. Jika `false`, loop berhenti.
-3.  **Pembaruan (`i++`):** Dieksekusi di **akhir** setiap iterasi untuk memodifikasi variabel kontrol.
+Cara Kerja: Loop ini memulai i dari 1, berjalan selama i kurang dari atau sama dengan 5, dan menaikkan i setiap kali selesai satu putaran.
 
 -----
 
 ### b. While Loop
+While loop digunakan untuk mengulang kode selama sebuah kondisi tertentu masih terpenuhi (true). Jumlah perulangannya tidak harus diketahui di awal.
 
-*While loop* adalah perulangan yang akan terus berjalan **selama** sebuah kondisi prasyarat bernilai `true`. Jumlah iterasi tidak harus diketahui di awal.
+Sintaks Dasar:
 
-**Karakteristik Utama:** Kondisi diperiksa **sebelum** blok kode dieksekusi. Jika kondisi awalnya sudah `false`, loop tidak akan pernah berjalan.
+```C++
+while (kondisi) {
+    // Blok kode yang diulang
+}
+```
+Contoh Kode:
 
-**Contoh Kode:**
-
-```cpp
+```C++
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    int timer = 10;
+    int timer = 3;
 
-    // Loop berjalan selama nilai timer lebih dari 0
+    // Loop berjalan selama nilai timer lebih besar dari 0
     while (timer > 0) {
         cout << "Timer: " << timer << endl;
-        timer--; // Kondisi harus bisa diubah di dalam loop
+        timer--; // Pastikan kondisi diubah agar loop bisa berhenti
     }
-    cout << "Waktu habis." << endl;
+    cout << "Waktu habis!" << endl;
     return 0;
 }
 ```
 
-**Cara Kerja:**
-Kondisi `timer > 0` dievaluasi sebelum setiap iterasi. Penting untuk memastikan bahwa variabel kondisi (dalam hal ini `timer`) dapat berubah di dalam loop untuk menghindari perulangan tak terbatas (*infinite loop*).
+Cara Kerja: Loop akan terus memeriksa apakah timer > 0. Jika ya, kode di dalamnya dijalankan dan nilai timer dikurangi. Proses ini berhenti saat timer mencapai 0.
+
+-----
+
+### For vs. While
+Meskipun keduanya untuk perulangan, penggunaannya berbeda tergantung situasi.
+
+|Fitur |	For Loop	| While Loop |
+| :--- | :--- | :--- |
+***Penggunaan Utama*** |	Ketika jumlah perulangan diketahui di awal. |	Ketika jumlah perulangan tidak diketahui dan bergantung pada kondisi.|
+***Struktur Kontrol*** |	Inisialisasi, kondisi, dan pembaruan didefinisikan di satu tempat. |	Inisialisasi di luar, kondisi di while, pembaruan di dalam loop. |
+***Analogi*** |	"Ulangi 10 kali." | "Ulangi selama masih ada sisa." |
+***Risiko Kesalahan***| Lebih terstruktur, risiko infinite loop lebih kecil.	|Rentan terjadi infinite loop jika lupa memperbarui variabel kondisi. |
 
 -----
 
