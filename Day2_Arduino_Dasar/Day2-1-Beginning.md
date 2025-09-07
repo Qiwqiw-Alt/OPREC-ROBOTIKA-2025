@@ -38,7 +38,7 @@
         * **3. Di Arduino IDE → Sketch → Include Library → Add .ZIP Library...**
         * **4. Pilih file .zip tadi → otomatis terinstall**
 
-* ** Simulasi Arduino Online:**
+* **Simulasi Arduino Online:**
     * [Tinkercad](https://www.tinkercad.com/)
     * [Wokwi](https://wokwi.com/)
 ---

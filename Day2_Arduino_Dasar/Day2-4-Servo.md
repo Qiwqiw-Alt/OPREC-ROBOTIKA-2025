@@ -19,12 +19,12 @@
 * **Program menyalakan Servo dengan Arduino**
 ```cpp
     #include <Servo.h> // mengimpor library bawaan Arduino untuk mengontrol motor servo
-    Servo servo; // membuat sebuah objek bernama servo yang akan dipakai untuk mengendalikan motor
+    Servo servo; // membuat sebuah objek bernama servo yang akan dipakai untuk mengendalikan servo
 
-    #define SERVO1 2 // digunakan untuk memberi nama alias untuk pin 2 di Arduino
+    #define SERVO1 2 // digunakan untuk memberi nama alias untuk digital pin 2 di Arduino
 
     void setup(){
-        servo.attach(SERVO1); // menghubungkan objek servo dengan pin 2. Artinya, motor servo bisa dikontrol melalui pin itu.
+        servo.attach(SERVO1); // menghubungkan objek servo dengan digital pin 2. Artinya, motor servo bisa dikontrol melalui pin itu.
         Serial.begin(9600); // memulai komunikasi serial
     }
 

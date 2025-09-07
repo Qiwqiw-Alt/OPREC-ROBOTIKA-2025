@@ -1,4 +1,4 @@
-## LCD I2C
+## Sensor Ultrasonik HR-SR04
 
 **Mengukur jarak dengan sensor ultrasonik dan Arduino**
 
@@ -33,12 +33,11 @@
     void setup(){
         pinMode(TRIG1, OUTPUT);
         pinMode(ECHO1, INPUT);
-
         /**
         - pinMode(..., OUTPUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan 
-        untuk keluaran (output), dalam hal ini untuk menyalakan TRIG.
+        untuk keluaran (output), dalam hal ini untuk menyalakan TRIG1.
         - pinMode(..., INPUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan 
-        untuk keluaran (intput), dalam hal ini untuk menyalakan ECHO.
+        untuk keluaran (intput), dalam hal ini untuk menyalakan ECHO1.
         **/
         
         Serial.begin(9600); // memulai komunikasi serial untuk menampilkan hasil di monitor serial
