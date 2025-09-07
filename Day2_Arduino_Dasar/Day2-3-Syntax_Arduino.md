@@ -47,16 +47,16 @@
 
 * **Program menyalakan LED dengan Arduino**
 ```cpp
-    #define LED1 2 // digunakan untuk memberi nama alias untuk pin 2 di Arduino
-    #define LED2 3 // digunakan untuk memberi nama alias untuk pin 3 di Arduino
-    #define LED3 4 // digunakan untuk memberi nama alias untuk pin 4 di Arduino
+    #define LED1 2 // digunakan untuk memberi nama alias untuk digital pin 2 di Arduino
+    #define LED2 3 // digunakan untuk memberi nama alias untuk digital pin 3 di Arduino
+    #define LED3 4 // digunakan untuk memberi nama alias untuk digital pin 4 di Arduino
 
     void setup(){
         pinMode(LED1, OUTPUT);
         pinMode(LED2, OUTPUT);
         pinMode(LED3, OUTPUT);
         /**
-        pinMode(..., OUTOUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan 
+        pinMode(..., OUTPUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan 
         untuk keluaran (output), dalam hal ini untuk menyalakan LED.
         **/
        

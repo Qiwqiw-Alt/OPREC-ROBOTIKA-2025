@@ -13,8 +13,8 @@
 
 * **Penjelasan rangkaian:**
     * GND Arduino dihubungkan ke pin Ground Servo (kabel hitam)
-    * 5V Arduino dihubungkan ke pin power Servo (kabel merah)
-    * Digital pins 2 pada Arduino dihubungkan ke signal Servo (kabel orange)
+    * 5V Arduino dihubungkan ke pin Power Servo (kabel merah)
+    * Digital pins 2 pada Arduino dihubungkan ke Signal Servo (kabel orange)
 
 * **Program menyalakan Servo dengan Arduino**
 ```cpp

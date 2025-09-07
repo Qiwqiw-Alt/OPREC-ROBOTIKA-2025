@@ -4,7 +4,7 @@
 
 * **Rangkaian Arduino**
 
-![Rangkaian_Servo](Images/rangkaian_LCD_I2C.png)
+![Rangkaian_LCD_I2C](Images/rangkaian_LCD_I2C.png)
 
 * **Komponen yang dibutuhkan:**
     * LCD I2C (1 buah)
@@ -17,7 +17,7 @@
     * A4 Arduino dihubungkan ke pin SDA LCD
     * A5 Arduino dihubungkan ke pin SCL LCD
 
-* **Program menyalakan Servo dengan Arduino**
+* **Program menampilkan teks pada LCD I2C dengan Arduino**
 ```cpp
     #include <Wire.h> 
     // mengimpor library komunikasi I2C, digunakan agar Arduino bisa berkomunikasi dengan modul I2C.
