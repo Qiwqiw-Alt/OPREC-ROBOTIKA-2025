@@ -45,7 +45,7 @@
     * Digital pins pada Arduino (2, 3, 4) dihubungkan ke beradboard seperti pada gambar
     * Kaki LED yang lebih panjang (anoda) dihubungkan ke pin digital yang sudah terhubung pada breadboard melalui resistor
 
-* **Program menyalakan LED dengan arduino**
+* **Program menyalakan LED dengan Arduino**
 ```cpp
     #define LED1 2 // digunakan untuk memberi nama alias untuk pin 2 di Arduino
     #define LED2 3 // digunakan untuk memberi nama alias untuk pin 3 di Arduino

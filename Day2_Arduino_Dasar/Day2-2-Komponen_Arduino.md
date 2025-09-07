@@ -57,7 +57,7 @@ Sensor Jarak HC-SR04 merupakan sensor yang menggunakan gelombang ultrasonik. Gel
     * GND → Ground (negatif), ada beberapa pin GND.
     * IOREF → Memberi referensi tegangan untuk mikrokontroler.
     * RESET → Untuk me-reset board (juga bisa disambungkan ke tombol reset eksternal).
-* **Kotak Oren (Analog Pins (A0–A5))**
+* **Kotak Orange (Analog Pins (A0–A5))**
     * Digunakan untuk membaca input analog (sensor).
     * Resolusi ADC (Analog to Digital Converter) = 10-bit (nilai 0–1023).
     * Bisa juga digunakan sebagai digital pin jika dibutuhkan.
