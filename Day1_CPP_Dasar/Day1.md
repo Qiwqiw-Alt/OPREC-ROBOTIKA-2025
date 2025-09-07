@@ -138,33 +138,117 @@ int main() {
 
 -----
 
-## 5\. Operator dan Operasi Matematika
+## 5. Operator dan Operasi Matematika
 
-| Kategori | Operator | Contoh |
+Operator adalah simbol khusus yang digunakan untuk melakukan operasi pada variabel dan nilai, mulai dari perhitungan matematika dasar hingga logika yang kompleks.
+
+| Kategori | Operator / Fungsi | Contoh |
 | :--- | :--- | :--- |
 | **Aritmatika** | `+`, `-`, `*`, `/`, `%` (modulo) | `5 + 3` |
-| **Penugasan** | `=`, `+=`, `-=`, `*=`, `/=`, `++`, `--` | `x += 5` |
+| **Penugasan** | `=`, `+=`, `-=`, `++`, `--` | `x += 5` |
 | **Perbandingan**| `==`, `!=`, `>`, `<`, `>=`, `<=` | `jarak < 10` |
-| **Logika** | `&&` (AND), `\|\|` (OR), `!` (NOT) | `true && false`|
+| **Logika** | `&&` (AND), `\|\|` (OR), `!` (NOT) | `isReady && isSafe`|
+| **Matematika (`cmath`)** | `sqrt()`, `pow()`, `sin()`, `cos()` | `sqrt(25)`|
 
-### Contoh:
+-----
+
+#### a. Operator Aritmatika
+
+Digunakan untuk operasi matematika dasar seperti penjumlahan, pengurangan, perkalian, dan pembagian.
 
 ```cpp
 #include <iostream>
-#include <cmath> // Library untuk fungsi matematika kompleks (sqrt, pow, dll)
-
 using namespace std;
 
 int main() {
-    double alas = 4.0;
-    double tinggi = 5.0;
-    double luasSegitiga = (alas * tinggi) / 2;
+    int a = 10;
+    int b = 3;
+    int c = a + b;
+    int d = a * b;
+    int e = a % b;
 
-    cout << "Luas segitiga: " << luasSegitiga << endl;
+    cout << "a + b = " << c << endl; // Penjumlahan: 13
+    cout << "a * b = " << d << endl; // Perkalian: 30
+    cout << "a % b = " << e << endl; // Modulo (sisa bagi): 1
+    return 0;
+}
+```
 
-    double sisiMiring = sqrt(pow(alas, 2) + pow(tinggi, 2));
-    cout << "Sisi miring: " << sisiMiring << endl;
-    
+#### b. Operator Penugasan
+
+Digunakan untuk memberikan atau memperbarui nilai sebuah variabel.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 10;
+    x += 5; // Sama dengan x = x + 5
+    cout << "Nilai x setelah 'x += 5' adalah: " << x << endl; // Output: 15
+
+    x++; // Sama dengan x = x + 1
+    cout << "Nilai x setelah 'x++' adalah: " << x << endl; // Output: 16
+    return 0;
+}
+```
+
+#### c. Operator Perbandingan
+
+Digunakan untuk membandingkan dua nilai. Hasil dari operasi ini selalu berupa nilai boolean (`true` atau `false`).
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 5;
+    int y = 3;
+
+    cout << (x > y) << endl; // Output 1 (true)
+    cout << (x == y) << endl; // Output 0 (false)
+    return 0;
+}
+```
+
+#### d. Operator Logika
+
+Digunakan untuk menggabungkan beberapa kondisi boolean.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    bool x = true;
+    bool y = false;
+
+    // Logika AND (&&): keduanya harus true agar hasilnya true
+    bool and = x && y; 
+    cout << and << endl; // Output 0 (false)
+
+    // Logika OR (||): minimal satu harus true agar hasilnya true
+    bool or = x || y;
+    cout << or << endl; // Output 1 (true)
+    return 0;
+}
+```
+
+#### e. Fungsi Matematika (`<cmath>`)
+
+Library `<cmath>` menyediakan fungsi-fungsi matematika yang lebih kompleks.
+
+```cpp
+#include <iostream>
+#include <cmath> // Library untuk fungsi matematika
+using namespace std;
+
+int main() {
+    // Menghitung akar kuadrat
+    cout << "Akar kuadrat dari 25 adalah: " << sqrt(25) << endl; // Output: 5
+
+    // Menghitung pangkat
+    cout << "2 pangkat 3 adalah: " << pow(2, 3) << endl; // Output: 8
     return 0;
 }
 ```
@@ -414,38 +498,7 @@ int main() {
 
 -----
 
-### b. For-Each Loop (Range-Based For)
-
-*For-each loop* adalah sintaks modern yang dirancang untuk mengiterasi **setiap elemen** dalam sebuah rentang atau koleksi data (seperti array, vector, dll.) tanpa perlu mengelola indeks secara manual.
-
-**Karakteristik Utama:** Menyederhanakan iterasi pada koleksi data dan membuat kode lebih mudah dibaca.
-
-**Contoh Kode:**
-
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
-int main() {
-    vector<string> buah = {"Apel", "Jeruk", "Mangga"};
-
-    // Untuk setiap elemen 'item' dalam koleksi 'buah'
-    for (auto item : buah) {
-        cout << item << endl;
-    }
-    return 0;
-}
-```
-
-**Cara Kerja:**
-Loop ini secara otomatis mengambil setiap elemen dari `buah` satu per satu dan menyalinnya ke dalam variabel `item`. Penggunaan `auto` adalah praktik terbaik untuk efisiensi (menghindari penyalinan yang tidak perlu) dan keamanan (mencegah modifikasi elemen).
-
------
-
-### c. While Loop
+### b. While Loop
 
 *While loop* adalah perulangan yang akan terus berjalan **selama** sebuah kondisi prasyarat bernilai `true`. Jumlah iterasi tidak harus diketahui di awal.
 
@@ -473,37 +526,6 @@ int main() {
 
 **Cara Kerja:**
 Kondisi `timer > 0` dievaluasi sebelum setiap iterasi. Penting untuk memastikan bahwa variabel kondisi (dalam hal ini `timer`) dapat berubah di dalam loop untuk menghindari perulangan tak terbatas (*infinite loop*).
-
------
-
-### d. Do-While Loop
-
-*Do-while loop* mirip dengan `while`, tetapi dengan satu perbedaan kunci: blok kode di dalamnya **dijamin berjalan minimal satu kali**.
-
-**Karakteristik Utama:** Kondisi diperiksa **setelah** blok kode dieksekusi.
-
-**Contoh Kode:**
-
-```cpp
-#include <iostream>
-
-using namespace std;
-
-int main() {
-    char pilihan;
-
-    do {
-        cout << "Masukkan pilihan ('x' untuk keluar): ";
-        cin >> pilihan;
-    } while (pilihan != 'x');
-
-    cout << "Program berakhir." << endl;
-    return 0;
-}
-```
-
-**Cara Kerja:**
-Blok kode di dalam `do` dieksekusi terlebih dahulu. Kemudian, kondisi `pilihan != 'x'` dievaluasi. Jika `true`, loop akan berlanjut. Ini sangat berguna untuk skenario seperti validasi input, di mana program harus meminta input setidaknya sekali.
 
 -----
 
