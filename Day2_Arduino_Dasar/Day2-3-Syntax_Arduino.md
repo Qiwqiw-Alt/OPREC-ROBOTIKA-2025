@@ -29,6 +29,7 @@
 **Contoh projek menyalakan LED dengan arduino:**
 
 * **Rangkaian Arduino**
+
 ![Rangkaian_LED_Arduino](Images/rangkaian_LED_Sederhana.png)
 
 * **Komponen yang dibutuhkan:**
@@ -54,8 +55,11 @@
         pinMode(LED1, OUTPUT);
         pinMode(LED2, OUTPUT);
         pinMode(LED3, OUTPUT);
-        //pinMode(..., OUTOUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan untuk keluaran (output), dalam hal ini untuk menyalakan LED.
-        
+        /**
+        pinMode(..., OUTOUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan 
+        untuk keluaran (output), dalam hal ini untuk menyalakan LED.
+        **/
+       
         Serial.begin(9600);
         // memulai komunikasi serial dengan kecepatan 9600 bps, biasanya untuk debugging
     }
