@@ -563,18 +563,22 @@ void halo() {
     cout << "Halo" << endl;
 }
 
-int pangkat(int x) {
-    return x * x;
-}
-
 int main() {
 
     halo();
 
-    int hasil = pangkat(5);
-    cout << "Hasil: " << hasil << endl;
-
     return 0;
+}
+```
+### Contoh lainnya
+
+```cpp
+void (string nama){
+    cout << "Halo " << nama;
+}
+
+int kali(a, b){
+    return a * b;
 }
 ```
 
