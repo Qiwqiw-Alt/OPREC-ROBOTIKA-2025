@@ -20,13 +20,13 @@
     * [GeeksforGeeks C++](https://www.geeksforgeeks.org/c-plus-plus/)
     * [Learn C++](https://www.learncpp.com/)
 
----
+-----
 
 ## Kenapa Belajar C++ untuk Robotika?
 
-Mempelajari C++ sangat penting untuk robotika karena bahasa ini menawarkan **performa dan kecepatan yang luar biasa**, memungkinkan robot merespons lingkungannya secara *real-time* tanpa jeda. C++ memberikan **kontrol tingkat rendah terhadap perangkat keras**, yang krusial untuk berinteraksi langsung dengan sensor, motor, dan mikrokontroler. Selain itu, C++ menjadi tulang punggung bagi banyak *framework* dan ekosistem robotika paling populer di industri, seperti **ROS (Robot Operating System)** dan **Arduino**, menjadikannya keahlian fundamental di bidang ini.
+C++ adalah bahasa inti yang digunakan untuk memprogram mikrokontroler populer seperti **Arduino** dan **ESP32**. Bahasa ini menjadi pilihan utama karena kemampuannya memberikan **performa tinggi** dan **kontrol perangkat keras secara langsung**. Saat membangun proyek robotika, kamu perlu membaca data dari sensor, mengendalikan pergerakan motor, dan mengatur pin GPIO dengan presisi dan kecepatan. C++ memungkinkanmu melakukan semua itu secara efisien, "berbicara" langsung dengan *chip* mikrokontroler tanpa perantara yang memperlambat sistem, menjadikannya fondasi yang sangat kuat dan esensial di dunia *embedded systems*.
 
----
+-----
 
 ## 1. Program "Hello, World!"
 
@@ -50,6 +50,11 @@ int main() {
   * `"Hello, World!"`: Teks (string) yang ingin kita tampilkan.
   * `endl`: Singkatan dari *end line*, fungsinya untuk membuat baris baru.
   * `return 0;`: Menandakan bahwa program telah selesai dieksekusi.
+
+**Cara Compile lewat Command Prompt/Terminal**
+```bash
+g++ main.cpp -o main
+```
 
 -----
 
@@ -555,17 +560,15 @@ Setiap bagian memiliki peran spesifik:
 
 ```cpp
 #include <iostream>
-
 using namespace std;
 
-
-void halo() {
-    cout << "Halo" << endl;
+void hello() {
+    cout << "Hello World" << endl;
 }
 
 int main() {
 
-    halo();
+    hello();
 
     return 0;
 }
@@ -573,16 +576,96 @@ int main() {
 ### Contoh lainnya
 
 ```cpp
-void (string nama){
+void sapa(string nama){
     cout << "Halo " << nama;
 }
 
-int kali(a, b){
+int kali(int a, int b){
     return a * b;
+}
+
+double pythagoras(double a, double b){
+    int hasil = sqrt(pow(a, 2) + pow(b, 2));
+    return hasil;
+}
+
+bool isGanjil(int a){
+    return a % 2 == 1;
 }
 ```
 
-## Tambahan (Belum di update)
-* Penggunaa `#include <bits/stdc++.h>` untuk include semua library
-* Tipe data memakai `auto`
-* `#define` 
+-----
+
+### Tambahan (Optional)
+
+#### 1. `#include <bits/stdc++.h>`
+
+Header **non-standar** ini berfungsi sebagai jalan pintas untuk menyertakan hampir semua *library* standar C++.
+
+  * **Tujuan**: Sangat populer di kompetisi pemrograman untuk mempercepat penulisan kode.
+  * **Risiko**: Memperlambat waktu kompilasi dan membuat kode tidak portabel (hanya berfungsi di *compiler* GCC/MinGW).
+
+**Contoh:**
+
+```cpp
+// Cukup satu baris ini untuk menggunakan cout, vector, string, dll.
+#include <bits/stdc++.h>
+using namespace std; 
+
+int main() {
+    cout << "Semua library sudah termasuk." << endl;
+    return 0;
+}
+```
+
+-----
+
+#### 2. Tipe Data `auto`
+
+Keyword `auto` menyuruh *compiler* untuk menentukan tipe data variabel secara otomatis berdasarkan nilai inisialisasinya.
+
+  * **Tujuan**: Menyederhanakan kode dan menghindari kesalahan pengetikan tipe data yang kompleks.
+  * **Praktik**: Aman dan sangat direkomendasikan dalam C++ modern.
+
+**Contoh:**
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    auto nomor = 10;                // Compiler akan menentukan sebagai 'int'
+    auto pesan = "Halo"; // Compiler akan menentukan sebagai 'string'
+    
+    return 0;
+}
+```
+
+-----
+
+#### 3. `#define` (Preprocessor Macro)
+
+`#define` adalah arahan yang mengganti teks di kodemu sebelum proses kompilasi. Umumnya digunakan untuk membuat alias.
+
+  * **Tujuan**: Membuat kode lebih singkat, misalnya `ll` untuk `long long`.
+  * **Risiko**: Dianggap praktik usang untuk alias tipe data karena tidak aman. **Gunakan `using` sebagai alternatif modern**.
+
+**Contoh:**
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+// Membuat alias 'll' untuk 'long long'
+#define ll long long
+
+// Cara modern dan lebih baik:
+// using ll = long long;
+
+int main() {
+    ll populasi = 8000000000;
+    cout << "Populasi Dunia: " << populasi << endl;
+    
+    return 0;
+}
+```
