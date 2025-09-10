@@ -1,4 +1,4 @@
-# Day 1 Tutorial C++ Dasar
+# 💻 Day 1 Tutorial C++ Dasar
 
 ## Link Penting 🔗
 
@@ -18,17 +18,17 @@
 * **Sumber Belajar Tambahan:**
     * [W3Schools C++ Tutorial](https://www.w3schools.com/cpp/)
     * [GeeksforGeeks C++](https://www.geeksforgeeks.org/c-plus-plus/)
-    * [Learn C++](https://www.learncpp.com/)
+    * [TLX TOKI](https://tlx.toki.id/courses)
 
 -----
 
-## Kenapa Belajar C++ untuk Robotika?
+## 🤖 Kenapa Belajar C++ untuk Robotika?
 
 C++ adalah bahasa inti yang digunakan untuk memprogram mikrokontroler populer seperti **Arduino** dan **ESP32**. Bahasa ini menjadi pilihan utama karena kemampuannya memberikan **performa tinggi** dan **kontrol perangkat keras secara langsung**. Saat membangun proyek robotika, kamu perlu membaca data dari sensor, mengendalikan pergerakan motor, dan mengatur pin GPIO dengan presisi dan kecepatan. C++ memungkinkanmu melakukan semua itu secara efisien, "berbicara" langsung dengan *chip* mikrokontroler tanpa perantara yang memperlambat sistem, menjadikannya fondasi yang sangat kuat dan esensial di dunia *embedded systems*.
 
 -----
 
-## 1. Program "Hello, World!"
+## 1\. 👋 Program "Hello, World!"
 
 **Kode Program (`main.cpp`):**
 ```cpp
@@ -39,7 +39,7 @@ int main() {
     cout << "Hello, World!" << endl;
     return 0;
 }
-````
+```
 
 **Penjelasan Sintaks:**
 
@@ -58,7 +58,7 @@ g++ main.cpp -o main
 
 -----
 
-## 2\. Penggunaan Komentar
+## 2\. 📝 Penggunaan Komentar
 
 Komentar adalah baris teks dalam kode yang tidak akan dieksekusi oleh *compiler*. Gunanya untuk memberi catatan atau penjelasan pada kode.
 
@@ -76,7 +76,7 @@ int angka = 5; // Komentar juga bisa diletakkan di akhir baris kode.
 
 -----
 
-## 3\. Variabel, Tipe Data, dan String
+## 3\. 📦 Variabel, Tipe Data, dan String
 
 **Variabel** adalah nama untuk lokasi penyimpanan di memori. Setiap variabel harus memiliki **tipe data** yang spesifik.
 
@@ -114,7 +114,7 @@ int main() {
 
 -----
 
-## 4\. Menerima Input dari User
+## 4\. ⌨️ Menerima Input dari User
 
 Program interaktif dengan meminta input dari pengguna menggunakan `cin`.
 
@@ -138,10 +138,87 @@ int main() {
     return 0;
 }
 ```
+**Catatan Penting:** `cin` berhenti membaca pada spasi pertama. Jika ingin membaca nama lengkap (termasuk spasi), gunakan fungsi `getline()`.
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string namaLengkap;
+    
+    cout << "Masukkan nama lengkap: ";
+    getline(cin, namaLengkap); // Membaca seluruh baris input
+    
+    cout << "Halo, " << namaLengkap << "!" << endl;
+
+    return 0;
+}
+```
 
 -----
 
-## 5. Operator dan Operasi Matematika
+## 5\. ⚙️ `#define` (Preprocessor Macro)
+
+`#define` adalah sebuah **arahan *preprocessor*** yang menginstruksikan *compiler* untuk melakukan **penggantian teks** secara sederhana. Proses ini terjadi sebelum kompilasi dimulai, di mana setiap kemunculan makro yang didefinisikan akan diganti dengan teks yang ditentukan.
+
+###  Penggunaan Umum:
+
+#### 1. Membuat Alias Tipe Data
+
+Ini adalah penggunaan yang populer, terutama untuk mempersingkat penulisan kode dalam kompetisi.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Mengganti setiap kemunculan 'll' dengan 'long long'
+#define ll long long
+
+int main() {
+    ll populasi = 8000000000;
+    cout << "Populasi Dunia: " << populasi << endl;
+    return 0;
+}
+```
+
+**Catatan:** Praktik ini dianggap usang. Alternatif modern yang **lebih aman dan direkomendasikan** adalah `using`.
+
+```cpp
+// Cara modern dan lebih baik:
+using ll = long long;
+```
+
+#### 2. Mendefinisikan Konstanta
+
+Digunakan untuk memberikan nama pada nilai konstanta.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Mendefinisikan konstanta PI
+#define PI 3.14159
+
+int main() {
+    double jariJari = 5.0;
+    double keliling = 2 * PI * jariJari;
+    cout << "Keliling lingkaran: " << keliling << endl;
+    return 0;
+}
+```
+
+**Catatan:** Untuk konstanta, cara yang lebih aman adalah menggunakan `const` atau `constexpr`.
+
+```cpp
+// Cara modern dan lebih baik:
+const double PI = 3.14159;
+```
+
+-----
+
+## 6\. 🧮 Operator dan Operasi Matematika
 
 Operator adalah simbol khusus yang digunakan untuk melakukan operasi pada variabel dan nilai, mulai dari perhitungan matematika dasar hingga logika yang kompleks.
 
@@ -155,7 +232,7 @@ Operator adalah simbol khusus yang digunakan untuk melakukan operasi pada variab
 
 -----
 
-#### a. Arithmetic
+#### a. Arithmetic ➕
 
 Digunakan untuk operasi matematika dasar seperti penjumlahan, pengurangan, perkalian, dan pembagian.
 
@@ -177,7 +254,7 @@ int main() {
 }
 ```
 
-#### b. Assignment
+#### b. Assignment ✏️
 
 Digunakan untuk memberikan atau memperbarui nilai sebuah variabel.
 
@@ -196,7 +273,7 @@ int main() {
 }
 ```
 
-#### c. Comparison
+#### c. Comparison ⚖️
 
 Digunakan untuk membandingkan dua nilai. Hasil dari operasi ini selalu berupa nilai boolean (`true` atau `false`).
 
@@ -214,7 +291,7 @@ int main() {
 }
 ```
 
-#### d. Logical
+#### d. Logical 🧠
 
 Digunakan untuk menggabungkan beberapa kondisi boolean.
 
@@ -237,7 +314,7 @@ int main() {
 }
 ```
 
-#### e. Fungsi Matematika (`<cmath>`)
+#### e. Fungsi Matematika (`<cmath>`) 📐
 
 Library `<cmath>` menyediakan fungsi-fungsi matematika yang lebih kompleks.
 
@@ -258,7 +335,7 @@ int main() {
 
 -----
 
-## 6\. Percabangan (if, else if, else)
+## 7\. 🤔 Percabangan (if, else if, else)
 
 Digunakan untuk membuat keputusan dalam program. Kode di dalam blok `if` hanya akan dijalankan jika kondisinya bernilai `true`.
 
@@ -299,85 +376,15 @@ int main() {
     return 0;
 }
 ```
-
 -----
 
-## 7\. Percabangan (switch case)
-
-Alternatif dari `if-else if` yang lebih rapi jika digunakan untuk memeriksa satu variabel dengan banyak kemungkinan nilai.
-
-### Sintaks Dasar:
-```cpp
-switch (variabel) {
-    case nilai_1:
-        // Blok kode yang dijalankan jika variabel == nilai_1
-        break;
-    case nilai_2:
-        // Blok kode yang dijalankan jika variabel == nilai_2
-        break;
-    // ... bisa ada banyak case lain
-    default:
-        // Blok kode yang dijalankan jika tidak ada case yang cocok
-        break;
-}
-```
-
-### Contoh: 
-
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    int nomorHari = 3;
-    string namaHari;
-
-    // Struktur switch-case dimulai di sini
-    switch (nomorHari) {
-        case 1:
-            namaHari = "Senin";
-            break; // Wajib ada agar tidak lanjut ke case berikutnya
-        case 2:
-            namaHari = "Selasa";
-            break;
-        case 3:
-            namaHari = "Rabu";
-            break;
-        case 4:
-            namaHari = "Kamis";
-            break;
-        case 5:
-            namaHari = "Jumat";
-            break;
-        case 6:
-            namaHari = "Sabtu";
-            break;
-        case 7:
-            namaHari = "Minggu";
-            break;
-        default:
-            // Blok ini dijalankan jika tidak ada case yang cocok
-            namaHari = "Tidak valid";
-            break;
-    }
-
-    cout << "Nomor hari: " << nomorHari << endl;
-    cout << "Nama hari: " << namaHari << endl;
-
-    return 0;
-}
-```
-
------
-
-## 8. Array & Vector
+## 8\. 🗃️ Array & Vector
 
 Untuk menyimpan banyak data sejenis, C++ punya dua "wadah" utama: **Array** yang statis dan **Vector** yang dinamis.
 
 -----
 
-### a. Array (Ukuran Tetap)
+### a. Array (Ukuran Tetap) 🔒
 
 **Array** adalah kumpulan data sejenis dengan **ukuran yang sudah ditetapkan** dan tidak bisa diubah.
 
@@ -407,7 +414,7 @@ int main() {
 
 -----
 
-### b. Vector (Ukuran Fleksibel)
+### b. Vector (Ukuran Fleksibel) ⛓️
 
 **Vector** adalah versi "pintar" dari array. Ukurannya **dinamis**, artinya bisa ditambah atau dikurangi kapan saja.
 
@@ -452,13 +459,13 @@ int main() {
 | **Pilihan Terbaik** | Untuk data yang jumlahnya absolut tetap. | Pilihan utama untuk hampir semua kebutuhan. |
 -----
 
-## 9. Perulangan (Loops) 🔁
+## 9\. Perulangan (Loops) 🔁
 
 Loop digunakan untuk menjalankan blok kode secara berulang agar lebih efisien dan ringkas.
 
 -----
 
-### a. For Loop
+### a. For Loop 🔢
 For loop digunakan ketika jumlah perulangan sudah diketahui secara pasti dari awal.
 
 Sintaks Dasar:
@@ -487,7 +494,7 @@ Cara Kerja: Loop ini memulai i dari 1, berjalan selama i kurang dari atau sama d
 
 -----
 
-### b. While Loop
+### b. While Loop ⏳
 While loop digunakan untuk mengulang kode selama sebuah kondisi tertentu masih terpenuhi (true). Jumlah perulangannya tidak harus diketahui di awal.
 
 Sintaks Dasar:
@@ -532,7 +539,7 @@ Meskipun keduanya untuk perulangan, penggunaannya berbeda tergantung situasi.
 
 -----
 
-## 10\. Functions (Fungsi)
+## 10\. 🧩 Functions (Fungsi)
 
 **Fungsi** adalah blok kode yang bisa diberi nama dan dipanggil berulang kali untuk melakukan tugas spesifik. Ini membuat kodemu lebih rapi, terorganisir, dan mudah dikelola.
 
@@ -595,77 +602,7 @@ bool isGanjil(int a){
 ```
 
 -----
-
-### Tambahan (Optional)
-
-#### 1. `#include <bits/stdc++.h>`
-
-Header **non-standar** ini berfungsi sebagai jalan pintas untuk menyertakan hampir semua *library* standar C++.
-
-  * **Tujuan**: Sangat populer di kompetisi pemrograman untuk mempercepat penulisan kode.
-  * **Risiko**: Memperlambat waktu kompilasi dan membuat kode tidak portabel (hanya berfungsi di *compiler* GCC/MinGW).
-
-**Contoh:**
-
-```cpp
-// Cukup satu baris ini untuk menggunakan cout, vector, string, dll.
-#include <bits/stdc++.h>
-using namespace std; 
-
-int main() {
-    cout << "Semua library sudah termasuk." << endl;
-    return 0;
-}
-```
-
------
-
-#### 2. Tipe Data `auto`
-
-Keyword `auto` menyuruh *compiler* untuk menentukan tipe data variabel secara otomatis berdasarkan nilai inisialisasinya.
-
-  * **Tujuan**: Menyederhanakan kode dan menghindari kesalahan pengetikan tipe data yang kompleks.
-  * **Praktik**: Aman dan sangat direkomendasikan dalam C++ modern.
-
-**Contoh:**
-
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-    auto nomor = 10;                // Compiler akan menentukan sebagai 'int'
-    auto pesan = "Halo"; // Compiler akan menentukan sebagai 'string'
-    
-    return 0;
-}
-```
-
------
-
-#### 3. `#define` (Preprocessor Macro)
-
-`#define` adalah arahan yang mengganti teks di kodemu sebelum proses kompilasi. Umumnya digunakan untuk membuat alias.
-
-  * **Tujuan**: Membuat kode lebih singkat, misalnya `ll` untuk `long long`.
-  * **Risiko**: Dianggap praktik usang untuk alias tipe data karena tidak aman. **Gunakan `using` sebagai alternatif modern**.
-
-**Contoh:**
-
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-// Membuat alias 'll' untuk 'long long'
-#define ll long long
-
-// Cara modern dan lebih baik:
-// using ll = long long;
-
-int main() {
-    ll populasi = 8000000000;
-    cout << "Populasi Dunia: " << populasi << endl;
-    
-    return 0;
-}
-```
+## 🎯 Latihan
+* [TLX Toki](https://tlx.toki.id/courses/basic-cpp)
+* [Leetcode](https://leetcode.com/problemset/)
+* [Hackerrank](https://www.hackerrank.com/domains/cpp)
