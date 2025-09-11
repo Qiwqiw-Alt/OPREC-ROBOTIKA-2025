@@ -104,7 +104,13 @@ ESP32 memiliki 2 bus interface I2C, tetapi tidak memiliki pin I2C khusus. Sebaga
 
 ![ESP32 SPI PINS Explanation](Images/ESP32-SPI-Pins.webp)
 
-SPI (Serial Peripheral Interface) adalah salah satu protokol komunikasi cepat yang dipakai ESP32 untuk bertukar data dengan perangkat eksternal.
+SPI (Serial Peripheral Interface) adalah salah satu protokol komunikasi cepat yang dipakai ESP32 untuk bertukar data dengan perangkat eksternal. Komunikasi pin SPI melibatkan 4 pin utama:
+* 1. MISO (Master In Slave Out) → Jalur data dari Slave ke Master
+* 2. MOSI (Master Out Slave In) → Jalur data dari Master ke Slave
+* 3. SCLK (Serial Clock) → Sinyal clock yang dihasilkan Master untuk sinkronisasi transfer data
+* 4. CS/SS (Chip Select / Slave Select) → Digunakan Master untuk memilih perangkat Slave yang ingin diajak berkomunikasi
+
+ESP32 memiliki lebih dari satu bus SPI, yaitu VSPI (SPI default) dan HSPI (SPI tambahan, bisa digunakan paralel). Selain itu, Pin SPI bisa di-remap (dipindah ke GPIO lain) menggunakan fungsi GPIO Matrix. Jadi tidak terbatas hanya di pin bawaan, lebih fleksibel dibanding Arduino UNO.
 
 ---
 
