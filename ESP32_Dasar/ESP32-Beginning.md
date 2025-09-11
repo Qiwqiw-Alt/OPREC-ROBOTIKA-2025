@@ -1,9 +1,10 @@
 ## ESP32 Dasar
 
 ![ESP32 PIN Explanation](Images/ESP32-Pinout.webp)
+---
 
 **Penejelasan PIN ESP32 (30PIN)**
-Sumber: ![Penjelasan Pin ESP32](https://lastminuteengineers.com/esp32-pinout-reference/)
+Sumber: [Penjelasan Pin ESP32](https://lastminuteengineers.com/esp32-pinout-reference/)
 
 **1. GPIO PINS**
 
@@ -13,8 +14,15 @@ ESP32 memiliki 25 pin GPIO yang dapat diberi fungsi berbeda dengan memprogram re
 
 Meskipun ESP32 punya banyak pin dengan bermcam macam fungsi, beberapa diantaranya mungkin tidak bisa digunakan untuk projek. Tabel dibawah ini menunjukkan mana pin GPIO yang aman digunakan dan mana pin yang sebaiknya digunakan dengan hati- hati.
 
+:white_check_mark: : Aman digunakan
+:warning: : GUnakan saat perlu, tapi hati-hati saat booting
+:bug: : Direkomendasikan untuk tidak digunakan
+
+
 | Label | GPIO | Aman digunakan? | Alasan |
 | :--- | :--- | :--- | :--- |
+| D0 | 0 | :warning: | harus bernilai HIGH saat boot dan LOW saat programming|
+| TX0 | 1 |
 
 
     
