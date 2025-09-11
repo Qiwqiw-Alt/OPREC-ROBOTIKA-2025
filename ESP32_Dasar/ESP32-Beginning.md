@@ -11,7 +11,7 @@ Sumber: [Penjelasan Pin ESP32](https://lastminuteengineers.com/esp32-pinout-refe
 
 ![ESP32 GPIO PINS Explanation](Images/ESP32-GPIO-Pins.webp)
 
-ESP32 memiliki 25 pin GPIO yang dapat diberi fungsi berbeda dengan memprogram register yang sesuai. Ada beberapa jenis GPIO: digital only, analog, sentuh kapasitif, dll. GPIO analog dan sentuh kapasitif dapat dikonfigurasi sebagai GPIO digital. Sebagian besar GPIO digital ini dapat dikonfigurasi dengan pull-up atau pull-down internal, atau diatur ke impedansi tinggi.
+ESP32 memiliki 25 pin GPIO yang dapat diberi fungsi berbeda dengan memprogram register yang sesuai. Ada beberapa jenis GPIO, yaitu digital only, analog, sentuh kapasitif, dll. GPIO analog dan sentuh kapasitif dapat dikonfigurasi sebagai GPIO digital. Sebagian besar GPIO digital ini dapat dikonfigurasi dengan pull-up atau pull-down internal, atau diatur ke impedansi tinggi.
 
 Meskipun ESP32 punya banyak pin dengan bermcam macam fungsi, beberapa diantaranya mungkin tidak bisa digunakan untuk projek. Tabel dibawah ini menunjukkan mana pin GPIO yang aman digunakan dan mana pin yang sebaiknya digunakan dengan hati- hati.
 
@@ -119,5 +119,50 @@ ESP32 memiliki tiga interface UART, UART0, UART1, dan UART2, yang mendukung komu
 * Di sisi lain, UART2 merupakan opsi yang aman untuk terhubung ke perangkat UART seperti GPS, sensor sidik jari, sensor jarak, dan sebagainya.
 
 Selain itu, UART menyediakan manajemen perangkat keras sinyal CTS dan RTS serta kontrol aliran perangkat lunak (XON dan XOFF).
+
+---
+
+**8. PIN PWM**
+
+![ESP32 PWM PINS Explanation](Images/ESP32-PWM-Pins.webp)
+
+ESP32 memiliki 21 pin PWM yang dikontrol oleh pengontrol PWM. Output PWM dapat digunakan untuk menggerakan motor dan mangatur kecerahan LED. 
+
+---
+
+**9. PIN RTC GPIO**
+
+![ESP32 RTC GPIO PINS Explanation](Images/ESP32-RTC-GPIO-Pins.webp)
+
+Beberapa GPIO sirutekan ke subsistem RTC (Real-Time CLock) dan pin ini disebut RTC GPIO. Fungsi utama RTC GPIO:
+* Tetap aktif meskipun ESP32 masuk mode **deep sleep**
+* Bisa dipakai sebagai **sumber sinyal untuk membangunkan ESP32** dari mode deep sleep
+* Mendukung kerja **ULP coprocessor (Ultra Low Power)**, yaitu prosesor kecil di ESP32 yang tetap bisa berjalan saat CPU utama tidur
+
+Dengan kata lain, RTC GPIO memungkinkan ESP32 tetap bisa berinteraksi dengan dunia luar saat dalam mode hemat daya, misalnya bangun ketika tombol ditekan, sensor memberi sinyal, atau timer RTC berbunyi.
+
+---
+
+**10. PIN STRAPPING**
+
+![ESP32 STRAPPING PINS Explanation](Images/ESP32-Strapping-Pins.webp)
+
+Terdapat 5 pin strapping, yaitu GPIO0, GPIO2, GPIO5, GPIO12, dan GPIO15. Pin-pin ini digunakan untuk menempatkan ESP32 ke mode BOOT (untuk menjalankan program yang tersimpan di memori flash) atau mode FLASH (untuk mengunggah program ke memori flash). Tergantung pada status pin-pin ini, ESP32 akan memasuki mode BOOT atau mode FLASH saat dinyalakan.
+
+---
+
+**11. PIN POWER**
+
+![ESP32 POWER PINS Explanation](Images/ESP32-Power-Pins.webp)
+
+Pada ESP32, terdapat 2 pin power, yaitu Vin pin dan 3V3 pin. Pin Vin bisa digunakan untuk menghubngkan ESP32 dengan daya/baterai eksternal (maksimal 12V). Pin 3V3 memberikan ouput tegangan sebesar 3.3 volt yang bisa digunakan untuk memberi daya ke sensor/modul kecil. GND adalah pin ground yang berfungsi sebagai pin refernsi dengan level 0 volt (0V).
+
+---
+
+**12 PIN EN/RST**
+
+![ESP32 EN PIN Explanation](Images/ESP32-Enable-Pin.webp)
+
+Pin EN/RST adalah pin pengaktif untuk ESP32 yang secara default daiatur ke HIGH. Ketika diatur ke nilai HIGH, chip diaktifkan. Sedangkan, ketika diatur ke nilai LOW, chip dinonaktifkan. Pin EN juga dihubungkan ke tombol EN/RST. Jika tombol tersebut ditekan pin EN akan terhubung ke GND dan akan bernilai LOW. Hal tersebut membuat ESP32 melakukan reset (restart) dan menjalankan program dari awal
 
 ---
