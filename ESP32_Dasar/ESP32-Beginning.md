@@ -56,9 +56,11 @@ Meskipun ESP32 punya banyak pin dengan bermcam macam fungsi, beberapa diantarany
 | VN | 39 | :warning:| Hanya bisa input, tidak bisa diubah menjadi ouput |
 
 **Pin GPIO Input Only**
+
 Pin GPIO34, GPIO35, VP, VN Tidak dapat dikonfigurasi sebagai keluaran. Pin-pin ini dapat digunakan sebagai masukan digital atau analog, atau untuk tujuan lain. Pin-pin ini juga tidak memiliki resistor pull-up dan pull-down internal, tidak seperti pin GPIO lainnya.
 
 **ESP32 Interrupt Pins**
+
 Semua GPIO pin bisa dikonfigurasi sebagai interrupt. Interrupt adalah mekanisme di mana ESP32 langsung berhenti dari tugas yang sedang dikerjakan untuk merespon suatu kejadian penting pada pin tertentu. Setelah selesai, ESP32 akan kembali melanjutkan program utama.
 ---
 
