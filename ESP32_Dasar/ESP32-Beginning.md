@@ -62,6 +62,7 @@ Pin GPIO34, GPIO35, VP, VN Tidak dapat dikonfigurasi sebagai keluaran. Pin-pin i
 **ESP32 Interrupt Pins**
 
 Semua GPIO pin bisa dikonfigurasi sebagai interrupt. Interrupt adalah mekanisme di mana ESP32 langsung berhenti dari tugas yang sedang dikerjakan untuk merespon suatu kejadian penting pada pin tertentu. Setelah selesai, ESP32 akan kembali melanjutkan program utama.
+
 ---
 
 **2. PIN ADC**
@@ -69,6 +70,7 @@ Semua GPIO pin bisa dikonfigurasi sebagai interrupt. Interrupt adalah mekanisme 
 ![ESP32 ADC PINS Explanation](Images/ESP32-ADC-Pins.webp)
 
 Analog to Digital Converter (ADC) adalah fitur pada ESP32 yang bisa membaca sinyal analog (tegangan variabel) lalu mengubahnya menjadi data digital (angka). ADC ESP32 adalah ADC 12-bit, yang berarti dapat mendeteksi 4096 (2^12) level analog diskrit. Dengan kata lain, ADC ini akan mengonversi tegangan input mulai dari 0 hingga 3,3V (tegangan operasi) menjadi nilai integer mulai dari 0 hingga 4095. Hal ini menghasilkan resolusi 3,3 volt / 4096 unit, atau 0,0008 volt (0,8 mV) per unit.
+
 ---
 
 **3. PIN DAC**
@@ -76,14 +78,46 @@ Analog to Digital Converter (ADC) adalah fitur pada ESP32 yang bisa membaca siny
 ![ESP32 DAC PINS Explanation](Images/ESP32-DAC-Pins.webp)
 
 Digital to Analog Converter (DAC) adalah fitur yang bisa membaca angka digital lalau mengubahnya menjadi teganagan analog. DAC ini memiliki resolusi 8-bit, yang berarti bahwa nilai dalam rentang 0 hingga 256 akan diubah ke tegangan analog dalam rentang 0 hingga 3,3V.
+
 ---
 
 **4. PIN Touch**
 
 ![ESP32 TOUCH PINS Explanation](Images/ESP32-Touch-Pins.webp)
 
-PIn Touch adalah fitur di ESP32 yang memungkinkan ESP32 mendeteksi sentuhan jari atau perubahan kapasitas pada permukaan konduktif yang terhubung ke pin tersebut. Fitur ini tidak memerlukan komponen tambahan (seperti IC touch sensor eksternal) karena sudah bawaan chip.
+Pin Touch adalah fitur di ESP32 yang memungkinkan ESP32 mendeteksi sentuhan jari atau perubahan kapasitas pada permukaan konduktif yang terhubung ke pin tersebut. Fitur ini tidak memerlukan komponen tambahan (seperti IC touch sensor eksternal) karena sudah bawaan chip.
 
 Pin touch ESP32 bekerja dengan prinsip kapasitansi. Saat jari (atau benda konduktif) menyentuh pad, kapasitansi berubah, dan ESP32 bisa membaca perubahan itu sebagai nilai angka.
 Semakin kuat sentuhan maka semakin besar perubahan kapasitansinya.
+
+---
+
+**5. PIN I2C**
+
+![ESP32 I2C PINS Explanation](Images/ESP32-I2C-Pins.webp)
+
+ESP32 memiliki 2 bus interface I2C, tetapi tidak memiliki pin I2C khusus. Sebagai gantinya, pin GPIO bisa dikonfigurasi sebagai I2C SDA (jalur data) dan SCL (jalur clock). Namun, GPIO21 (SDA) dan GPIO22 (SCL) umunya digunakan sebagai pin I2C default pengguna yang menggunakan kode, library, dan sketch Arduino yang sudah ada.
+
+---
+
+**6. PIN SPI**
+
+![ESP32 SPI PINS Explanation](Images/ESP32-SPI-Pins.webp)
+
+SPI (Serial Peripheral Interface) adalah salah satu protokol komunikasi cepat yang dipakai ESP32 untuk bertukar data dengan perangkat eksternal.
+
+---
+
+**7. PIN UART**
+
+![ESP32 UART PINS Explanation](Images/ESP32-UART-Pins.webp)
+
+ESP32 memiliki tiga interface UART, UART0, UART1, dan UART2, yang mendukung komunikasi asinkron (RS232 dan RS485) dan IrDA hingga 5 Mbps.
+
+* Pin UART0 terhubung ke konverter USB-ke-Serial dan digunakan untuk flashing dan debugging. Oleh karena itu, pin UART0 tidak disarankan untuk digunakan.
+* Pin UART1 disediakan untuk chip memori flash terintegrasi.
+* Di sisi lain, UART2 merupakan opsi yang aman untuk terhubung ke perangkat UART seperti GPS, sensor sidik jari, sensor jarak, dan sebagainya.
+
+Selain itu, UART menyediakan manajemen perangkat keras sinyal CTS dan RTS serta kontrol aliran perangkat lunak (XON dan XOFF).
+
 ---
