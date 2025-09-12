@@ -96,7 +96,7 @@ Semakin kuat sentuhan maka semakin besar perubahan kapasitansinya.
 
 ![ESP32 I2C PINS Explanation](Images/ESP32-I2C-Pins.webp)
 
-ESP32 memiliki 2 bus interface I2C, tetapi tidak memiliki pin I2C khusus. Sebagai gantinya, pin GPIO bisa dikonfigurasi sebagai I2C SDA (jalur data) dan SCL (jalur clock). Namun, GPIO21 (SDA) dan GPIO22 (SCL) umunya digunakan sebagai pin I2C default pengguna yang menggunakan kode, library, dan sketch Arduino yang sudah ada.
+ESP32 memiliki 2 bus interface I2C, tetapi tidak memiliki pin I2C khusus. Sebagai gantinya, pin GPIO bisa dikonfigurasi sebagai I2C SDA (jalur data) dan SCL (jalur clock). Namun, GPIO21 (SDA) dan GPIO22 (SCL) umumnya digunakan sebagai pin I2C default pengguna yang menggunakan kode, library, dan sketch Arduino yang sudah ada.
 
 ---
 
@@ -161,7 +161,7 @@ Terdapat 5 pin strapping, yaitu GPIO0, GPIO2, GPIO5, GPIO12, dan GPIO15. Pin-pin
 
 ![ESP32 POWER PINS Explanation](Images/ESP32-Power-Pins.webp)
 
-Pada ESP32, terdapat 2 pin power, yaitu Vin pin dan 3V3 pin. Pin Vin bisa digunakan untuk menghubngkan ESP32 dengan daya/baterai eksternal (maksimal 12V). Pin 3V3 memberikan ouput tegangan sebesar 3.3 volt yang bisa digunakan untuk memberi daya ke sensor/modul kecil. GND adalah pin ground yang berfungsi sebagai pin refernsi dengan level 0 volt (0V).
+Pada ESP32, terdapat 2 pin power, yaitu Vin pin dan 3V3 pin. Pin Vin bisa digunakan untuk menghubngkan ESP32 dengan daya/baterai eksternal (maksimal 12V). Pin 3V3 memberikan ouput tegangan sebesar 3.3 volt yang bisa digunakan untuk memberi daya ke sensor/modul kecil. GND adalah pin ground yang berfungsi sebagai pin referensi dengan level 0 volt (0V).
 
 ---
 
