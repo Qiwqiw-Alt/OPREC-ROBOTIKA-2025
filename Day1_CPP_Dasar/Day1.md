@@ -17,8 +17,8 @@
 
 * **Sumber Belajar Tambahan:**
     * [W3Schools C++ Tutorial](https://www.w3schools.com/cpp/)
-    * [GeeksforGeeks C++](https://www.geeksforgeeks.org/c-plus-plus/)
-    * [TLX TOKI](https://tlx.toki.id/courses)
+    * [TLX TOKI C++ Dasar](https://tlx.toki.id/courses)
+    * [Bro Code C++ Full Course](https://youtu.be/-TkoO8Z07hI?si=oc2I1NqUG3xTgEID)
 
 -----
 
