@@ -30,6 +30,9 @@ C++ adalah bahasa inti yang digunakan untuk memprogram mikrokontroler populer se
 
 ## 1\. 👋 Program "Hello, World!"
 
+<details>
+<summary> Click to see more... </summary>
+
 **Kode Program (`main.cpp`):**
 ```cpp
 #include <iostream>
@@ -56,9 +59,14 @@ int main() {
 g++ main.cpp -o main
 ```
 
+</details>
+
 -----
 
 ## 2\. 📝 Penggunaan Komentar
+
+<details>
+<summary> Click to see more... </summary>
 
 Komentar adalah baris teks dalam kode yang tidak akan dieksekusi oleh *compiler*. Gunanya untuk memberi catatan atau penjelasan pada kode.
 
@@ -73,10 +81,13 @@ Sangat berguna untuk penjelasan yang lebih panjang.
 
 int angka = 5; // Komentar juga bisa diletakkan di akhir baris kode.
 ```
-
 -----
+</details>
 
 ## 3\. 📦 Variabel, Tipe Data, dan String
+
+<details>
+<summary> Click to see more... </summary>
 
 **Variabel** adalah nama untuk lokasi penyimpanan di memori. Setiap variabel harus memiliki **tipe data** yang spesifik.
 
@@ -111,10 +122,13 @@ int main() {
     return 0;
 }
 ```
-
 -----
+</details>
 
 ## 4\. ⌨️ Menerima Input dari User
+
+<details>
+<summary> Click to see more... </summary>
 
 Program interaktif dengan meminta input dari pengguna menggunakan `cin`.
 
@@ -156,10 +170,13 @@ int main() {
     return 0;
 }
 ```
-
 -----
+</details>
 
 ## 5\. ⚙️ `#define` (Preprocessor Macro)
+
+<details>
+<summary> Click to see more... </summary>
 
 `#define` adalah sebuah **arahan *preprocessor*** yang menginstruksikan *compiler* untuk melakukan **penggantian teks** secara sederhana. Proses ini terjadi sebelum kompilasi dimulai, di mana setiap kemunculan makro yang didefinisikan akan diganti dengan teks yang ditentukan.
 
@@ -217,8 +234,12 @@ const double PI = 3.14159;
 ```
 
 -----
+</details>
 
 ## 6\. 🧮 Operator dan Operasi Matematika
+
+<details>
+<summary> Click to see more... </summary>
 
 Operator adalah simbol khusus yang digunakan untuk melakukan operasi pada variabel dan nilai, mulai dari perhitungan matematika dasar hingga logika yang kompleks.
 
@@ -334,8 +355,12 @@ int main() {
 ```
 
 -----
+</details>
 
 ## 7\. 🤔 Percabangan (if, else if, else)
+
+<details>
+<summary> Click to see more... </summary>
 
 Digunakan untuk membuat keputusan dalam program. Kode di dalam blok `if` hanya akan dijalankan jika kondisinya bernilai `true`.
 
@@ -377,8 +402,12 @@ int main() {
 }
 ```
 -----
+</details>
 
 ## 8\. 🗃️ Array & Vector
+
+<details>
+<summary> Click to see more... </summary>
 
 Untuk menyimpan banyak data sejenis, C++ punya dua "wadah" utama: **Array** yang statis dan **Vector** yang dinamis.
 
@@ -458,8 +487,12 @@ int main() {
 | **Ukuran** | Statis (Tetap) | Dinamis (Fleksibel) |
 | **Pilihan Terbaik** | Untuk data yang jumlahnya absolut tetap. | Pilihan utama untuk hampir semua kebutuhan. |
 -----
+</details>
 
 ## 9\. Perulangan (Loops) 🔁
+
+<details>
+<summary> Click to see more... </summary>
 
 Loop digunakan untuk menjalankan blok kode secara berulang agar lebih efisien dan ringkas.
 
@@ -538,8 +571,12 @@ Meskipun keduanya untuk perulangan, penggunaannya berbeda tergantung situasi.
 ***Risiko Kesalahan***| Lebih terstruktur, risiko infinite loop lebih kecil.	|Rentan terjadi infinite loop jika lupa memperbarui variabel kondisi. |
 
 -----
+</details>
 
 ## 10\. 🧩 Functions (Fungsi)
+
+<details>
+<summary> Click to see more... </summary>
 
 **Fungsi** adalah blok kode yang bisa diberi nama dan dipanggil berulang kali untuk melakukan tugas spesifik. Ini membuat kodemu lebih rapi, terorganisir, dan mudah dikelola.
 
@@ -602,6 +639,8 @@ bool isGanjil(int a){
 ```
 
 -----
+</details>
+
 ## 🎯 Latihan
 * [TLX Toki](https://tlx.toki.id/courses/basic-cpp)
 * [Leetcode](https://leetcode.com/problemset/)
