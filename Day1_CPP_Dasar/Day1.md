@@ -58,10 +58,8 @@ int main() {
 ```bash
 g++ main.cpp -o main
 ```
-
-</details>
-
 -----
+</details>
 
 ## 2\. 📝 Penggunaan Komentar
 
