@@ -9,6 +9,7 @@
 * **Teks Editor / IDE:**
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Notepad++](https://notepad-plus-plus.org/downloads/)
+    * [Vim](https://www.vim.org/download.php)
 
 * **Online Compiler:**
     * [Programiz C++ Compiler](https://www.programiz.com/cpp-programming/online-compiler/)
