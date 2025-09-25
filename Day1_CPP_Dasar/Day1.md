@@ -172,7 +172,7 @@ int main() {
 -----
 </details>
 
-## 5\. ⚙️ `#define` (Preprocessor Macro)
+## 5\. ⚙️ `#define`, `using`, & `const`
 
 <details>
 <summary> Click to see more... </summary>
@@ -488,7 +488,7 @@ int main() {
 -----
 </details>
 
-## 9\. Perulangan (Loops) 🔁
+## 9\. 🔁 Perulangan (Loops) 
 
 <details>
 <summary> Click to see more... </summary>
