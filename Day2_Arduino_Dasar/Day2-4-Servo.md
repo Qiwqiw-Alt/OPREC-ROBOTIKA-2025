@@ -12,7 +12,7 @@
     * Kabel jumper (Secukupnya)
 
 * **Penjelasan rangkaian:**
-    * GND Arduino dihubungkan ke pin Ground Servo (kabel hitam)
+    * GND Arduino dihubungkan ke pin Ground Servo (kabel hitam/coklat)
     * 5V Arduino dihubungkan ke pin Power Servo (kabel merah)
     * Digital pins 2 pada Arduino dihubungkan ke Signal Servo (kabel orange)
 
