@@ -22,45 +22,27 @@
 
 * **Program mengukur jarak dengan sensor ultrasonik dan Arduino**
 ```cpp
-    #define TRIG1 6 // digunakan untuk memberi nama alias untuk  digital pin 6 di Arduino
-    #define ECHO1 7 // digunakan untuk memberi nama alias untuk  digital pin 7 di Arduino
-
-    /**
-        TRIG1 (pin 6 Arduino) → untuk mengirim sinyal ultrasonik
-        ECHO1 (pin 7 Arduino) → untuk menerima pantulan sinyal ultrasonik
-    **/
+    #define TRIG1 6 
+    #define ECHO1 7 
 
     void setup(){
         pinMode(TRIG1, OUTPUT);
         pinMode(ECHO1, INPUT);
-        /**
-        - pinMode(..., OUTPUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan 
-        untuk keluaran (output), dalam hal ini untuk menyalakan TRIG1.
-        - pinMode(..., INPUT); digunakan untuk memberi tahu Arduino bahwa pin tersebut digunakan 
-        untuk keluaran (intput), dalam hal ini untuk menyalakan ECHO1.
-        **/
         
-        Serial.begin(9600); // memulai komunikasi serial untuk menampilkan hasil di monitor serial
+        Serial.begin(9600); 
     }
 
     void loop(){
-        digitalWrite(TRIG1, HIGH); // Sensor akan mengirim gelombang ultrasonik
-        delayMicroseconds(10); // Memberi pulsa HIGH selama 10 mikrodetik ke pin TRIG 
-        digitalWrite(TRIG1, LOW); // Sensor berhenti mengirim gelombang ultrasonik
+        digitalWrite(TRIG1, HIGH); 
+        delayMicroseconds(10); 
+        digitalWrite(TRIG1, LOW); 
     
         double selang = pulseIn(ECHO1, HIGH); 
-        // mengukur lama waktu (dalam mikrodetik) pin ECHO menerima sinyal HIGH
 
         double jarak = (selang * 0.0343) / 2.0;
-        /**
-            - Kecepatan suara di udara ≈ 0,0343 cm/µs
-            - selang * 0.0343 → menghitung jarak total tempuh suara (pergi + pulang)
-            - Dibagi 2 → mendapatkan jarak sebenarnya ke objek (hanya satu arah)
-        **/
 
         Serial.print("Jarak: "); Serial.print(jarak); Serial.println("cm");
-        // Menampilkan hasil pengukuran di Serial Monitor dalam satuan cm
 
-        delay(1000); // Memberikan delay 1000 ms sebelum melakukan pengukuran berikutnya
+        delay(1000); 
     }
 ```
