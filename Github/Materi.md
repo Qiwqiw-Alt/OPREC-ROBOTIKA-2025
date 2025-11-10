@@ -9,10 +9,10 @@
 9. Upload dari lokal ke github pake remote
 10. git commit
 11. git push
-12. git pull
 13. git clone (collab)
-14. git branch
-15. git checkout
-16. git merge
-17. pull request
-18. dst (nonton yt sandika galih)
+14. git pull
+15. git branch
+16. git checkout
+17. git merge
+18. pull request
+19. dst (nonton yt sandika galih)
