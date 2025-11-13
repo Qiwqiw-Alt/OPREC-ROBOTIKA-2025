@@ -77,7 +77,7 @@
     delay(20); // Memberi jeda waktu 20 ms
     }
 ```
-* **Setelah program berjalan dan berhasil terhubung akan muncul "ESP32-Control di Bluetooth HP"**
+* **Setelah program berjalan dan berhasil terhubung akan muncul "ESP32-Control" di Bluetooth HP**
 
 ![Bluetooth HP](Images/bluetoothhp.jpg)
 
