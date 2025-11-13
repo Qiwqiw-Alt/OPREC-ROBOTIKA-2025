@@ -1,6 +1,6 @@
 ## ESP32 WiFi Communication
 
-** Menghubungkan ESP32 dengan laptop melalui hospot HP **
+**Menghubungkan ESP32 dengan laptop melalui hospot HP**
 
 * **Rangkaian ESP32**
 
@@ -19,7 +19,7 @@
     * GNP ESP 32 yang disebelah kiri (kabel merah) dihubungkan ke kaki BUZZER yang lebih pendek
     * PIN GPIO 4 dihubungkan ke resistor 220 ohm lalu dihubungkan ke kaki BUZZER yang lebih panjang
 
-* ** Hal - hal yang perlu diperhatikan saat ingin mengubungkan ESP32 ke WiFI:**
+* **Hal - hal yang perlu diperhatikan saat ingin mengubungkan ESP32 ke WiFI:**
     * Jika ESP32 tidak bisa terhubung setelah upload berhasil, Anda cukup menekan tombol RESET (EN) sekali pada papan ESP32. Ini akan me-restart program dan memicu ESP32 mencoba koneksi Wi-Fi lag
     * Pastikan ESP32 dan Laptop terhubung dengan WiFi atau hospot yang sama
     * Untuk mempermudah koneksi, password hospot/WiFi bisa diset menjadi tidak ada
