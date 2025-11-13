@@ -19,12 +19,12 @@
     * GNP ESP 32 yang disebelah kiri (kabel merah) dihubungkan ke kaki BUZZER yang lebih pendek
     * PIN GPIO 4 dihubungkan ke resistor 220 ohm lalu dihubungkan ke kaki BUZZER yang lebih panjang
 
-* **  Hal - hal yang perlu diperhatikan saat ingin mengubungkan ESP32 ke WiFI: **
-    * Jika setelah upload kode program ke ESP32 selesai dan ESP32 tidak bisa terhubung, ulangi upload sambil menekan tombol BOOT/RESET sampai kode program selesai dicompile
-    * Pastika ESP32 dan Laptop terhubung dengan WiFi atau hospot yang sama
-    * Untuk mempercepat koneksi, password hospot/WiFi bisa diset menjadi tidak ada
+* ** Hal - hal yang perlu diperhatikan saat ingin mengubungkan ESP32 ke WiFI:**
+    * Jika ESP32 tidak bisa terhubung setelah upload berhasil, Anda cukup menekan tombol RESET (EN) sekali pada papan ESP32. Ini akan me-restart program dan memicu ESP32 mencoba koneksi Wi-Fi lag
+    * Pastikan ESP32 dan Laptop terhubung dengan WiFi atau hospot yang sama
+    * Untuk mempermudah koneksi, password hospot/WiFi bisa diset menjadi tidak ada
 
-* **Program menyenghubungkan ESP32 dengan Laptop**
+* **Program menghubungkan ESP32 dengan Laptop**
 ```cpp
    /*
      WiFi Web Server LED & Buzzer Control
@@ -151,9 +151,8 @@
 
 ![Serial Monitor](Images/sm_wifi.png)
 
-* **Tampilan Web setalh mengakses IP Address**
+* **Tampilan Web setelah mengakses IP Address**
 
 ![Tampilan Web](Images/web_wifi.png)
 
-* **Link Video Demo**
-Link: [Demo menyalakan dan mematikan LED dan BUZZER](https://drive.google.com/file/d/1HrKWkE8_ab_ObEbc0yJgyUJ3moa0DMQD/view?usp=drive_link)
+* **Link Video Demo** : [Demo menyalakan dan mematikan LED dan BUZZER](https://drive.google.com/file/d/1HrKWkE8_ab_ObEbc0yJgyUJ3moa0DMQD/view?usp=drive_link)
