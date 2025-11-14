@@ -3,6 +3,7 @@
 **Menghubungkan ESP32 dengan ARduino UNO dengan UART**
 
 **Pengantar UART**
+
 UART atau Universal Asynchronous Receive Transmit adalah salah satu cara termudah untuk mengkomunikasikan dua device seperti menghubungkan arduino dan ESP32. UART mengirimkan data melalui dua kabel di antara arduino dan esp32, satu untuk jalur transmisi dan satunya untuk jalur penerima.
 
 ![UART](Images/uart.jpg)
