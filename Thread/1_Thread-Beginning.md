@@ -1,0 +1,1 @@
+## Thread Dasar ambasing
