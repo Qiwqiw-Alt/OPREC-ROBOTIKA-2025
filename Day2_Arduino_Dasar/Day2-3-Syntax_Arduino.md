@@ -42,7 +42,7 @@
 * **Penjelasan rangkaian:**
     * GND Arduino dihubungkan ke jalur negatif di breadboard
     * Kaki LED yang lebih pendek (katoda) dihubungkan ke jalur negatif di breadboard
-    * Digital pins pada Arduino (2, 3, 4) dihubungkan ke beradboard seperti pada gambar
+    * Digital pins pada Arduino (2, 3, 4) dihubungkan ke breadboard seperti pada gambar
     * Kaki LED yang lebih panjang (anoda) dihubungkan ke pin digital yang sudah terhubung pada breadboard melalui resistor
 
 * **Program menyalakan LED dengan Arduino**
