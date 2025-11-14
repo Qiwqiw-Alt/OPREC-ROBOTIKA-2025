@@ -163,7 +163,7 @@ UART atau Universal Asynchronous Receive Transmit adalah salah satu cara termuda
 
 * **Setelah program berjalan dan berhasil terhubung akan muncul "ESP32-Control di Bluetooth HP"**
 
-![Bluetooth HP](Images/bluetoothp.jpg)
+![Bluetooth HP](Images/bluetoothhp.jpg)
 
 * **Jika sudah tersambung tampilannya seperti ini:**
 
