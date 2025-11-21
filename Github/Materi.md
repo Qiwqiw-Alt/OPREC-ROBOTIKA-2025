@@ -15,5 +15,7 @@
 15. git checkout
 16. git merge
 17. pull request
-18. dst (nonton yt sandika galih)
+18. git log --graph --oneline --all
+19. dst (nonton yt sandika galih)
 https://www.youtube.com/playlist?list=PLFIM0718LjIVknj6sgsSceMqlq242-jNf
+20. Tugas

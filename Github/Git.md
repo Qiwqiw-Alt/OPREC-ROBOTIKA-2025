@@ -1,18 +1,159 @@
-## Install Git
+## 1. Instalasi & Konfigurasi
+### Install Git
 
-* Windows:
+- Windows:
+    ```bash
+    winget install --id Git.Git -e
+    ```
+- MacOS:
+    ```bash
+    brew install git
+    ```
+- Linux
+    ```bash
+    sudo apt install git
+    ```
+- Cek apakah git sudah terinstall
+    ```bash
+    git --version
+    ```
+
+### Konfigurasi Identitas (Wajib!)
+Git perlu tahu "siapa" yang sedang mengubah kode. Ketik perintah ini (ganti dengan nama dan email kalian):
 ```bash
-winget install --id Git.Git -e
+git config --global user.name "Nama"
+git config --global user.email "email@example.com"
 ```
 
-* MacOS:
+*Catatan: Ini hanya dilakukan sekali saja.*
+
+## 2. Memulai Repository Lokal
+
+### Inisialisasi (`git init`)
+
+1.  Buat folder baru di komputer, misal `belajar-git`.
+2.  Masuk ke folder tersebut melalui terminal.
+3.  Ketik:
+    ```bash
+    git init
+    ```
+
+**Penjelasan:** Perintah ini akan membuat folder tersembunyi bernama `.git`. Jangan dihapus\! Folder itulah yang bertugas mencatat sejarah kodingan kalian.
+
+-----
+
+## 3\. Alur Kerja Dasar (Simpan ke Lokal)
+
+Ada 3 fase dalam menyimpan file di Git: **Working Directory** (file diedit) → **Staging Area** (file dipilih) → **Repository** (file disimpan permanen).
+
+### Menambahkan File (`git add`)
+
+Anggap kalian sudah membuat file `index.html`. Untuk memilih file tersebut agar siap disimpan:
+
 ```bash
-brew install git
+git add namafile.txt
+# Atau, untuk memilih SEMUA file yang berubah:
+git add .
 ```
 
-* Linux
+### Menyimpan Permanen (`git commit`)
+
+Setelah dipilih (staged), simpan dengan:
+
 ```bash
-sudo apt install git
+git commit -m "Membuat file html pertama"
 ```
 
-## dst
+*Tips: Gunakan pesan yang jelas agar teman tim yg lain mengerti apa yang diubah.*
+
+-----
+
+## 4\. Menghubungkan ke GitHub
+
+Sekarang saatnya upload kode dari komputer (Lokal) ke GitHub (Remote).
+
+### Menambahkan Remote
+
+```bash
+git remote add origin [https://github.com/username/nama-repo.git]
+```
+
+### Upload Kode (`git push`)
+
+```bash
+git push -u origin main
+```
+
+*(Catatan: Kadang branch utama bernama `master`, sesuaikan saja).*
+
+-----
+
+## 5\. Kolaborasi & Mengambil Data
+
+### Download Project (`git clone`)
+
+```bash
+git clone [https://link-repo-github.git]
+```
+
+### Update Data di Lokal (`git pull`)
+
+```bash
+git pull origin main
+```
+
+-----
+
+## 6\. Percabangan (Branching)
+
+### Membuat & Pindah Branch
+
+Jangan mengedit langsung di `main` jika sedang mengerjakan fitur baru.
+
+```bash
+# Membuat branch baru
+git branch fitur-login
+
+# Pindah ke branch tersebut
+git checkout fitur-login
+# Atau (versi git terbaru):
+git switch fitur-login
+```
+
+### Menggabungkan Branch (`git merge`)
+
+Jika fitur di branch `fitur-login` sudah selesai, gabungkan kembali ke `main`.
+
+1.  Pindah dulu ke main: `git checkout main`
+2.  Gabungkan:
+    ```bash
+    git merge fitur-login
+    ```
+
+-----
+
+## 7\. Monitoring Sejarah
+
+Untuk melihat apa saja yang sudah terjadi pada proyek kalian secara visual di terminal.
+
+```bash
+git log --graph --oneline --all
+```
+
+*Perintah ini akan menampilkan grafik percabangan dan pesan commit dalam satu baris.*
+
+-----
+
+## ✅ Tugas Praktik Akhir
+
+Untuk menguji pemahaman, silakan kerjakan tugas berikut secara berurutan:
+
+1.  Buat repository baru di GitHub dengan nama `latihan-git-cli`.
+2.  Lakukan `git clone` ke komputer lokal.
+3.  Buat file `biodata.txt` yang berisi nama kalian, lalu lakukan `git add` dan `git commit`.
+4.  Lakukan `git push` ke GitHub.
+5.  Buat branch baru bernama `hobi`, pindah ke branch tersebut.
+6.  Tambahkan hobi kalian di file `biodata.txt`, lalu commit.
+7.  Pindah kembali ke branch `main`, lalu lakukan `git merge` dengan branch `hobi`.
+8.  Terakhir, `git push` hasil penggabungan ke GitHub.
+9.  Cek di website GitHub, pastikan file `biodata.txt` sudah terupdate isinya.
