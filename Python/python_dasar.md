@@ -19,7 +19,7 @@
 * **Sumber Belajar Tambahan:**
     * [W3Schools Python Tutorial](https://www.w3schools.com/python/)
     * [Bro Code Python Playlist](https://youtube.com/playlist?list=PLZPZq0r_RZOOkUQbat8LyQii36cJf2SWT&si=wm8dP4nLr55oovpu)
-    * [Kelas Terbuka Python Playlist](hhttps://youtube.com/playlist?list=PLZS-MHyEIRo59lUBwU-XHH7Ymmb04ffOY&si=KUA7AjvWAuf-qPVn)
+    * [Kelas Terbuka Python Playlist](https://youtube.com/playlist?list=PLZS-MHyEIRo59lUBwU-XHH7Ymmb04ffOY&si=KUA7AjvWAuf-qPVn)
 
 -----
 
