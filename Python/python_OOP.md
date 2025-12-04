@@ -174,14 +174,14 @@ print(robot_1)
 
 Enkapsulasi adalah teknik "membungkus" data (atribut) dan method dalam satu unit untuk melindunginya agar tidak bisa diakses atau diubah sembarangan oleh pihak luar.
 
-**Jenis - jenis enkaspulasi di Python:**
+* **Jenis - jenis enkaspulasi di Python:**
     * Public (tanpa garis bawah `_`), attribut dan method dengan jenis enkapsulasi ini bisa dikases dari mana saja. Contohnya `self.pinServo`.
     * Protected (satu garis bawah `_`), attribut dan method dengan jenis enkapsulasi ini hanya bisa diakses oleh Class itu sendiri dan turunannya. Contohnya `self._pinServo`.
     * Private, (dua garis bawah `_`), attribut dan method dengan jenis enkapsulasi ini hanya bisa diakses dari dalam Class itu sendiri. Contonya `self.__pinServo`.
 
 Untuk mengakses attribut yang memiliki enkapsulasi private diperlukan method setter dan getter yang bersifat public. Method getter digunakan untuk memperoleh nilai dari attribut sedangkan method setter digunakan untuk mengatur nilai dari attribut. Hal ini juga berlaku untuk attribut yang memiliki enkapsulasi protected jika diakses dari Class lain yang bukan turunan dari Class pemilik attribut tersebut.
 
-### COntoh Enksapsulasi: 
+### Contoh Enksapsulasi: 
 ```python
 class Robot:
     # Di Python, jika Class memiliki konstruktor, attribut didefinisikan langsung di dalam __init__
@@ -341,3 +341,8 @@ dinamo.jalan(150, 5)
 
 -----
 </details>
+
+## 🎯 Latihan
+* [Codewars](https://www.codewars.com/?language=python)
+* [Leetcode](https://leetcode.com/problemset/)
+* [Hackerrank](https://www.hackerrank.com/domains/python)
