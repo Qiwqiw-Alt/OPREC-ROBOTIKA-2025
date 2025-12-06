@@ -99,19 +99,19 @@ Method merupakan bagian dari Class yang berperanmenjelaskan bagaimana suatu atri
 ```python
 # Membuat Class (Cetakan)
 class Robot:
-    pinMotor # attribut untuk menyimpan angka pin Motor
-    pinUltrasonik # attribut untuk menyimpan angka pin sensor Ultrasonik
-    pinServo # attribut untuk menyimpan angka pin Servo
-    pinKamera # attribut untuk menyimpan port/pin Kamera
+    pinMotor = 0 # attribut untuk menyimpan angka pin Motor
+    pinUltrasonik = 0 # attribut untuk menyimpan angka pin sensor Ultrasonik
+    pinServo = 0# attribut untuk menyimpan angka pin Servo
+    pinKamera = 0 # attribut untuk menyimpan port/pin Kamera
 
     # Method / behavior yang dimiliki oleh Class Robot
-    def maju(): 
+    def maju(self): 
         print("Robot bergerak maju.....")
 
-    def mundur():
+    def mundur(self):
         print("Robot bergerak mundur....")
 
-    def bukaKamera():
+    def bukaKamera(self):
         print("Kamera dinyalakan")
 
 # Membuat Object (Barang jadi)
@@ -146,13 +146,13 @@ class Robot:
         self.pinKamera = pinKamera # attribut untuk menyimpan port/pin Kamera
 
     # Method / behavior yang dimiliki oleh Class Robot
-    def maju(): 
+    def maju(self): 
         print("Robot bergerak maju.....")
 
-    def mundur():
+    def mundur(self):
         print("Robot bergerak mundur....")
 
-    def bukaKamera():
+    def bukaKamera(self):
         print("Kamera dinyalakan")
 
 # Pembuatan objek dengan memberi nilai awal untuk attribut melalui constructor
@@ -194,13 +194,13 @@ class Robot:
         self._pinKamera = pinKamera # attribut untuk menyimpan port/pin Kamera
 
     # Method / behavior yang dimiliki oleh Class Robot
-    def maju(): 
+    def maju(self): 
         print("Robot bergerak maju.....")
 
-    def mundur():
+    def mundur(self):
         print("Robot bergerak mundur....")
 
-    def bukaKamera():
+    def bukaKamera(self):
         print("Kamera dinyalakan")
     
     #Method Getter dan Setter
@@ -247,13 +247,13 @@ class Robot:
         self._pinKamera = pinKamera # attribut untuk menyimpan port/pin Kamera
 
     # Method / behavior yang dimiliki oleh Class Robot
-    def maju(): 
+    def maju(self): 
         print("Robot bergerak maju.....")
 
-    def mundur():
+    def mundur(self):
         print("Robot bergerak mundur....")
 
-    def bukaKamera():
+    def bukaKamera(self):
         print("Kamera dinyalakan")
     
     #Method Getter dan Setter
