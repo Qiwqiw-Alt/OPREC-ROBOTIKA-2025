@@ -117,7 +117,7 @@ umur = int(input("Masukkan umur: "))
 print(f"Halo, {nama}! Kamu berumur {umur} tahun.")
 
 ```
-**Jika ingin input desimal, gunakan float():
+**Jika ingin input desimal, gunakan float()**:
 
 ```python
 #include <iostream>
