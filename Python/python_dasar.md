@@ -392,7 +392,7 @@ def function_name(parameter):
 
 Setiap bagian memiliki peran spesifik:
 
-  * **`def`':** merupakan keyword di bahasa python yang digunakan untuk mendeklarasikan function.
+  * **`def`:** merupakan keyword di bahasa python yang digunakan untuk mendeklarasikan function.
 
   * **Function name:** Nama unik yang akan digunakan untuk memanggil (menjalankan) fungsi tersebut.
 

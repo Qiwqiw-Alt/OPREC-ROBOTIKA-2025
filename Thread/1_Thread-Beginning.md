@@ -172,9 +172,10 @@ void Task1(void *pvParameters) {
 ```
 
 ## Mengapa menggunakan RTOS di ESP32
-    * 1. Paralelisme Sejati: ESP32 memiliki Dual-Core. Dengan xTaskCreatePinnedToCore, programmer bisa menyuruh Core 0 mengerjakan pembacaan sensor, sementara Core 1 fokus mengurus koneksi WiFi/HTTP. 
-    * 2. Tidak Saling Menunggu: Di kode biasa, jika Anda menggunakan delay(1000), seluruh program berhenti. Di RTOS, saat Task 1 sedang vTaskDelay, prosesor tidak menganggur melainkan langsung mengerjakan Task 2.
-    * 3. Manajemen Prioritas: Programmer bisa mengatur agar tugas yang kritis (seperti mematikan mesin jika ada bahaya) memiliki prioritas lebih tinggi daripada tugas sepele (seperti menyalakan lampu hias).
+1. Paralelisme Sejati: ESP32 memiliki Dual-Core. Dengan xTaskCreatePinnedToCore, programmer bisa menyuruh Core 0 mengerjakan pembacaan sensor, sementara Core 1 fokus mengurus koneksi WiFi/HTTP. 
+2. Tidak Saling Menunggu: Di kode biasa, jika Anda menggunakan delay(1000), seluruh program berhenti. Di RTOS, saat Task 1 sedang vTaskDelay, prosesor tidak menganggur melainkan langsung mengerjakan Task 2.
+3. Manajemen Prioritas: Programmer bisa mengatur agar tugas yang kritis (seperti mematikan mesin jika ada bahaya) memiliki prioritas lebih tinggi daripada tugas sepele (seperti menyalakan lampu hias).
+
 </details>
 
 
@@ -233,6 +234,7 @@ Operasinya berbeda dengan sebelumnya karena operasi ini sebenarnya bukan multith
 ## Kekurangan Multithread
 <details>
 <summary> Click to see more... </summary>
+
 1. Overhead Sistem: Terlalu banyak thread bisa membebani CPU/Memori, malah menyebabkan penurunan performa
 2. Ketergantungan pada Harware: Multithreading bakerja optimal pada sistem dengan multi-core CPU.
 3. Masalah SInkronisasi
@@ -242,6 +244,7 @@ Operasinya berbeda dengan sebelumnya karena operasi ini sebenarnya bukan multith
 ## Penggunaan Multithread pada Robotika
 <details>
 <summary> Click to see more... </summary>
+
 Dalam robotika, multithread dapat digunakan untuk berbagai aplikasi, yaitu
 1. Pemisahan Kendali & Komunikasi: Satu thread fokus pada algoritma pergerakan (Inverse Kinematics), sementara thread lain mengurus pengiriman data ke aplikasi atau remote control.
 2. Pembacaan Sensor Real-time: Membaca data sensor yang kritis (seperti IMU/Gyroscope atau Ultrasonic) tanpa terganggu oleh proses lain yang lambat (seperti menampilkan data ke layar LCD).
