@@ -25,13 +25,16 @@
 ## Apa itu Multihread dalam pemrograman?
 Multithread adalah teknik pemrograman yang memungkinkan suatu program menjalankan beberapa thread (alur eksekusi) secara bersamaan dalam suatu proses. Ini digunakan untuk meningkatkan kinerja dan responsifitas program, terutama saat menangani tugas-tugas yang bisa berjalan secara paralel, seperti membaca file sambil memproses data atau menjalankan beberapa tugas jaringan sekaligus.
 
-## \.Manfaat
+## Manfaat
 1. Pengelolaan tugas lebih baik
 2. Responsif lebih baik
 3. Pemanfaatan Maksimal CPU
 4. Kinerja lebih cepat
 
-## \.Source Code C++
+## Source Code C++
+<details>
+<summary> Click to see more... </summary>
+
 ```cpp
     #include <iostream>   // Library untuk input-output (seperti cout)
     #include <thread>     // Library utama untuk mendukung fungsi multi-threading
@@ -74,8 +77,12 @@ Multithread adalah teknik pemrograman yang memungkinkan suatu program menjalanka
         return 0;
     }
 ```
+</details>
 
-## \.Source Code Python
+## Source Code Python
+<details>
+<summary> Click to see more... </summary>
+
 ```python
     import threading  # Library untuk membuat dan mengelola thread
     import time       # Library untuk fungsi waktu seperti memberikan jeda (sleep)
@@ -114,8 +121,12 @@ Multithread adalah teknik pemrograman yang memungkinkan suatu program menjalanka
         t1.join()
         t2.join()
 ```
+</details>
 
-## \.Multithread dengan ESP32
+## Multithread dengan ESP32
+<details>
+<summary> Click to see more... </summary>
+
 ES32 bisa menjalankan multithreading dengan menggunakan FreeRTOS, operasinya sama seperti operasi sebelumnya tetapi berbeda cara pemnggilannya. 
 
 ```cpp
@@ -160,13 +171,17 @@ void Task1(void *pvParameters) {
     }
 ```
 
-### Mengapa menggunakan RTOS di ESP32
-    * 1 1. Paralelisme Sejati: ESP32 memiliki Dual-Core. Dengan xTaskCreatePinnedToCore, programmer bisa menyuruh Core 0 mengerjakan pembacaan sensor, sementara Core 1 fokus mengurus koneksi WiFi/HTTP. 
+## Mengapa menggunakan RTOS di ESP32
+    * 1. Paralelisme Sejati: ESP32 memiliki Dual-Core. Dengan xTaskCreatePinnedToCore, programmer bisa menyuruh Core 0 mengerjakan pembacaan sensor, sementara Core 1 fokus mengurus koneksi WiFi/HTTP. 
     * 2. Tidak Saling Menunggu: Di kode biasa, jika Anda menggunakan delay(1000), seluruh program berhenti. Di RTOS, saat Task 1 sedang vTaskDelay, prosesor tidak menganggur melainkan langsung mengerjakan Task 2.
     * 3. Manajemen Prioritas: Programmer bisa mengatur agar tugas yang kritis (seperti mematikan mesin jika ada bahaya) memiliki prioritas lebih tinggi daripada tugas sepele (seperti menyalakan lampu hias).
+</details>
 
 
-## \.Gimik Multithread dengan Arduino 
+## Gimik Multithread dengan Arduino 
+<details>
+<summary> Click to see more... </summary>
+
 Operasinya berbeda dengan sebelumnya karena operasi ini sebenarnya bukan multithreading, melainkan meniru atau mengimplementasikan konsep multitasking (pseudomultithreading) di Arduino.
 
 ```cpp
@@ -213,15 +228,22 @@ Operasinya berbeda dengan sebelumnya karena operasi ini sebenarnya bukan multith
         // Ini memungkinkan Arduino mengecek kedua kondisi IF di atas hampir secara bersamaan.
     }
 ```
+</details>
 
-## \.Kekurangan Multithread
+## Kekurangan Multithread
+<details>
+<summary> Click to see more... </summary>
 1. Overhead Sistem: Terlalu banyak thread bisa membebani CPU/Memori, malah menyebabkan penurunan performa
 2. Ketergantungan pada Harware: Multithreading bakerja optimal pada sistem dengan multi-core CPU.
 3. Masalah SInkronisasi
 4. Debugging dan Testing Sulit: Bug yang muncul di lingkunganseringkali acak dan sulit direproduksi, karena hasil eksekusi bisa berbeda-beda tergantung urutan thread.
+</details>
 
-## \.Penggunaan Multithread pada Robotika
+## Penggunaan Multithread pada Robotika
+<details>
+<summary> Click to see more... </summary>
 Dalam robotika, multithread dapat digunakan untuk berbagai aplikasi, yaitu
 1. Pemisahan Kendali & Komunikasi: Satu thread fokus pada algoritma pergerakan (Inverse Kinematics), sementara thread lain mengurus pengiriman data ke aplikasi atau remote control.
 2. Pembacaan Sensor Real-time: Membaca data sensor yang kritis (seperti IMU/Gyroscope atau Ultrasonic) tanpa terganggu oleh proses lain yang lambat (seperti menampilkan data ke layar LCD).
 3. Keamanan (Failsafe): Membuat thread khusus yang terus memantau tombol darurat (emergency stop) atau mendeteksi tabrakan agar robot bisa langsung berhenti tanpa menunggu proses antrean kode utama selesai.
+</details>
