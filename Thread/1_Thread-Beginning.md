@@ -374,7 +374,7 @@ Di bahasa Python, konsep Mutex diimplementasikan melalui objek `Lock` dari libra
         t2.join()
 ```
 
-<details>
+</details>
 
 ## Penggunaan Multithread pada Robotika
 <details>
