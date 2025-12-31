@@ -25,6 +25,13 @@
 ## Apa itu Multihread dalam pemrograman?
 Multithread adalah teknik pemrograman yang memungkinkan suatu program menjalankan beberapa thread (alur eksekusi) secara bersamaan dalam suatu proses. Ini digunakan untuk meningkatkan kinerja dan responsifitas program, terutama saat menangani tugas-tugas yang bisa berjalan secara paralel, seperti membaca file sambil memproses data atau menjalankan beberapa tugas jaringan sekaligus.
 
+## Single  Thread vs Multithread
+* Single Thread: Program akan mengerjakan Task A (misalnya membaca sensor) hingga benar-benar selesai, baru kemudian berpindah ke Task B (menghitung arah), dan terakhir Task C (menggerakkan motor).
+* Multithread: Program dapat mengerjakan beberapa tugas bersamaan secar paralel. Dengan Multithread ask A, Task B, dan Task C dijalankan secara paralel, sehingga robot dapat terus memantau sensor jarak sambil secara bersamaan menghitung rute navigasi dan mengirimkan data ke aplikasi pemantau.
+
+## Shared Memeory
+Pada Multithread, setiap thread yang ada dalam program berbagi ruang memori yang sama (Shared Memory). Artinya, jika Anda memiliki sebuah variabel global atau objek data di dalam program utama, semua thread yang Anda buat dapat membaca dan mengubah variabel tersebut secara langsung. Konsep Shared Memory inilah yang membuat komunikasi antar-thread menjadi sangat cepat dan efisien. Namun, kebebasan berbagi memori ini juga membawa risiko besar yang disebut Race Condition, di mana dua thread mencoba mengubah satu data secara bersamaan sehingga data tersebut menjadi rusak atau salah. Oleh karena itu, penggunaan sistem Lock atau Mutex sangat penting untuk mengatur "giliran" saat thread ingin mengakses memori bersama tersebut.
+
 ## Manfaat
 1. Pengelolaan tugas lebih baik
 2. Responsif lebih baik
@@ -168,6 +175,7 @@ void Task1(void *pvParameters) {
 
     void loop() {
         // Dibiarkan kosong karena semua pekerjaan sudah diambil alih oleh Task 1 dan Task 2
+        
     }
 ```
 
@@ -237,9 +245,136 @@ Operasinya berbeda dengan sebelumnya karena operasi ini sebenarnya bukan multith
 
 1. Overhead Sistem: Terlalu banyak thread bisa membebani CPU/Memori, malah menyebabkan penurunan performa
 2. Ketergantungan pada Harware: Multithreading bakerja optimal pada sistem dengan multi-core CPU.
-3. Masalah SInkronisasi
+3. Masalah Sinkronisasi
 4. Debugging dan Testing Sulit: Bug yang muncul di lingkunganseringkali acak dan sulit direproduksi, karena hasil eksekusi bisa berbeda-beda tergantung urutan thread.
 </details>
+
+## Race Condiditon
+<details>
+<summary> Click to see more... </summary>
+
+Race Condition adalah sebuah kondisi dimana 2 atau lebih proses membaca atau menulis data/variabel yang digunakan bersama,dan hasilnya tergantung dari proses mana yang terakhir menggunakan data tersebut. 
+
+Contoh kasus pada robot: Misalakan ada variabel `posisi_robot`.
+* Thread A ingin menambah posisi +1.
+* Thread B ingin menambah posisi +1.
+Jika berjalan bersamaan tanpa pengaman, hasilnya bisa jadi hanya +1 (bukan +2) karena keduanya membaca angka yang sama di waktu yang sama.
+
+Untuk mengatasi masalah Race Condition tersebut, dapat menggunakan sistem `Lock` pada setiap threadnya.
+
+Pada CPP, Library `mutex` digunakan untuk membuat kunci pada setiap threadnya. Berikut contoh kode programnya.
+```cpp
+    #include <iostream>   // Library untuk input-output (seperti cout)
+    #include <thread>     // Library utama untuk mendukung fungsi multi-threading
+    #include <chrono> // Library untuk durasi waktu yang lebih presisi
+    #include <mutex>  // Library untuk menggunakan fungsi Lock (Mutex)
+
+    using namespace std;
+    // Membuat objek mutex global
+    mutex mtx; 
+    int posisi_robot = 0; // Variabel yang akan diakses bersama
+
+    // Fungsi yang akan dijalankan oleh thread pertama
+    void thread1() {
+        for(int i = 0; i < 5; i++){
+            // Mengunci akses sebelum mengubah data atau mencetak teks
+            mtx.lock();
+
+            posisi_robot++;
+            cout << "Thread A: Update posisi menjadi " << posisi_robot << endl;
+            
+            mtx.unlock(); // Membuka kunci agar thread lain bisa masuk
+            
+            // Jeda 1 detik
+            this_thread::sleep_for(chrono::seconds(1));
+        }
+    }
+
+    // Fungsi yang akan dijalankan oleh thread kedua dengan parameter input
+    void thread2(int step) {
+        for(int i = 0; i < 5; i++){
+            // Cara alternatif yang lebih aman: lock_guard
+            // Otomatis mengunci saat dibuat, dan membuka kunci saat keluar dari kurung kurawal loop
+            lock_guard<mutex> lock(mtx);
+            
+            posisi_robot += step;
+            cout << "Thread B: Update posisi menjadi " << posisi_robot << endl;
+            
+            // Tidak perlu unlock manual jika menggunakan lock_guard
+            this_thread::sleep_for(chrono::seconds(1));
+        }
+    }
+
+    int main() {
+        // Membuat objek thread 'th1' dan mulai menjalankan fungsi thread1
+        thread th1(thread1);
+        
+        // Membuat objek thread 'th2' dan menjalankan fungsi thread2 dengan mengirim angka 2 sebagai argumen
+        thread th2(thread2, 2);
+
+        // .join() berfungsi untuk menunggu thread tersebut selesai bekerja 
+        // sebelum program utama (main) ditutup.
+        th1.join();
+        th2.join();
+
+        cout << "Posisi Akhir Robot: " << posisi_robot << endl;
+
+        return 0;
+    }
+```
+
+Di bahasa Python, konsep Mutex diimplementasikan melalui objek `Lock` dari library `threading`. Cara kerjanya sangat mirip dengan C++, yaitu memastikan hanya ada satu thread yang bisa mengakses blok kode tertentu pada satu waktu. Berikut contoh kode programnya.
+
+```python
+    import threading  # Library untuk membuat dan mengelola thread
+    import time       # Library untuk fungsi waktu seperti memberikan jeda (sleep)
+
+    # Membuat objek Lock untuk sinkronisasi
+    kunci_layar = threading.Lock()
+
+    # Fungsi pertama yang menerima satu parameter 'a'
+    def thread1(a):
+        for i in range(5):
+            with kunci_layar:
+                # Kode di dalam blok ini aman dari gangguan thread lain
+                # Mencetak teks dengan menggabungkan string dan nilai variabel 'a'
+                print("Ini loop " + str(a))
+            # Memberhentikan eksekusi thread ini selama 1 detik
+            time.sleep(1)
+
+    # Fungsi kedua tanpa parameter
+    def thread2():
+        for i in range(5):
+            kunci_layar.acquire()
+            try:
+                # Mencetak teks statis ke layar
+                print("Ini loop 2")
+            finally:
+                # Pastikan kunci selalu dibuka kembali meskipun terjadi error
+                kunci_layar.release()
+            # Memberhentikan eksekusi thread ini selama 1 detik
+            time.sleep(1)
+
+    # Titik masuk utama program
+    if __name__ == "__main__":
+        # Membuat thread pertama (t1)
+        # target: fungsi yang dijalankan, args: parameter yang dikirim (harus dalam bentuk tuple)
+        t1 = threading.Thread(target=thread1, args=(1,))
+        
+        # Membuat thread kedua (t2)
+        t2 = threading.Thread(target=thread2)
+
+        # Menjalankan kedua thread secara bersamaan (paralel)
+        t1.start()
+        t2.start()
+
+        # .join() memerintahkan program utama untuk menunggu sampai t1 dan t2 selesai
+        # agar program tidak langsung tertutup sebelum proses loop selesai
+        t1.join()
+        t2.join()
+```
+
+<details>
 
 ## Penggunaan Multithread pada Robotika
 <details>
