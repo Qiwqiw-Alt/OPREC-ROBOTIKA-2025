@@ -41,7 +41,7 @@ Setelah aturan main terbentuk, algoritma Minimax diterapkan sebagai pengembangan
 
 Dengan menelusuri seluruh pohon keputusan secara mendalam, Komputer dapat memprediksi hasil akhir dari setiap langkah yang mungkin diambil dan selalu memilih jalur yang memberikan hasil terbaik, terlepas dari apa pun respon yang diberikan oleh pemain lawan.
 
-## Kode Program DFS dengan 
+## Kode Program DFS dengan Rekursif
 <details>
 <summary> Click to see more... </summary>
 
@@ -142,7 +142,7 @@ Dengan menelusuri seluruh pohon keputusan secara mendalam, Komputer dapat mempre
 <details>
 <summary> Click to see more... </summary>
 
-Sumber:  * [Tic-Tac-Toe Minimax (Python dan JS)](https://github.com/Cledersonbc/tic-tac-toe-minimax?tab=readme-ov-file)
+Sumber:   [Tic-Tac-Toe Minimax (Python dan JS)](https://github.com/Cledersonbc/tic-tac-toe-minimax?tab=readme-ov-file)
 
 ### 1. Inisialisasi dan Variabel Global
 Bagian ini digunakan untuk mengatur status awal permainan dan simbol pemain.
