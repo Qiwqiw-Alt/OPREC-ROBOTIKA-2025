@@ -2,7 +2,7 @@
 
 ## Link Penting 🔗
 
-* **Webiste Roboflow:**
+* **Webiste Ultralytics:**
     * [Ultralytics](https://www.ultralytics.com/)
 
 * **Tutorial Video Ultralytics**
@@ -11,7 +11,6 @@
 
 * **Ultralytics Random Playlist: (Belum tak tonton :v)**
     * [Ultralytics YOLO11](https://youtube.com/playlist?list=PL1FZnkj4ad1P9gulU2Ud6y-1m1fKXTPGW&si=Bpu9pipkJ5Zj701D)
-    * []()
 
 -----
 
