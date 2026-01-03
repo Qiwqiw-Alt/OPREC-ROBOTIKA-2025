@@ -1,6 +1,6 @@
 ## ESP32 Arduino Communication Via UART + (Bluetooth Connecth to Smarthphone)
 
-**Menghubungkan ESP32 dengan ARduino UNO dengan UART**
+**Menghubungkan ESP32 dengan Arduino UNO dengan UART**
 
 **Pengantar UART**
 
