@@ -8,8 +8,7 @@
     * [Cara Komunikasi ESPNOW di ESP32](https://youtu.be/7Ojdo3lveB4?si=pYaobtHhPraZFkrM)
     * [Cara Mudah Komunikasi Dua Arah ESPNOW di ESP32](https://youtu.be/7OXLOJMt4TU?si=J3jBkWHphtvC46Oy)
     * [ESP-NOW - Peer to Peer ESP32 Network](https://youtu.be/bEKjCDDUPaU?si=nhjNfssQyhi4vUhg)
-    * [orget WiFi! This Wireless Method is WAY Better? (ESP-NOW)](https://youtu.be/sLW_r0OVyok?si=qdnsjBf9jXncibJM)
-
+    * [Forget WiFi! This Wireless Method is WAY Better? (ESP-NOW)](https://youtu.be/sLW_r0OVyok?si=qdnsjBf9jXncibJM)
 
 
 -----
