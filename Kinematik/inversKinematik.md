@@ -10,3 +10,9 @@
 * **Web Belajar:**
    
 -----
+
+## Apa itu Invers Kinematik
+
+## Rumus Invers Kinematik
+
+## Kode Program Invers Kinematik
