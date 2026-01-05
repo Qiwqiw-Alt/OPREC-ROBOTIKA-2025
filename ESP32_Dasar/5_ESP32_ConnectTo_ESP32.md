@@ -10,7 +10,6 @@
     * [ESP-NOW - Peer to Peer ESP32 Network](https://youtu.be/bEKjCDDUPaU?si=nhjNfssQyhi4vUhg)
     * [Forget WiFi! This Wireless Method is WAY Better? (ESP-NOW)](https://youtu.be/sLW_r0OVyok?si=qdnsjBf9jXncibJM)
 
-
 -----
 
 **Pengantar ESPNOW**
