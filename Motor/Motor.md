@@ -11,6 +11,9 @@
   * [https://youtu.be/Da4HY7HZ6h0?si=nz-yWU4X8OU-icQ0](https://youtu.be/Da4HY7HZ6h0?si=nz-yWU4X8OU-icQ0)
   * [bts7960 motor driver FULL CODE](https://youtu.be/Jn3R5u4gDZc?si=3Sn4Pq_EVZFwLKi6)
 
+* **Repository Github**
+    * Belum mencari
+
 -----
 
 ## Apa itu Motor?
@@ -70,3 +73,6 @@ $$
 Dimana D adalah diameter roda.
 
 ## Penjelasan Pin Motor Driver
+
+
+## Kode Program Menggunakan Motor dengN L298N dan Arduino
