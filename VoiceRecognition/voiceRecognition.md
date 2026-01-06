@@ -14,8 +14,8 @@
 Voice Recognition adalah proses pengubahan sinyal suara (gelombang akustik) menjadi data digital yang kemudian dianalisis oleh algoritma untuk mencari kecocokan dengan pola yang sudah dipelajari. Dengan Voice Recognition, robot dapat mendengarkan, mengenali, dan menjalankan perintah berdasarkan suara manusia atau mendeteksi pola suara tertentu (seperti ketukan musik).
 
 Dalam proyek Robot Tari, teknologi ini bisa digunakan dalam dua cara:
-* 1. Voice Recognition adalah teknologi yang memungkinkan robot untuk mendengarkan, mengenali, dan menjalankan perintah berdasarkan suara manusia atau mendeteksi pola suara tertentu (seperti ketukan musik).
-* 2. Beat Detection (Analisis Musik): Robot tidak mengenali kata, melainkan mendeteksi frekuensi dan ketukan (beat) musik agar gerakannya selaras dengan irama.
+* Voice Recognition adalah teknologi yang memungkinkan robot untuk mendengarkan, mengenali, dan menjalankan perintah berdasarkan suara manusia atau mendeteksi pola suara tertentu (seperti ketukan musik).
+* Beat Detection (Analisis Musik): Robot tidak mengenali kata, melainkan mendeteksi frekuensi dan ketukan (beat) musik agar gerakannya selaras dengan irama.
 
 ## Komponen Elekronik untuk Voice Recognition
 Agar robot bisa melakukan voice recognition, diperlukan beberapa komponen, yaitu
