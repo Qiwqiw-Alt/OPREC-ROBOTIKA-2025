@@ -16,13 +16,13 @@
 
 -----
 
-**Pengantar ESPNOW**
+## Pengantar ESPNOW
 ESPNOW adalah protokol komunikasi nirkabel connectionless yang dikembangkan oleh Espressif, memungkinkan perangkat ESP8266, ESP32, dan seri turunannya (seperti ESP32-S/C) berkomunikasi secara langsung peer-to-peer tanpa memerlukan router atau koneksi Wi-Fi tradisional. Protokol ini berbasis data-link layer (MAC layer) dengan latensi rendah, konsumsi daya rendah, dan kecepatan tinggi, mendukung mode unicast, broadcast, one-to-many, serta many-to-many, dengan enkripsi opsional (CCMP/AES-128).
 
-**MAC Address**
+## MAC Address
 Dalam ekosistem ESP32 dan ESP8226, MAC Address (Media Access Control) adalah identitas unik yang dimiliki setiap perangkat. MAC Address berfungsi sebagai almat tujuan, identitas pengirim, dan keamanan.
 
-**Mendapatkan MAC Address**
+## Mendapatkan MAC Address
 Untuk mengetahui alamat MAC pada ESP32, dapat menggunakan libarary `WiFi.h` sperti contoh kode berikut
 
 ```cpp
@@ -46,10 +46,10 @@ Untuk mengetahui alamat MAC pada ESP32, dapat menggunakan libarary `WiFi.h` sper
     void loop(){}
 ```
 
-**Komunikasi 1 Arah**
+## Komunikasi 1 Arah
 Pada komunikasi 1 arah dari 2 buah ESP32, 1 ESP32 berperan sebagai pengirim dan 1 ESP32 berperan sebagai penerima. Berikut contoh kode programnya:
 
-***Kode Master/Pengirim***
+### Kode Master/Pengirim
 ```cpp
     #include <esp_now.h>       // Library utama untuk menggunakan fitur ESP-NOW
     #include <WiFi.h>          // Library WiFi (hanya pakai mode station, tidak konek ke router)
@@ -147,7 +147,7 @@ Pada komunikasi 1 arah dari 2 buah ESP32, 1 ESP32 berperan sebagai pengirim dan 
     }
 ```
 
-***Kode Slave/Penerima***
+### Kode Slave/Penerima
 ```cpp
     #include <esp_now.h>      // Library utama untuk protokol ESP-NOW
     #include <WiFi.h>         // Library WiFi, hanya pakai mode Station (tidak konek ke router)
@@ -231,10 +231,10 @@ Pada komunikasi 1 arah dari 2 buah ESP32, 1 ESP32 berperan sebagai pengirim dan 
     }
 ```
 
-**Komunikasi 2 Arah**
+## Komunikasi 2 Arah
 Pada komunikasi 2 arah dari 2 buah ESP32, Kedua ESP32 berperan sebagai pengirim penerima. Berikut contoh kode programnya:
 
-***Kode Master***
+### Kode Master
 ```cpp
     #include <WiFi.h>         // Library untuk mengatur mode WiFi
     #include <esp_now.h>      // Library utama protokol ESP-NOW
@@ -350,7 +350,7 @@ Pada komunikasi 2 arah dari 2 buah ESP32, Kedua ESP32 berperan sebagai pengirim 
     }
 ```
 
-***Kode Slave***
+### Kode Slave
 ```cpp
     #include <WiFi.h>
     #include <esp_now.h>
