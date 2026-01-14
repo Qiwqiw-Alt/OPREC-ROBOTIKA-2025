@@ -33,18 +33,18 @@ Logika Fuzzy adalah metode komputasi yang dirancang khusus untuk merepresentasik
 
 ## Operasi Himpunan Fuzzy
 * Operasi himpunan diperlukan untuk proses penalaran atau **inferensi**
-* Operasu himpunan melibatkan operasi terhadap **derajat keanggotaan**
+* Operasi himpunan melibatkan operasi terhadap **derajat keanggotaan**
 * Derajat keanggotaan hasil operasi dua buah himpunan fuzzy disebut dengan α-predikat.
 * Jenis-jenis operasi himpunan fuzzy : o gabungan (union), operasi irisan (intersection), operasi komplemen (complement).
 
 ## Sistem Inferensi Fuzzy
 Sistem inferensi fuzzy adalah cara memetakan tuang input menuju ruang output menggunakan logika fuzzy.
 ### Tahapan Logika Fuzzy
-* 1. Input (crips)
-* 2. Fuzzifikasi
-* 3. Inferensi
-* 4. Defuzzifikasi
-* 5. Ouput (crips)
+1. Input (crips)
+2. Fuzzifikasi
+3. Inferensi
+4. Defuzzifikasi
+5. Ouput (crips)
 
 * Fuzzifikasi merupakan prosses mengubah input sistem yang mempunyai nilai tegas (srips) menjadi variabel linguistik (fuzzy) menggunakan fungsi keanggotaan yang disimpan pada basis pengetahuan.
 * Inferensi merupakan proses mengubah input fuzzy menjadi output fuzzy dengan cara mengikuti aturan-aturan (if-then) yang telah ditetapkan pada basis pengetahuan fuzzy.
