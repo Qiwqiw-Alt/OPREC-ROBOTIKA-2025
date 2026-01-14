@@ -35,7 +35,7 @@ Logika Fuzzy adalah metode komputasi yang dirancang khusus untuk merepresentasik
 * Operasi himpunan diperlukan untuk proses penalaran atau **inferensi**
 * Operasi himpunan melibatkan operasi terhadap **derajat keanggotaan**
 * Derajat keanggotaan hasil operasi dua buah himpunan fuzzy disebut dengan α-predikat.
-* Jenis-jenis operasi himpunan fuzzy : o gabungan (union), operasi irisan (intersection), operasi komplemen (complement).
+* Jenis-jenis operasi himpunan fuzzy : operasi gabungan (union), operasi irisan (intersection), operasi komplemen (complement).
 
 ## Sistem Inferensi Fuzzy
 Sistem inferensi fuzzy adalah cara memetakan tuang input menuju ruang output menggunakan logika fuzzy.
