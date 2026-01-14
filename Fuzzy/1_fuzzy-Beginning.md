@@ -21,10 +21,10 @@
 Logika Fuzzy adalah metode komputasi yang dirancang khusus untuk merepresentasikan dan memanipulasi data atau informasi yang bersifat tidak pasti (uncertain), kabur (vague), atau kualitatif (seperti "agak panas", "cukup tinggi", atau "lumayan mahal"). Berbeda dengan logika klasik (Boolean) yang hanya mengenal nilai benar (1) atau salah (0), logika fuzzy memungkinkan nilai kebenaran dalam rentang kontinu antara 0 dan 1. Logika ini sangat berguna ketika suatu sistem perlu mengambil keputusan berdasarkan informasi yang tidak eksak, karena mampu meniru cara manusia berpikir dalam situasi dunia nyata yang penuh ketidakpastian.
 
 ## Teori Dasar Logika Fuzzy
-* **Variabel Fuzzy** : variabel yang akan dibahas dlam suatu sistem . Contoh: kecepatan, jarak, dll.
+* **Variabel Fuzzy** : variabel yang akan dibahas dalam suatu sistem . Contoh: kecepatan, jarak, dll.
 * **Himpunan Fuzzy** : kelompok yang mewakili suatu keadaan tertentu dalam variabel fuzzy. Atribut himpunan fuzzy dapat berupa linguistik (bahasa alami) atau numerik (angka).
 * **Semesta Pembicaraan** : keseluruhan nilai yang diperbolehkan untuk dioperasikan dengan variabel fuzzy. Contoh: semesta pembicaraan variabel jarak adalah [0, ∞].
-* **Domain himpunan FUzzy** : yaitu seluruh nilai yang diijinkan dalam semesta pembicaraan dan boleh dioperasikan dalam suatu himpunan fuzzy.
+* **Domain himpunan Fuzzy** : yaitu seluruh nilai yang diijinkan dalam semesta pembicaraan dan boleh dioperasikan dalam suatu himpunan fuzzy.
 
 ## Fungsi Keangotaan
 * **Fungsi Keanggotaan** : merupakan grafik yang mewakili besar dari derajat keanggotaan masing-masing variabel input yang berada dalam interval antara 0 dan 1.
@@ -38,7 +38,7 @@ Logika Fuzzy adalah metode komputasi yang dirancang khusus untuk merepresentasik
 * Jenis-jenis operasi himpunan fuzzy : operasi gabungan (union), operasi irisan (intersection), operasi komplemen (complement).
 
 ## Sistem Inferensi Fuzzy
-Sistem inferensi fuzzy adalah cara memetakan tuang input menuju ruang output menggunakan logika fuzzy.
+Sistem inferensi fuzzy adalah cara memetakan ruang input menuju ruang output menggunakan logika fuzzy.
 ### Tahapan Logika Fuzzy
 1. Input (crips)
 2. Fuzzifikasi
@@ -46,6 +46,13 @@ Sistem inferensi fuzzy adalah cara memetakan tuang input menuju ruang output men
 4. Defuzzifikasi
 5. Ouput (crips)
 
-* Fuzzifikasi merupakan prosses mengubah input sistem yang mempunyai nilai tegas (srips) menjadi variabel linguistik (fuzzy) menggunakan fungsi keanggotaan yang disimpan pada basis pengetahuan.
+* Fuzzifikasi merupakan prosses mengubah input sistem yang mempunyai nilai tegas (crips) menjadi variabel linguistik (fuzzy) menggunakan fungsi keanggotaan yang disimpan pada basis pengetahuan.
 * Inferensi merupakan proses mengubah input fuzzy menjadi output fuzzy dengan cara mengikuti aturan-aturan (if-then) yang telah ditetapkan pada basis pengetahuan fuzzy.
 * Defuzzifikasi merupakan proses mengubah hasil dari tahap inferensi menjadi output yang bernilai tagas (crips) menggunakan fungsi keanggotaan yang telah ditetapkan.
+* Basis Pengetahuan/Peraturan merupakan kumpulan aturan dalam bentuk pernyataan if-then yang telah dibuat.
+
+## Contoh sederhana Logika Fuzzy
+* Input (Crisp): Sensor Jarak membaca 10 cm.
+* Fuzzifikasi: 10 cm diterjemahkan menjadi himpunan "SANGAT DEKAT" dengan derajat 0.8.
+* Rule (Inferensi): IF Jarak "SANGAT DEKAT", THEN Kecepatan Motor "SANGAT LAMBAT".
+* Defuzzifikasi: Motor bergerak pada PWM 50 (dari rentang 0-255).
