@@ -9,7 +9,7 @@ Sebuah robot memiliki 4 buah sensor ultrasonik di keempat sisinya untuk mengukur
 1. **Sangat dekat (0 - 20 cm)**. Nilai kebenaran (derajat keanggotaan) maksimal (1.0) berada pada angka 0 cm. Semakin menjauh dari 0 cm, derajat keanggotaannya menurun hingga mencapai angka 0 (tidak dianggap sangat dekat lagi) tepat di 20 cm.
 2. **Dekat (10 - 50 cm)**. Jarak mulai dianggap "Dekat" sejak 10 cm. Status "Dekat" mencapai nilai maksimal jika sensor membaca tepat 30 cm. Setelah melewati 30 cm, status "Dekat" mulai berkurang hingga hilang di angka 50 cm.
 3. **Sedang (40 - 80 cm)**. Jarak mulai dianggap "Sedang" sejak 40 cm. Status "Sedang" mencapai nilai maksimal pada jarak 60 cm dan hilang pada jarak 80 cm.
-4. **Jauh (70 - 100 cm atau lebih)**arak mulai dianggap "Jauh" sejak 70 cm. Status "Jauh" akan bernilai maksimal (1.0) jika jarak mencapai 100 cm atau lebih.
+4. **Jauh (70 - 100 cm atau lebih)**. Jarak mulai dianggap "Jauh" sejak 70 cm. Status "Jauh" akan bernilai maksimal (1.0) jika jarak mencapai 100 cm atau lebih.
 
 Berdasarkan beberapa pengujian, diperoleh aturan sebagai berikut: (beberapa belum fix)
 1. R1: Jika Depan Kiri Jauh dan Depan Kanan Jauh, **Jalan Lurus**
@@ -200,7 +200,7 @@ Tahap pengambilan keputusan akhir atau tindakan nyata oleh perangkat keras. Taha
     }
 ```
 
-### Kode Lengkap
+### Kode Lengkap (belum fix)
 ```cpp
     #define TRIG1 7
     #define ECHO1 6
