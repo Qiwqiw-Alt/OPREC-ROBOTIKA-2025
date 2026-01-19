@@ -72,7 +72,7 @@ Jika robot berada di medan yang miring ke depan (Pitch) sekaligus miring ke kana
 * Hasil Akhirnya: Sistem koordinasi robot akan menggabungkan kedua perintah tersebut sehingga kaki depan-kanan akan menjadi yang paling panjang, sementara kaki belakang-kiri menjadi yang paling pendek, agar tubuh robot tetap rata (level).
 
 ## PID untuk Motor
-Untuk ALgoritma PID yang digunakan pada motor, bisa lihat ini:
+Untuk Algoritma PID yang digunakan pada motor, bisa lihat ini:
 * [DC Motor Control](https://youtube.com/playlist?list=PLhQSFP7_LypkRhYys1NaWir7tTO1cLVFy&si=jr47zwOWJg5BzKPo)
 
 ### Mengapa menggunakan PID untuk Mengontrol Motor?
