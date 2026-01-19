@@ -75,6 +75,35 @@ Jika robot berada di medan yang miring ke depan (Pitch) sekaligus miring ke kana
 Untuk ALgoritma PID yang digunakan pada motor, bisa lihat ini:
 * [DC Motor Control](https://youtube.com/playlist?list=PLhQSFP7_LypkRhYys1NaWir7tTO1cLVFy&si=jr47zwOWJg5BzKPo)
 
+### Mengapa menggunakan PID untuk Mengontrol Motor?
+Tanpa PID, motor cenderung tidak stabil saat menghadapi perubahan beban atau hambatan. PID digunakan karena:
+* Presisi Tinggi: Memastikan motor mencapai kecepatan atau posisi target secara akurat meskipun ada gangguan eksternal.
+* Respon Halus: Mencegah motor berputar secara mengejutkan atau kasar dengan memberikan percepatan dan pengereman yang terukur.
+* Otomatisasi: Sistem dapat menyesuaikan diri sendiri tanpa perlu intervensi manual setiap kali beban motor berubah.
+
+### Input pada Algoritma PID
+Pada algoritma PID diperlukan beberapa nilai yang dijadikan sebagai input, yaitu
+* Setpoint (Target): Nilai yang kita inginkan, misalnya kecepatan 100 RPM atau sudut 0 derajat.
+* Nilai Aktual (Feedback): Data nyata dari sensor, seperti pembacaan Encoder untuk kecepatan motor atau MPU 9250 untuk kemiringan robot.
+* Error (e): Selisih antara Setpoint dan Nilai Aktual (e = Setpoint - Nilai Aktual). Inilah yang menjadi nilai bagi PID untuk menghitung koreksi.
+
+### Proses Algoritma PID untuk Motor
+Setelah mendapatkan nilai Error, algoritma memprosesnya melalui tiga aksi secara paralel, yaitu
+* Proportional (P): Memberikan tenaga dorong yang sebanding dengan besarnya error saat ini (Kp x e)
+* Integral (I): Menjumlahkan error dari waktu ke waktu  untuk memastikan motor tidak berhenti sebelum target benar-benar tercapai.
+* Derivative (D): Mengukur seberapa cepat error berubah untuk memprediksi masa depan dan berfungsi sebagai "rem" agar motor tidak melewati batas target (overshoot).
+* Total Output (u(t)): Hasil dari ketiga perhitungan tersebut dijumlahkan untuk menjadi satu nilai instruksi akhir.
+
+### Hasil Algoritma PID
+Hasil akhir dari algoritma ini adalah sebuah sinyal kendali yang dikirim ke Motor Driver:
+* Sinyal PWM: Nilai u(t) dikonversi menjadi lebar pulsa (PWM) biasanya antara 0 hingga 255 untuk menentukan kecepatan motor.
+* Arah Putaran: Menentukan apakah motor harus berputar searah jarum jam atau sebaliknya berdasarkan tanda positif/negatif dari hasil PID.
+* Stabilitas: Motor akan bergerak mendekati target dengan lintasan yang halus, minim getaran, dan mampu mempertahankan posisinya meskipun didorong atau diberi beban tambahan.
+
+### Masalah yang mungkin terjadi
+* Integral Windup (Limit Integrator): Jika roda robot tersangkut, error akan terus ada, dan bagian I pada rumus akan menjumlahkan error tersebut hingga nilainya mencapai ribuan. Saat hambatan dilepas, motor akan berputar sangat kencang. **Solusi: membatasi nilai maksimal yang boleh dihasilkan oleh bagian Integral dalam kode program.** 
+* Deadband Motor: Motor fisik memiliki karakteristik di mana mereka tidak akan berputar jika diberi tegangan (PWM) yang terlalu rendah karena adanya gesekan internal. **Solusi: menambhakan nilai minimum PWM**
+
 ## Istilah Penting dalam PID
 * Setpoint: Target nilai yang diinginkan (Contoh: Sudut 0 derajat).
 * Input/Process Variable: Nilai yang terbaca sensor saat ini (Contoh: MPU membaca miring 10 derajat).
@@ -93,6 +122,15 @@ Rumus PID:
 * Ki : Konstanta Integrator, menjumlahkan error dari waktu ke waktu. Gunanya untuk memastikan u(t) benar-benar sampai ke titik target tanpa ada sisa error sedikitpun. (nilainya ditentukan saat tunning setelah Kp)
 * Kd : Konstanta Derivative, mengukur seberapa cepat error berubah. Gunanya sebagai "peredam" atau rem otomatis agar u(t) melewati batas target (nilainya ditentukan saat tunning setelah Ki)
 * dt : Selang waktu antar perhitungan. Ini sangat krusial dalam program karena integral dan derivative sangat bergantung pada ketepatan waktu.
+
+### Diskritisasi untuk Pemrograman
+Untuk diimplementasikan ke dalam kode mikrokontroler (seperti Arduino), rumus kalkulus di atas diubah menjadi bentuk diskrit:
+
+| Komponen | Rumus Matematis | Implementasi Program |
+|----------|-----------------|----------------------|
+| **Proporsional** | $K_p \times e$ | `Kp * error` |
+| **Integrator** | $K_i \int e \, dt$ | `Ki * (sum_error * dt)` |
+| **Derivative** | $K_d \frac{de}{dt}$ | `Kd * (error - last_error) / dt` |
 
 ## Kode program PID Sederhana
 
@@ -151,6 +189,7 @@ Rumus PID:
             // Hitung PID
             error = setpoint - input; // Hitung error
             integral += error * dt;   // Hitung Integral
+            integral = constrain(integral, -100, 100); // // Tambahkan batas integral (Anti-Windup)
             derivative = (error - lastError) / dt; // Hitung derivative
 
             output = (Kp * error) + (Ki * integral) + (Kd * derivative); // Hitung total Ouput u(t)
