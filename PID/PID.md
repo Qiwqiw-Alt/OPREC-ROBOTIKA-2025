@@ -159,11 +159,12 @@ Untuk diimplementasikan ke dalam kode mikrokontroler (seperti Arduino), rumus ka
     double Kd = 0.1; 
 
     unsigned long lastTime = 0;
+    const double limitPWM = 255.0; // Batas PWM Motor
 
     void setup() {
         Serial.begin(9600);
         pinMode(pinEncoderA, INPUT_PULLUP);
-        attachInterrupt(digitalPinToInterrupt(pinEncoderA), countEncoder, RISING);
+        attachInterrupt(digitalPinToInterrupt(pinEncoderA)countEncoder, RISING);
         
         pinMode(pinPWM, OUTPUT);
         pinMode(pinDir, OUTPUT);
@@ -188,8 +189,16 @@ Untuk diimplementasikan ke dalam kode mikrokontroler (seperti Arduino), rumus ka
 
             // Hitung PID
             error = setpoint - input; // Hitung error
-            integral += error * dt;   // Hitung Integral
-            integral = constrain(integral, -100, 100); // // Tambahkan batas integral (Anti-Windup)
+
+            // Perhitungan Integration dengan Metode Trapezoidal
+            double deltaIntegral = ((error + lastError) / 2.0) * dt;
+            integral += deltaIntegral;
+
+            // Jika output sudah mentok, jangan tambah integral lagi
+            if (abs(output) >= limitPWM && ((error > 0 && integral > 0) || (error < 0 && integral < 0))) {
+                integral -= deltaIntegral; 
+            }
+
             derivative = (error - lastError) / dt; // Hitung derivative
 
             output = (Kp * error) + (Ki * integral) + (Kd * derivative); // Hitung total Ouput u(t)
