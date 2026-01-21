@@ -19,3 +19,9 @@ platform vision AI terkemuka yang mengembangkan model YOLO (You Only Look Once) 
 
 ## Apa itu YOLO?
 YOLO atau You Only Look Once adalah seri model object detection real-time  yang memproses gambar hanya dalam satu pass melalui neural network untuk secara simultan memprediksi bounding box dan kelas objek, sehingga jauh lebih cepat daripada detector dua tahap seperti Faster R-CNN. Dikembangkan pertama kali oleh Joseph Redmon pada 2015, YOLO kini dikelola utama oleh Ultralytics dengan versi terbaru YOLO11 (dirilis 2024) yang mendukung multi-task seperti detection, instance segmentation, pose estimation, classification, dan object tracking dengan performa state-of-the-art, akurasi tinggi, serta efisiensi lebih baik (parameter lebih sedikit tapi mAP lebih tinggi).
+
+## Apa itu Google Colab?
+Google Colaboratory, atau sering disebut Google Colab, adalah layanan berbasis cloud (komputasi awan) yang disediakan oleh Google secara gratis. Dalam proses pembuatan model Object Detection, Google Colab memegang bebrapa peran penting, yaitu sebagai **Penyediaan GPU Gratis**
+dan **Lingkungan yang Siap Pakai**. Google Collab memberikan akses gratis ke GPU (Graphics Processing Unit) seperti NVIDIA T4. GPU dapat mempercepat proses training hingga 10-20 kali lebih cepat dibandingkan laptop standar. Selain itu, Colab sudah menyediakan library populer seperti OpenCV, TensorFlow, dan PyTorch. Untuk menggunakan Ultralytics, Anda cukup menjalankan satu baris kode instalasi saja (!pip install ultralytics), dan lingkungan kerja langsung siap digunakan.
+
+## Tahapan Melatih Model di Ultralytics dan Google Collab
