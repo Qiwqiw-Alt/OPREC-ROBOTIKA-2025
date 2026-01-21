@@ -28,4 +28,4 @@ Invers kinematika adalah metode analisis yang digunakan untuk mengubah koordinat
 
 ## Rumus Invers Kinematik
 
-## Kode Program Invers Kinematik
+## Kode Program Invers Kinematik 3 DoF
