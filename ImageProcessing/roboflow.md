@@ -52,7 +52,31 @@ Setelah membuat proyek dengan memilih salah satu tipe, misal Object detection. H
 
 
 #### 3. Annotate (Pelabelan)
-Jika gambar yang dijadikan datset belum memiliki label, setiap gambar harus diberi label sesuai kategorinya masing-masing. Untuk melakukannya, gunakan fitur ROboflow Annotate.
+Jika gambar yang dijadikan datset belum memiliki label, setiap gambar harus diberi label sesuai kategorinya masing-masing. Untuk melakukannya, gunakan fitur Roboflow Annotate.
+
+1. Setelah semua dataset terupload, pilih menu `Label Myself`
+![Label Myself](img/tahap-2.png)
+
+2. Lalu tekan tombol `Start Annotating`
+![Start Annotating](img/tahap-2.1.png)
+
+3. Drag tool
+![Roboflow Annotate](img/tahap-2.2.png)
+
+Drag Tool adalah alat seleksi/kursor yang digunakan untuk memanipulasi Bounding Box yang sudah dibuat. Fungsi yang paling sering digunakan adalah untuk mengatur Posisi (Repositioning). Jika kotak yang dibuat sedikit miring atau kurang pas, Anda bisa mengklik bagian tengah kotak dan menggesernya (drag) ke posisi yang benar. User juga bisa menarik titik-titik di sudut kotak untuk memperbesar atau memperkecil ukurannya.
+
+4. Bounding Box
+![Bounding Box](img/tahap-2.3.png)
+
+Bounding Box adalah kotak persegi panjang yang digambar mengelilingi objek target (dalam kasus Anda, simbol X atau O). Kotak ini berfungsi sebagai koordinat yang menentukan posisi objek di dalam sebuah gambar. Tool ini berfungsi untuk **memberikan label pada area spesifik agar model memahami bentuk dan lokasi objek**.
+
+5. Hasil Annotating
+![Hasil Annotating](img/tahap-2.4.png)
+
+6. Mengganti Label Annotate
+![Mengganti Label Annotate](img/tahap-2.5.png)
+
+Untuk mengganti label misal dari `circle` ke `x`, cukup ketikan nama label di menu Annotation Editor. Jika label yang diinginkan belum ada, maka akan otomatis ditambahkan menjadi kelas label baru.
 
 #### 4. Dataset Menagement
 Setelah semua gambar diberi label, data perlu dibagi menjadi 3 kategori, yaitu
