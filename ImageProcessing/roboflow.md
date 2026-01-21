@@ -35,8 +35,21 @@ Website Roboflow Universe: [Explore the Roboflow Universe](https://universe.robo
 Website Google Dataset: [Dataset Search](https://datasetsearch.research.google.com/)
 ![Website Google Dataset](img/googledataset.png)
 
-#### 2. Upload Data
-Setelah membuat proyek dengan memilih salah satu tipe, misal Object detection.=, hal yang perlu dilakukan selanjutnya adalah mengunggah dataset.
+#### 2. Membuat Projek dan Upload Data
+Setelah membuat proyek dengan memilih salah satu tipe, misal Object detection. Hal yang perlu dilakukan selanjutnya adalah mengunggah dataset.
+
+1. Membuat Projek dengan tipe Object Detection
+![Membuat Projek Baru](img/tahap-1.png)
+
+2. Pilih pembuatan model dengan cara Tradisional (bukan rapid)
+![Mode Tradisonal](img/tahap-1.1.png)
+
+3. Dataset yang sudah dikumpulkan
+![Dataset](img/tahap-1.2.png)
+
+4. Upload Dataset yang sudah dikumpulkan, lalu klik `save and continue`
+![Upload Dataset](img/tahap-1.3.png)
+
 
 #### 3. Annotate (Pelabelan)
 Jika gambar yang dijadikan datset belum memiliki label, setiap gambar harus diberi label sesuai kategorinya masing-masing. Untuk melakukannya, gunakan fitur ROboflow Annotate.
