@@ -18,3 +18,26 @@
 
 ## Apa itu Roboflow?
 Roboflow adalah platform end-to-end untuk computer vision yang memudahkan developer dan perusahaan dalam membangun, melatih, serta mendeploy model machine learning berbasis penglihatan komputer, mulai dari anotasi data citra (gambar dan video) dengan bantuan AI, pengelolaan dataset, preprocessing, augmentation, training model state-of-the-art, hingga deployment ke cloud atau edge devices.
+
+## Tahapan Pembuatan Model di Roboflow
+### 1. Menyiapkan Dataset
+Dataset untuk pengembangan model dapat diperoleh melalui tiga metode utama, yaitu
+* Pencarian Manual: Mengumpulkan gambar secara spesifik melalui mesin pencari (seperti Google Images) sesuai dengan objek yang ingin diteliti.
+* Public Repository: Memanfaatkan platform penyedia dataset terbuka seperti Kaggle, Roboflow Universe, atau Google Dataset Search yang menyediakan ribuan data siap pakai.
+* Pengambilan Data Langsung (Primary Data): Melakukan pemotretan atau perekaman video mandiri di lapangan untuk mendapatkan data yang lebih relevan dengan kondisi asli (real-world environment).
+
+Webiste Kaggle: (Level up with the largest AI & ML community)[https://www.kaggle.com/]
+![Website Kaggle](img/kagglewebsite.png)
+
+Website Roboflow Universe: (Explore the Roboflow Universe)[https://universe.roboflow.com/]
+![Website Roboflow Universe](img/roboflowuniverse.png)
+
+Website Google Dataset: (Dataset Search)[https://datasetsearch.research.google.com/]
+![Website Google Dataset](img/googledataset.png)
+
+#### 2. Upload Data
+#### 3. Annotate (Pelabelan)
+#### 4. Dataset Menagement
+#### 5. Preprocessing
+#### 6. Augmentasi
+#### 7. Generate & Export
