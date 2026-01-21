@@ -2,11 +2,14 @@
 
 ## Link Penting 🔗
 
-* **Repository Github PID**
+* **Repository Github Voice Recognition**
+  * []()
    
 * **Video Youtube Voice Recognition:**
+  * []()
 
 * **Web Belajar:**
+  * []()
    
 -----
 
@@ -38,6 +41,3 @@ Ada dua jenis mikrofon yang umum digunakan:
 - **Modul Suara Khusus**
     **Contoh:** VR Module V3
     Jika mikrokontroler tidak cukup kuat, RObot bisa menggunakan modul tambahan yang sudah memiliki chip pengenal suara sendiri di dalamnya.
-
-
-    
