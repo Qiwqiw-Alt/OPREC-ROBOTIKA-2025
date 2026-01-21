@@ -26,18 +26,42 @@ Dataset untuk pengembangan model dapat diperoleh melalui tiga metode utama, yait
 * Public Repository: Memanfaatkan platform penyedia dataset terbuka seperti Kaggle, Roboflow Universe, atau Google Dataset Search yang menyediakan ribuan data siap pakai.
 * Pengambilan Data Langsung (Primary Data): Melakukan pemotretan atau perekaman video mandiri di lapangan untuk mendapatkan data yang lebih relevan dengan kondisi asli (real-world environment).
 
-Webiste Kaggle: (Level up with the largest AI & ML community)[https://www.kaggle.com/]
+Webiste Kaggle: [Level up with the largest AI & ML community](https://www.kaggle.com/)
 ![Website Kaggle](img/kagglewebsite.png)
 
-Website Roboflow Universe: (Explore the Roboflow Universe)[https://universe.roboflow.com/]
+Website Roboflow Universe: [Explore the Roboflow Universe](https://universe.roboflow.com/)
 ![Website Roboflow Universe](img/roboflowuniverse.png)
 
-Website Google Dataset: (Dataset Search)[https://datasetsearch.research.google.com/]
+Website Google Dataset: [Dataset Search](https://datasetsearch.research.google.com/)
 ![Website Google Dataset](img/googledataset.png)
 
 #### 2. Upload Data
+Setelah membuat proyek dengan memilih salah satu tipe, misal Object detection.=, hal yang perlu dilakukan selanjutnya adalah mengunggah dataset.
+
 #### 3. Annotate (Pelabelan)
+Jika gambar yang dijadikan datset belum memiliki label, setiap gambar harus diberi label sesuai kategorinya masing-masing. Untuk melakukannya, gunakan fitur ROboflow Annotate.
+
 #### 4. Dataset Menagement
+Setelah semua gambar diberi label, data perlu dibagi menjadi 3 kategori, yaitu
+* Train: Data untuk dipelajari model.
+* Valid: Data untuk mengevaluasi model saat pelatihan.
+* Test: Data untuk mengevaluasi model saat pelatihan.
+
 #### 5. Preprocessing
+Langkah ini diterapkan pada seluruh gambar untuk memastikan konsistensi. Beberapa yang bisa dilakukan seperti
+* Auto-Orient: Menghapus metadata orientasi EXIF.
+* Resize: Menyesuaikan ukuran gambar (misalnya 640x640) agar sesuai dengan input model YOLO Ultralytics.
+* Grayscale: Mengubah warna menjadi hitam putih jika warna tidak relevan.
+
 #### 6. Augmentasi
+Berbeda dengan preprocessing, augmentasi hanya diterapkan pada Train Set untuk membuat variasi data baru agar model lebih kuat (robust). Beberapa yang bisa dilakukan seperti
+* Flip & Rotation: Memutar gambar.
+* Blur & Noise: Menambah gangguan visual.
+* Brightness/Exposure: Simulasi kondisi cahaya yang berbeda.
+
 #### 7. Generate & Export
+Ini adalah langkah terakhir sebelum melatih model dengan Ultralytics dan Google Colab. 
+1. Klik tombol "Generate" untuk membuat versi dataset (Snapshot).
+2. Setelah selesai, klik "Export Dataset".
+3. Pilih format "YOLOv8" (atau versi YOLO yang Anda gunakan dari Ultralytics).
+4. Pilih opsi "show download code". Anda akan mendapatkan sebuah API Key dan cuplikan kode Python.
