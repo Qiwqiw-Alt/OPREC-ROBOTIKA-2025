@@ -98,9 +98,9 @@ $$\theta_2 = \arccos(-0.023) \approx \mathbf{91.3^\circ}$$
 Langka ini terdiri dari dua bagian sudut:
 1. $\alpha$ (Alpha): Sudut kemiringan dari pangkal ke target.
 
-    $$\alpha = \operatorname{atan2}(y, x)$$
+    $$\alpha = atan2(y, x)$$
 
-    $$\alpha = \operatorname{atan2}(50, 100) \approx \mathbf{26.5^\circ}$$
+    $$\alpha = atan2(50, 100) \approx \mathbf{26.5^\circ}$$
 
 2. $\beta$ (Beta): Sudut internal di dalam segitiga yang dibentuk oleh lengan.
 
@@ -117,13 +117,73 @@ Langka ini terdiri dari dua bagian sudut:
     $$\theta_1 = 26.5^\circ + 45.7^\circ = \mathbf{72.2^\circ}$$
 
 ### 4. Hasil Akhir
-gar ujung kaki sampai di titik $(100, 50)$, robot harus mengatur motornya ke posisi:
+Agar ujung kaki sampai di titik $(100, 50)$, robot harus mengatur servonya ke posisi:
 - Sudut Bahu ($\theta_1$) = $72.2^\circ$
 - Sudut Siku ($\theta_2$) = $91.3^\circ$
 
 ## Kode Program Invers Kinematik 2 DoF
 
 ```cpp
+    #include <iostream>
+    #include <cmath> // Library untuk fungsi matematika seperti sqrt, atan2, acos
+
+    using namespace std;
+
+    // Konstanta untuk mengonversi radian ke derajat
+    const double RAD_TO_DEG = 180.0 / 3.14159265358979323846;
+
+    void hitungIK(double x, double y) {
+        // 1. Tentukan panjang link (ruas) robot sesuai contoh soal sebelumnya
+        double L1 = 80.0; // Panjang paha/lengan atas (mm)
+        double L2 = 80.0; // Panjang betis/lengan bawah (mm)
+
+        // 2. Hitung jarak hipotenusa (H) menggunakan Teorema Pythagoras
+        // H = sqrt(x^2 + y^2)
+        double H = sqrt(x * x + y * y);
+
+        // Cek apakah target berada di luar jangkauan robot
+        if (H > (L1 + L2)) {
+            cout << "Target di luar jangkauan!" << endl;
+            return;
+        }
+
+        // 3. Hitung Sudut Siku (theta2) menggunakan Hukum Cosinus
+        // Rumus: cos(theta2) = (x^2 + y^2 - L1^2 - L2^2) / (2 * L1 * L2)
+        double cosTheta2 = (x * x + y * y - L1 * L1 - L2 * L2) / (2 * L1 * L2);
+        double theta2 = acos(cosTheta2) * RAD_TO_DEG; // Hasil dalam derajat
+
+        // 4. Hitung Sudut Bahu (theta1)
+        // Langkah A: Cari sudut elevasi ke target (alpha)
+        double alpha = atan2(y, x); // Menggunakan atan2 agar kuadran akurat
+
+        // Langkah B: Cari sudut internal segitiga (beta) menggunakan Hukum Cosinus
+        // cos(beta) = (L1^2 + H^2 - L2^2) / (2 * L1 * H)
+        double cosBeta = (L1 * L1 + H * H - L2 * L2) / (2 * L1 * H);
+        double beta = acos(cosBeta);
+
+        // Gabungkan alpha dan beta untuk mendapatkan theta1
+        double theta1 = (alpha + beta) * RAD_TO_DEG; // Hasil dalam derajat
+
+        // Output hasil sudut untuk servo
+        cout << "--- Hasil Invers Kinematik ---" << endl;
+        cout << "Input Target X : " << x << " mm" << endl;
+        cout << "Input Target Y : " << y << " mm" << endl;
+        cout << "Sudut Bahu (theta1) : " << theta1 << " derajat" << endl;
+        cout << "Sudut Siku (theta2) : " << theta2 << " derajat" << endl;
+    }
+
+    int main() {
+        double targetX, targetY;
+
+        cout << "Masukkan koordinat target X: ";
+        cin >> targetX;
+        cout << "Masukkan koordinat target Y: ";
+        cin >> targetY;
+
+        hitungIK(targetX, targetY);
+
+        return 0;
+    }
 ```
 
 ## Rumus Invers Kinematik 3 DoF
@@ -181,8 +241,141 @@ di mana:
 - $R$ = Jarak mendatar dari sendi paha ke target.
 
 ## Contoh Soal Invers Kinematik 3 DoF
+Diketahui:
+- Panjang Coxa ($L_1$) = 3 cm
+- Panjang Femur ($L_2$) = 7 cm
+- Panjang Tibia ($L_3$) = 10 cm
+- Target Koordinat = X =10; Y = 10; Z = -5
+
+### 1. Cari Sudut Coxa ($\theta_{coxa}$) dengan fungsi ArcTangent2 untuk menentukan arah hadap kaki pada bidang horizontal.
+
+$$\theta_{coxa} = atan2(Y, X)$$
+
+$$\theta_{coxa} = atan2(10, 10) = \mathbf{45^\circ}$$
+
+### 2.  Cari Nilai R dan H (Transformasi 3D ke 2D)
+Untuk melakukan perhitungan, koordinat perlu disederhanakan agar bisa dihitung dengan menggunakan rumus 2D.
+
+1. Mencari Jarak Horizontal Total ($D$):
+
+    $$D = \sqrt{X^2 + Y^2} = \sqrt{10^2 + 10^2} \approx 14.14 \text{ cm}$$
+
+2.  Mencari Jarak Mendatar dari Paha ($R$) dengan mengurangi arak total dengan panjang Coxa ($L_1$) karena paha baru dimulai setelah ruas coxa.
+
+    $$R = D - L_1 = 14.14 - 3 = \mathbf{11.14 \text{ cm}}$$
+
+3. Mencari Jarak Hipotenusa ($H$) dengan menggunakan Teorema Pythagoras untuk mencari jarak lurus dari sendi paha ke ujung kaki.
+
+    $$H = \sqrt{R^2 + Z^2}$$
+
+    $$H = \sqrt{11.14^2 + (-5)^2} = \sqrt{124.1 + 25} = \sqrt{149.1} \approx \mathbf{12.21 \text{ cm}}$$
+
+#### 3.  Cari Sudut Sudut Tibia ($\theta_{tibia}$) dengan menggunakan Hukum Cosinus untuk mencari tekukan lutut. 
+ 
+$$\cos(\theta_{tibia}) = \frac{L_2^2 + L_3^2 - H^2}{2 \cdot L_2 \cdot L_3}$$
+
+$$\cos(\theta_{tibia}) = \frac{7^2 + 10^2 - 12.21^2}{2 \cdot 7 \cdot 10}$$
+
+$$\cos(\theta_{tibia}) = \frac{49 + 100 - 149.08}{140} = \frac{-0.08}{140} \approx 0$$
+
+$$\theta_{tibia} = \arccos(0) = \mathbf{90^\circ}$$
+   
+
+### 4. Cari Sudut Femur ($\theta_{femur}$) dengan menggunakan Trigonometri Dasar untuk menggabungkan sudut elevasi ($\alpha$) dan sudut internal ($\beta$).
+
+1. Sudut Elevasi ($\alpha$):
+
+    $$\alpha = \operatorname{atan2}(Z, R) = \operatorname{atan2}(-5, 11.14) \approx \mathbf{-24.2^\circ}$$
+
+2. Sudut Internal ($\beta$):
+
+    $$\cos(\beta) = \frac{L_2^2 + H^2 - L_3^2}{2 \cdot L_2 \cdot H}$$
+
+    $$\cos(\beta) = \frac{7^2 + 12.21^2 - 10^2}{2 \cdot 7 \cdot 12.21} = \frac{49 + 149.08 - 100}{170.94} \approx 0.579$$
+
+    $$\beta = \arccos(0.579) \approx \mathbf{54.6^\circ}$$
+
+3. Hasil akhir $\theta_{femur}$:
+
+    $$\theta_{femur} = \alpha + \beta = -24.2^\circ + 54.6^\circ = \mathbf{30.4^\circ}$$
+
+### 5. Hasil Akhir Perhitungan
+Agar ujung kaki sampai di titik $(10, 10, -5)$, robot harus mengatur servonya ke posisi:
+- Sudut Coxa: $45^\circ$
+- Sudut Femur: $30.4^\circ$
+- Sudut Tibia: $90^\circ$
 
 ## Kode Program Invers Kinematik 3 DoF
 
 ```cpp
+    #include <iostream>
+    #include <cmath> // Library untuk fungsi matematika
+
+    using namespace std;
+
+    // Konstanta untuk mengonversi radian ke derajat
+    const double RAD_TO_DEG = 180.0 / 3.14159265358979323846;
+
+    void hitungIK3DoF(double x, double y, double z) {
+        // 1. Tentukan panjang link (ruas) kaki robot sesuai contoh soal
+        double L1 = 3.0;  // Panjang Coxa (cm)
+        double L2 = 7.0;  // Panjang Femur (cm)
+        double L3 = 10.0; // Panjang Tibia (cm)
+
+        // --- LANGKAH 1: MENCARI SUDUT COXA (HORIZONTAL) ---
+        // Menggunakan fungsi ArcTangent2 untuk arah hadap
+        double thetaCoxa = atan2(y, x) * RAD_TO_DEG;
+
+        // --- LANGKAH 2: TRANSFORMASI 3D KE 2D ---
+        // Cari jarak horizontal total di lantai
+        double D = sqrt(x * x + y * y);
+        
+        // Cari jarak mendatar murni untuk paha dan betis (R)
+        double R = D - L1;
+
+        // Cari jarak tembak langsung (Hipotenusa H) dari paha ke ujung kaki
+        double H = sqrt(R * R + z * z);
+
+        // Proteksi: Cek apakah target berada di luar jangkauan mekanis
+        if (H > (L2 + L3)) {
+            cout << "Target di luar jangkauan kaki!" << endl;
+            return;
+        }
+
+        // --- LANGKAH 3: MENCARI SUDUT TIBIA (LUTUT) ---
+        // Menggunakan Hukum Cosinus
+        double cosThetaTibia = (L2 * L2 + L3 * L3 - H * H) / (2 * L2 * L3);
+        double thetaTibia = acos(cosThetaTibia) * RAD_TO_DEG;
+
+        // --- LANGKAH 4: MENCARI SUDUT FEMUR (PAHA) ---
+        // A. Sudut elevasi ke arah target (alpha)
+        double alpha = atan2(z, R);
+        
+        // B. Sudut internal segitiga kaki (beta)
+        double cosBeta = (L2 * L2 + H * H - L3 * L3) / (2 * L2 * H);
+        double beta = acos(cosBeta);
+
+        // Gabungkan alpha dan beta untuk mendapatkan sudut Femur akhir
+        double thetaFemur = (alpha + beta) * RAD_TO_DEG;
+
+        // Output hasil sudut untuk motor servo
+        cout << "--- Hasil Invers Kinematik 3 DoF ---" << endl;
+        cout << "Target Koordinat: (" << x << ", " << y << ", " << z << ")" << endl;
+        cout << "1. Sudut Coxa  (Pinggul) : " << thetaCoxa << " derajat" << endl;
+        cout << "2. Sudut Femur (Paha)    : " << thetaFemur << " derajat" << endl;
+        cout << "3. Sudut Tibia (Betis)   : " << thetaTibia << " derajat" << endl;
+    }
+
+    int main() {
+        double tx, ty, tz;
+
+        cout << "=== Kalkulator IK Kaki Laba-Laba ===" << endl;
+        cout << "Masukkan Target X: "; cin >> tx;
+        cout << "Masukkan Target Y: "; cin >> ty;
+        cout << "Masukkan Target Z: "; cin >> tz;
+
+        hitungIK3DoF(tx, ty, tz);
+
+        return 0;
+    }
 ```
