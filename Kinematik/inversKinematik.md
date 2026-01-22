@@ -285,7 +285,7 @@ $$\theta_{tibia} = \arccos(0) = \mathbf{90^\circ}$$
 
 1. Sudut Elevasi ($\alpha$):
 
-    $$\alpha = \operatorname{atan2}(Z, R) = \operatorname{atan2}(-5, 11.14) \approx \mathbf{-24.2^\circ}$$
+    $$\alpha = atan2(Z, R) = atan2(-5, 11.14) \approx \mathbf{-24.2^\circ}$$
 
 2. Sudut Internal ($\beta$):
 
