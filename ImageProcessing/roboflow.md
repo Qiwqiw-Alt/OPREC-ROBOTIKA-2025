@@ -78,27 +78,56 @@ Bounding Box adalah kotak persegi panjang yang digambar mengelilingi objek targe
 
 Untuk mengganti label misal dari `circle` ke `x`, cukup ketikan nama label di menu Annotation Editor. Jika label yang diinginkan belum ada, maka akan otomatis ditambahkan menjadi kelas label baru.
 
-#### 4. Dataset Menagement
+7. Menambahkan Images ke Dataset
+![Add Images to Dataset](img/tahap-2.6.png)
+
+Setelah semua images sudah di anotasi, klik tombol sentang seperti pada gambar diatas.
+
+8. Dataset Menagement
+![Dataset Management](img/tahap-2.7.png)
+
 Setelah semua gambar diberi label, data perlu dibagi menjadi 3 kategori, yaitu
 * Train: Data untuk dipelajari model.
 * Valid: Data untuk mengevaluasi model saat pelatihan.
 * Test: Data untuk mengevaluasi model saat pelatihan.
+Pembagian bisa dilakukan sama seperti gambar diatas.
 
-#### 5. Preprocessing
+#### 4. Preprocessing
 Langkah ini diterapkan pada seluruh gambar untuk memastikan konsistensi. Beberapa yang bisa dilakukan seperti
 * Auto-Orient: Menghapus metadata orientasi EXIF.
 * Resize: Menyesuaikan ukuran gambar (misalnya 640x640) agar sesuai dengan input model YOLO Ultralytics.
 * Grayscale: Mengubah warna menjadi hitam putih jika warna tidak relevan.
 
-#### 6. Augmentasi
+1. Menu Preprocessing
+![Preprocessing](img/tahap-3.png)
+
+Untuk melakukan preprocessing, pilih menu version dan scroll ke bawah sampai menemukan menu preprocessing.
+
+2. Pengaturan Preprocessing
+![Pengaturan Preprocessing](img/tahap-3.1.png)
+
+Pengaturan preprocessing bisa dilakukan sama seperti pada gambar diatas atau menggunakan pengaturan yang lain. 
+
+#### 5. Augmentasi
 Berbeda dengan preprocessing, augmentasi hanya diterapkan pada Train Set untuk membuat variasi data baru agar model lebih kuat (robust). Beberapa yang bisa dilakukan seperti
 * Flip & Rotation: Memutar gambar.
 * Blur & Noise: Menambah gangguan visual.
 * Brightness/Exposure: Simulasi kondisi cahaya yang berbeda.
 
-#### 7. Generate & Export
+1. Menu Augmentasi
+![Augmentasi](img/tahap-4.png)
+
+Untuk melakukan augmentasi, scroll ke bawah dari menu preprocessing sampai menemukan menu augmentasi. Pengaturan augmentasi bisa dilakukan sama seperti pada gambar diatas atau menggunakan pengaturan yang lain.
+
+2. Create Dataset
+![Create Dataset](img/tahap-4.1.png)
+
+Jika semua tahapan sebelumnya sudah selesai, scroll ke bawah menuju menu create. Di sini user bisa memilih "Maximum Version Size" dan memberi "Notes" mengenai dataset yang baru dibuat. Jika sudah selesai, user bisa menekan tombol create.
+
+#### 6. Generate & Export
 Ini adalah langkah terakhir sebelum melatih model dengan Ultralytics dan Google Colab. 
 1. Klik tombol "Generate" untuk membuat versi dataset (Snapshot).
 2. Setelah selesai, klik "Export Dataset".
 3. Pilih format "YOLOv8" (atau versi YOLO yang Anda gunakan dari Ultralytics).
-4. Pilih opsi "show download code". Anda akan mendapatkan sebuah API Key dan cuplikan kode Python.
+4. Pilih opsi "dowload zip to computer"
+5. Upload dataset ke [Ultralytics HUB](https://hub.ultralytics.com/)
