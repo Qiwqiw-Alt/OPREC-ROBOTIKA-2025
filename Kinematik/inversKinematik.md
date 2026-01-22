@@ -62,7 +62,7 @@ di mana:
 Digunakan untuk menentukan arah elevasi atau kemiringan lengan terhadap garis horizontal.
 
 $$
-\theta_1 = atantwo(y, x) \pm \beta
+\theta_1 = atan2(y, x) \pm \beta
 $$
 
 di mana:
@@ -72,7 +72,7 @@ $$
 $$
 
 - $r = \sqrt{x^2 + y^2}$ (jarak dari origin ke end-effector)  
-- $atantwo(y, x)$ memberikan sudut utama vektor posisi  
+- $atan2(y, x)$ memberikan sudut utama vektor posisi  
 - Tanda $\pm$ dipilih tergantung konfigurasi (elbow-up atau elbow-down)  
 - $\beta$ adalah sudut koreksi agar link kedua mencapai target dengan benar
 
@@ -80,8 +80,66 @@ $$
 
 ## Kode Program Invers Kinematik 2 DoF
 
+```cpp
+```
+
 ## Rumus Invers Kinematik 3 DoF
+Pada Inversi Kinematik32 DoF, dicari 3 sudut yaitu 
+- Coxa (pinggul atau $\theta_{coxa}$): berputar ke kiri dan kanan (horizontal)
+- Femur (paha atau $\theta_{femur}$): bergerak naik dan turun (vertikal)
+- Tibia (betis atau $\theta_{tibia}$): bergerak menekuk dan lurus (verikal)
+
+Untuk menghitung 3 sudut tersebut digunakan 4 rumus utama, yaitu
+
+### 1. Fungsi ArcTangent2
+Digunakan pertama kali untuk menentukan sudut coxa ($\theta_{coxa}$) atau rotasi horizontal kaki. Fungsi ini digunakan untuk menghitung sudut dari titik pusat robot ke target di lantai agar kaki menghadap ke arah yang benar.
+
+$$
+\theta_{coxa} = atan2(y, x)
+$$
+
+di mana:
+- $x, y$ = koordinat target end-effector  
+
+### 2. Rumus Pythagoras
+Digunakan untuk menghitung jarak lurus (H) dalam dua tahap, yaitu
+- Tahap 1: Mencari jarak horizontal total dari pusat ke target di lantai.
+- Tahap 2: Mencari jarak lurus dari sendi bahu (femur) langsung ke ujung kaki (tibia) di udara.
+
+$$ H = \sqrt{R^2 + Z^2} $$
+
+di mana:
+- $R$ = Jarak mendatar dari sendi paha (Femur) ke titik target di lantai. Ini didapat dari jarak total $X, Y$ dikurangi panjang Coxa.
+- $Z$ = Ketinggian vertikal, Posisi target pada sumbu tegak (seberapa tinggi atau rendah ujung kaki dari titik sendi paha).
+- $H$ = jarak target
+
+### 3. Hukum Cosinus (Mencari sudut siku atau $\theta_2$)
+Digunakan untuk mencari besarnya tekukan sendi Tibia (lutut) berdasarkan panjang paha ($L_{femur}$), panjang betis ($L_{tibia}$), dan jarak lurus ke target ($H$).
+
+$$
+\cos(\theta_{tibia}) = \frac{H^2  - L_{femur}^2 - L_{tibia}^2}{2 L_{femur} L_{tibia}}
+$$
+
+di mana:
+- $H$ = Jarak lurus dari sendi paha ke ujung kaki (hasil dari rumus Pythagoras) 
+- $L_{femur}$ = panjang ruas paha link 2  
+- $L_{tibia}$ = panjang  ruas betis link 3  
+- $\theta_{tibia}$ = sudut tekukan pada sendi Tibia
+
+### 4. Trigonometri Dasar (Mencari sudut Femur atau $\theta_{femur}$)
+Digunakan untuk menentukan sudut angkat paha. Sudut ini tidak bisa berdiri sendiri, melainkan hasil gabungan dari dua sudut kecil: sudut kemiringan ke target ($\alpha$) dan sudut internal segitiga kaki ($\beta$).
+
+$$\theta_{femur} = atan2(Z, R) + acos\left(\frac{L_{femur}^2 + H^2 - L_{tibia}^2}{2 \cdot L_{femur} \cdot H}\right)$$
+
+di mana:
+- $atan2(Z, R)$ = Sudut elevasi target berdasarkan ketinggian $Z$ dan jarak datar $R$.
+- Bagian $acos$ = Sudut koreksi internal agar paha terangkat dengan tepat sehingga ujung kaki menyentuh target.
+- $Z$ = Ketinggian vertikal target.
+- $R$ = Jarak mendatar dari sendi paha ke target.
 
 ## Contoh Soal Invers Kinematik 3 DoF
 
 ## Kode Program Invers Kinematik 3 DoF
+
+```cpp
+```
