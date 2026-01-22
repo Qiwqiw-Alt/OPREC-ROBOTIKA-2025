@@ -79,11 +79,13 @@ Bounding Box adalah kotak persegi panjang yang digambar mengelilingi objek targe
 Untuk mengganti label misal dari `circle` ke `x`, cukup ketikan nama label di menu Annotation Editor. Jika label yang diinginkan belum ada, maka akan otomatis ditambahkan menjadi kelas label baru.
 
 7. Menambahkan Images ke Dataset
+
 ![Add Images to Dataset](img/tahap-2.6.png)
 
 Setelah semua images sudah di anotasi, klik tombol sentang seperti pada gambar diatas.
 
-8. Dataset Menagement
+8. Dataset 
+
 ![Dataset Management](img/tahap-2.7.png)
 
 Setelah semua gambar diberi label, data perlu dibagi menjadi 3 kategori, yaitu
@@ -126,8 +128,10 @@ Jika semua tahapan sebelumnya sudah selesai, scroll ke bawah menuju menu create.
 
 #### 6. Generate & Export
 Ini adalah langkah terakhir sebelum melatih model dengan Ultralytics dan Google Colab. 
-1. Klik tombol "Generate" untuk membuat versi dataset (Snapshot).
-2. Setelah selesai, klik "Export Dataset".
-3. Pilih format "YOLOv8" (atau versi YOLO yang Anda gunakan dari Ultralytics).
-4. Pilih opsi "dowload zip to computer"
-5. Upload dataset ke [Ultralytics HUB](https://hub.ultralytics.com/)
+1. Klik tombol "Download Dataset" di menu verison
+![Download Dataset](img/tahap-5.png)
+
+2. Pilih format "YOLOv8" (atau versi YOLO yang Anda gunakan dari Ultralytics) dan Pilih opsi "dowload zip to computer"
+![Format Dataset](img/tahap-5.1.png)
+
+3. Upload dataset ke [Ultralytics HUB](https://hub.ultralytics.com/)
