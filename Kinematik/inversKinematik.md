@@ -31,21 +31,21 @@ Invers kinematika adalah metode analisis yang digunakan untuk mengubah koordinat
 * Invers Kinematik adalah proses memberikan titik koordinat tujuan sehingga sudut-sudutnya seperti bahu dan siku bergerak untuk mencapai titik tujuan tersebut.
 
 ## Rumus Invers Kinematik 2 DoF
-Pada Inversi Kinematik 2 DoF, dicari 2 sudut yaitu θ1 (sudut bahu) dan θ2 (sudut siku). Jika diibaratkan dengan lengan manusia, θ1 adalah sudut yang menghubungkan bahu dengan lengan atas manusia. Sedangkan, θ2 adalah sudut yang menghubungkan lengan atas dengan lengan bawah.
+Pada Inversi Kinematik 2 DoF, dicari 2 sudut yaitu $\theta_1$ (sudut bahu) dan $\theta_2$ (sudut siku). Jika diibaratkan dengan lengan manusia, $\theta_1$ adalah sudut yang menghubungkan bahu dengan lengan atas manusia. Sedangkan, $\theta_2$ adalah sudut yang menghubungkan lengan atas dengan lengan bawah.
 
 Untuk menghitung 2 sudut tersebut digunakan 3 rumus utama, yaitu
 
 ### 1. Rumus Pythagoras
-Digunakan utnuk menghitung jarak lurus (H) dari pangkal bahu ke titik target (x, y).
+Digunakan untuk menghitung jarak lurus (H) dari pangkal bahu ke titik target (x, y).
 Rumus hipotenusa:
 
 $$ H = \sqrt{x^2 + y^2} $$
 
 di mana:
 - $x, y$ = koordinat target end-effector  
-- $H = jarak target
+- $H$ = jarak target
 
-### 2. Hukum Cosinus (Mencari sudut siku atau θ2)
+### 2. Hukum Cosinus (Mencari sudut siku atau $\theta_2$)
 Digunakan untuk mencari besarnya tekukan siku berdasarkan panjang lengan atas (L1), lengan bawah (L2), dan jarak target (H).
 
 $$
@@ -58,7 +58,7 @@ di mana:
 - $L_2$ = panjang link 2  
 - $\theta_2$ = sudut relatif antara link 1 dan link 2
 
-### 3. Fungsi ArcTan/Atan2 (MEncari sudut bahu atau θ1)
+### 3. Fungsi ArcTan/Atan2 (Mencari sudut bahu atau $\theta_1$)
 Digunakan untuk menentukan arah elevasi atau kemiringan lengan terhadap garis horizontal.
 
 $$
