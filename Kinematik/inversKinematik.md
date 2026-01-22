@@ -3,7 +3,7 @@
 ## Link Penting 🔗
 
 * **Repository Github Invers Kinematik**
-    * []()
+    * [Jakob Leander Hexapod](https://github.com/JakobLeander/hexapod)
 
 * **Video Youtube Invers Kinematik:**
     * [Coding Challenge #64.3: Inverse Kinematics - Fixed Point](https://youtu.be/RTc6i-7N3ms?si=L6iEj5FAcCngYW-b)
@@ -77,6 +77,49 @@ $$
 - $\beta$ adalah sudut koreksi agar link kedua mencapai target dengan benar
 
 ## Contoh Soal Invers Kinematik 2 DoF
+Diketahui: 
+- Panjang Paha ($L_1$) = 80 mm
+- Panjang Betis ($L_2$) = 80 mm
+- Target = x = 100 mm dan y = 50 mm
+
+### 1. Cari jarak Total ($H$) dengan Pythagoras untuk mencari jarak lurus dari pangkal paha ke titik target.
+
+$$H = \sqrt{x^2 + y^2} = \sqrt{100^2 + 50^2} = \sqrt{10000 + 2500} \approx \mathbf{111.8 \text{ mm}}$$
+
+### 2.  Cari Sudut Siku/Betis ($\theta_2$) dengan menggunakan rumus Hukum Cosinus
+
+$$\cos(\theta_2) = \frac{x^2 + y^2 - L_1^2 - L_2^2}{2 \cdot L_1 \cdot L_2}$$
+
+$$\cos(\theta_2) = \frac{100^2 + 50^2 - 80^2 - 80^2}{2 \cdot 80 \cdot 80} = \frac{12500 - 6400 - 6400}{12800} = \frac{-300}{12800} \approx -0.023$$
+
+$$\theta_2 = \arccos(-0.023) \approx \mathbf{91.3^\circ}$$
+
+#### 3.  Cari Sudut Bahu/Paha ($\theta_1$)
+Langka ini terdiri dari dua bagian sudut:
+1. $\alpha$ (Alpha): Sudut kemiringan dari pangkal ke target.
+
+    $$\alpha = \operatorname{atan2}(y, x)$$
+
+    $$\alpha = \operatorname{atan2}(50, 100) \approx \mathbf{26.5^\circ}$$
+
+2. $\beta$ (Beta): Sudut internal di dalam segitiga yang dibentuk oleh lengan.
+
+    $$\cos(\beta) = \frac{L_1^2 + H^2 - L_2^2}{2 \cdot L_1 \cdot H}$$
+
+    $$\cos(\beta) = \frac{80^2 + 111.8^2 - 80^2}{2 \cdot 80 \cdot 111.8}$$
+
+    $$\beta = \arccos(0.698) \approx \mathbf{45.7^\circ}$$
+
+3. Menghitung Sudut Akhir 
+
+    $$\theta_1 = \alpha + \beta$$
+
+    $$\theta_1 = 26.5^\circ + 45.7^\circ = \mathbf{72.2^\circ}$$
+
+### 4. Hasil Akhir
+gar ujung kaki sampai di titik $(100, 50)$, robot harus mengatur motornya ke posisi:
+- Sudut Bahu ($\theta_1$) = $72.2^\circ$
+- Sudut Siku ($\theta_2$) = $91.3^\circ$
 
 ## Kode Program Invers Kinematik 2 DoF
 
@@ -84,7 +127,7 @@ $$
 ```
 
 ## Rumus Invers Kinematik 3 DoF
-Pada Inversi Kinematik32 DoF, dicari 3 sudut yaitu 
+Pada Inversi Kinematik 3 DoF, dicari 3 sudut yaitu 
 - Coxa (pinggul atau $\theta_{coxa}$): berputar ke kiri dan kanan (horizontal)
 - Femur (paha atau $\theta_{femur}$): bergerak naik dan turun (vertikal)
 - Tibia (betis atau $\theta_{tibia}$): bergerak menekuk dan lurus (verikal)
@@ -113,7 +156,7 @@ di mana:
 - $Z$ = Ketinggian vertikal, Posisi target pada sumbu tegak (seberapa tinggi atau rendah ujung kaki dari titik sendi paha).
 - $H$ = jarak target
 
-### 3. Hukum Cosinus (Mencari sudut siku atau $\theta_2$)
+### 3. Hukum Cosinus (Mencari sudut tibia atau $\theta_{tibia}$)
 Digunakan untuk mencari besarnya tekukan sendi Tibia (lutut) berdasarkan panjang paha ($L_{femur}$), panjang betis ($L_{tibia}$), dan jarak lurus ke target ($H$).
 
 $$
