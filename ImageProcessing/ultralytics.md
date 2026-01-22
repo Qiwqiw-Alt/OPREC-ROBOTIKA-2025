@@ -55,16 +55,16 @@ Sebelum model dilatih, perlu dilakukan beberpa pengaturan seperti memilih versi 
 ### 6. Pemilihan Tools untuk Train Model
 ![Google Collab](img/u-1.5.png)
 
-Untuk melatih model, bisa menggunakan Ultralytics CLoud, Google Collab, atau tools lainnya. Pada contoh kali ini akan menggunakan Google Collab. Untuk menggunakan Google Collab, pilih menu "Google Collab" dan tekan tombol "Open Google Collab".
+Untuk melatih model, bisa menggunakan Ultralytics Cloud, Google Collab, atau tools lainnya. Pada contoh kali ini akan menggunakan Google Collab. Untuk menggunakan Google Collab, pilih menu "Google Collab" dan tekan tombol "Open Google Collab".
 
 Sebelum menekan tombol "Open Google Collab" pastikan sudah meng-copy kode program pada step 1.
 
 ### 7. Jalankan Google Collab
 ![Jalankan Google Collab](img/u-1.6.png)
 
-Setelah Google Collab terbuka, jalank kode pada bagian setup. Kode tersebut berfungsi untuk menginstall library-library yang akan digunakan. 
+Setelah Google Collab terbuka, jalankan kode pada bagian setup. Kode tersebut berfungsi untuk menginstall library-library yang akan digunakan. 
 
-Setalah bagian setup selesai, paste kode yang sudah dicopy pada bagian start dan jalankan.
+Setelah bagian setup selesai, paste kode yang sudah dicopy pada bagian start dan jalankan.
 
 ### 8. Google Collab Terhubung
 ![Google Collab Terhubung](img/u-1.7.png)
