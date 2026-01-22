@@ -278,7 +278,7 @@ NumPy (Numerical Python) adalah library fundamental dalam Python untuk komputasi
 
 Pada bagian `cv2.VideoCapture(0)` angka 0 bisa diganti menjadi angka lain seperti 1, 2, dst jika terdapat lebih dari 1 kamera yang terhubung ke komputer. Jika diset dengan angka 0, kamera yang digunakan adalah kamera pertama (default). Jika di set dengan angka 1, kamera yang digunakan adalah kamera kedua dan seterusnya. Urutan angka ini tergantung sistem operasi dan driver kamera. Kadang urutannya tidak selalu sesuai ekspektasi, jadi kalau ingin mencoba kamera lain tapi tidak berhasil dengan angka tertentu, coba secara berurutan dari 0, 1, 2, dst sampai menemukan yang benar.
 
-Selain angka, kamu juga bisa membuka file video dengan memberikan path file, contoh:
+Selain angka, user juga bisa membuka file video dengan memberikan path file, contoh:
 
 ```python
     kameraVideo = cv2.VideoCapture("video.mp4")  # membuka file video
