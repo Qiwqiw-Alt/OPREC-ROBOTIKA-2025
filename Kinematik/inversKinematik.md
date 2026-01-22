@@ -27,7 +27,7 @@ Invers kinematika adalah metode analisis yang digunakan untuk mengubah koordinat
 * Kebalikan dari Tebak-tebakan: Jika trial-error adalah mencoba-coba sudut sampai posisi ujung kakinya pas, maka Invers Kinematik adalah menentukan posisi ujung kakinya dulu, baru kemudian angka sudut yang pasti akan didapatkan lewat perhitungan.
 
 ## Perbedaan dengan Forward Kinematik (FK)
-* Forward Kinematik adalah proses menggerakan sudut bahu sebanyak 30 derjat, lalu gerakan sudut diku 45 derajat sehingga hasilnya sampai di suatu titik.
+* Forward Kinematik adalah proses menggerakan sudut bahu sebanyak 30 derajat, lalu gerakan sudut diku 45 derajat sehingga hasilnya sampai di suatu titik.
 * Invers Kinematik adalah proses memberikan titik koordinat tujuan sehingga sudut-sudutnya seperti bahu dan siku bergerak untuk mencapai titik tujuan tersebut.
 
 ## Rumus Invers Kinematik 2 DoF
@@ -62,7 +62,7 @@ di mana:
 Digunakan untuk menentukan arah elevasi atau kemiringan lengan terhadap garis horizontal.
 
 $$
-\theta_1 = \atantwo(y, x) \pm \beta
+\theta_1 = \operatorname{atan2}(y, x) \pm \beta
 $$
 
 di mana:
@@ -72,7 +72,7 @@ $$
 $$
 
 - $r = \sqrt{x^2 + y^2}$ (jarak dari origin ke end-effector)  
-- $\atantwo(y, x)$ memberikan sudut utama vektor posisi  
+- $\operatorname{atan2}(y, x)$ memberikan sudut utama vektor posisi  
 - Tanda $\pm$ dipilih tergantung konfigurasi (elbow-up atau elbow-down)  
 - $\beta$ adalah sudut koreksi agar link kedua mencapai target dengan benar
 
