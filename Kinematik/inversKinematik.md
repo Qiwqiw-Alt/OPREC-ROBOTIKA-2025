@@ -62,17 +62,17 @@ di mana:
 Digunakan untuk menentukan arah elevasi atau kemiringan lengan terhadap garis horizontal.
 
 $$
-\theta_1 = \operatorname{atan2}(y, x) \pm \beta
+\theta_1 = atantwo(y, x) \pm \beta
 $$
 
 di mana:
 
 $$
-\beta = \acos\left( \frac{L_1^2 + r^2 - L_2^2}{2 L_1 r} \right)
+\beta = acos\left( \frac{L_1^2 + r^2 - L_2^2}{2 L_1 r} \right)
 $$
 
 - $r = \sqrt{x^2 + y^2}$ (jarak dari origin ke end-effector)  
-- $\operatorname{atan2}(y, x)$ memberikan sudut utama vektor posisi  
+- $atantwo(y, x)$ memberikan sudut utama vektor posisi  
 - Tanda $\pm$ dipilih tergantung konfigurasi (elbow-up atau elbow-down)  
 - $\beta$ adalah sudut koreksi agar link kedua mencapai target dengan benar
 
