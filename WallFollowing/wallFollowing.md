@@ -22,12 +22,12 @@ Algoritma Wall Following adalah metode navigasi sederhana yang digunakan robot u
 
 ## Strategi Naviagasi
 
-## Algorirma Kontrol Gerakan
+## Algoritma Kontrol Gerakan
 
 ## Kode Progaram Wall Following
 
 ## Kode Program Wall Following + Proporsional ($P$)
 
-## Kode Program Wall Followinf + PID
+## Kode Program Wall Following + PID
 
 ## Wall Following + PID Vs Fuzzy
