@@ -1,1 +1,0 @@
-## Madgwick Filter
