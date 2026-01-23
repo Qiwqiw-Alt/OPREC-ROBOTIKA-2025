@@ -41,7 +41,7 @@ Pada robot berkaki, Yaw (arah hadap) sering kali digunakan dalam algoritma PID u
 * Saat melangkah, sering terjadi selisih gesekan antar kaki yang menyebabkan robot perlahan berbelok sendiri.
 * Nilai Yaw dari Magnetometer/Gyroscope menjadi input bagi PID untuk menyesuaikan panjang langkah kaki kiri atau kanan agar robot tetap berjalan lurus sesuai target arah.
 
-### 3. Implementasi dari PID ke Inverse Kinemarik
+### 3. Implementasi dari PID ke Inverse Kinematik
 Pada robot laba-laba, output dari PID dikirim ke fungsi Inverse Kinematics.
 * Input: Sudut error dari MPU (Pitch/Roll) masuk ke PID.
 * Output PID: Menghasilkan nilai koreksi posisi x, y, z untuk koordinat tubuh robot.
