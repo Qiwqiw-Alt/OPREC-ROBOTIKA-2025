@@ -92,6 +92,7 @@ Setelah semua gambar diberi label, data perlu dibagi menjadi 3 kategori, yaitu
 * Train: Data untuk dipelajari model.
 * Valid: Data untuk mengevaluasi model saat pelatihan.
 * Test: Data untuk mengevaluasi model saat pelatihan.
+
 Pembagian bisa dilakukan sama seperti gambar diatas.
 
 #### 4. Preprocessing
@@ -131,7 +132,7 @@ Ini adalah langkah terakhir sebelum melatih model dengan Ultralytics dan Google 
 1. Klik tombol "Download Dataset" di menu verison
 ![Download Dataset](img/tahap-5.png)
 
-2. Pilih format "YOLOv8" (atau versi YOLO yang Anda gunakan dari Ultralytics) dan Pilih opsi "dowload zip to computer"
+2. Pilih format "YOLOv8" (atau versi YOLO yang  digunakan dari Ultralytics) dan Pilih opsi "dowload zip to computer"
 ![Format Dataset](img/tahap-5.1.png)
 
 3. Upload dataset ke [Ultralytics HUB](https://hub.ultralytics.com/)
