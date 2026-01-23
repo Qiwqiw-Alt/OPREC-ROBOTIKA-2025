@@ -87,8 +87,8 @@ Merupakan metode yang menggabungkan 3 perhitungan untuk menghasilkan gerakan yan
         pinMode(trig_front, OUTPUT); // Trigger mengirim suara (OUTPUT)
         pinMode(trig_right, OUTPUT); // Trigger mengirim suara (OUTPUT)
         
-        pinMode(echo_front, INPUT);  // Echo menerima suara (INPUT) - INI YANG DIPERBAIKI
-        pinMode(echo_right, INPUT);  // Echo menerima suara (INPUT) - INI YANG DIPERBAIKI
+        pinMode(echo_front, INPUT);  // Echo menerima suara (INPUT)
+        pinMode(echo_right, INPUT);  // Echo menerima suara (INPUT) 
 
         Serial.begin(9600); 
         Serial.println("Test Komunikasi Serial");
@@ -148,7 +148,6 @@ Merupakan metode yang menggabungkan 3 perhitungan untuk menghasilkan gerakan yan
         return distance;
     }
 
-
     // Fungsi Gerakan Sederhana (Full ON/OFF)
     void moveForward() {
         digitalWrite(leftWheelForward, HIGH);
@@ -169,8 +168,244 @@ Merupakan metode yang menggabungkan 3 perhitungan untuk menghasilkan gerakan yan
         digitalWrite(leftWheelForward, LOW);
         digitalWrite(rightWheelForward, LOW);
     }
+
+    void turnLeft() {
+        digitalWrite(leftWheelForward, LOW);
+        digitalWrite(leftWheelBackward, HIGH); // Roda kiri mundur
+        digitalWrite(rightWheelForward, HIGH); // Roda kanan maju
+        digitalWrite(rightWheelBackward, LOW);
+    }
 ```
 
 ## Kode Program Wall Following + Proporsional ($P$)
 
+```cpp
+    // Konfigurasi Pin
+    int trig_front=8; int echo_front=9;
+    int trig_right=10; int echo_right=11;
+
+    // Parameter Ambang Batas (Threshold)
+    double dist_target = 15.0; // Set point
+    float Kp = 15.0 // Konstanta Proporsional (perlu di tunning)
+    long distance_front, distance_right;
+
+    // Pin Motor
+    int leftWheelForward=5; int rightWheelForward=3;
+    int leftWheelBackward=4; int rightWheelBackward=2;
+
+    void setup() {
+        // Inisialisasi Pin Motor sebagai OUTPUT
+        pinMode(leftWheelForward, OUTPUT);
+        pinMode(leftWheelBackward, OUTPUT);
+        pinMode(rightWheelForward, OUTPUT);
+        pinMode(rightWheelBackward, OUTPUT);
+
+        // Inisialisasi Pin Sensor Ultrasonik
+        pinMode(trig_front, OUTPUT); // Trigger mengirim suara (OUTPUT)
+        pinMode(trig_right, OUTPUT); // Trigger mengirim suara (OUTPUT)
+        
+        pinMode(echo_front, INPUT);  // Echo menerima suara (INPUT)
+        pinMode(echo_right, INPUT);  // Echo menerima suara (INPUT) 
+
+        Serial.begin(9600); 
+        Serial.println("Test Komunikasi Serial");
+
+        // Pastikan Motor Diam saat Baru Dinyalakan
+        digitalWrite(leftWheelForward, LOW);
+        digitalWrite(leftWheelBackward, LOW);
+        digitalWrite(rightWheelForward, LOW);
+        digitalWrite(rightWheelBackward, LOW);
+    }
+
+    void loop() {
+        // 1. Baca Sensor 
+        distance_front = readUltrasonic(trig_front, echo_front);
+        distance_right = readUltrasonic(trig_right, echo_right);
+
+        // 2. LOGIKA PROPORSIONAL
+        
+        if (distance_front < 10 && distance_font > 0) {
+            stopRobot();
+            delay(100);
+            turnLeft(); // Belok kiri tajam untuk menghindari tabrakan
+        } 
+        else {
+            // 1. Hitung Error
+            float error = distance_right - dist_target; 
+
+            // 2. Hitung Koreksi (Output = Kp * Error)
+            float correction = Kp * error;
+
+            // 3. Terapkan ke Motor
+            // Jika error positif (terlalu jauh), motor kiri ditambah, motor kanan dikurang agar belok kanan
+            int leftSpeed = base_speed + correction;
+            int rightSpeed = base_speed - correction;
+
+            // 4. Batasi nilai PWM agar tetap di range 0-255
+            leftSpeed = constrain(leftSpeed, 0, 255);
+            rightSpeed = constrain(rightSpeed, 0, 255);
+
+            motorMove(leftSpeed, rightSpeed);
+        }
+    }
+
+    void motorMove(int pwmLeft, int pwmRight) {
+        analogWrite(leftWheelForward, pwmLeft);
+        digitalWrite(leftWheelBackward, LOW);
+        analogWrite(rightWheelForward, pwmRight);
+        digitalWrite(rightWheelBackward, LOW);
+    }
+
+    long readUltrasonic(int trigPin, int echoPin) {
+        digitalWrite(trigPin, LOW); // Sensor berhenti mengirim gelombang ultrasonik
+        delayMicroseconds(2); 
+        digitalWrite(trigPin, HIGH); // Sensor akan mengirim gelombang ultrasonik
+        delayMicroseconds(10); // Memberi pulsa HIGH selama 10 mikrodetik ke pin TRIG 
+        digitalWrite(trigPin, LOW); // Sensor berhenti mengirim gelombang ultrasonik
+        long duration = pulseIn(echoPin, HIGH, 30000); 
+        // mengukur lama waktu (dalam mikrodetik) pin ECHO menerima sinyal HIGH
+        long distance = duration * 0.034 / 2;
+        /**
+            - Kecepatan suara di udara ≈ 0,0343 cm/µs
+            - selang * 0.0343 → menghitung jarak total tempuh suara (pergi + pulang)
+            - Dibagi 2 → mendapatkan jarak sebenarnya ke objek (hanya satu arah)
+        **/
+
+        return distance;
+    }
+
+    void turnLeft() {
+        digitalWrite(leftWheelForward, LOW);
+        digitalWrite(leftWheelBackward, HIGH); // Roda kiri mundur
+        digitalWrite(rightWheelForward, HIGH); // Roda kanan maju
+        digitalWrite(rightWheelBackward, LOW);
+    }
+```
+
 ## Kode Program Wall Following + PID
+
+```cpp
+     // Konfigurasi Pin
+    int trig_front=8; int echo_front=9;
+    int trig_right=10; int echo_right=11;
+
+    // Parameter Ambang Batas (Threshold)
+    double dist_target = 15.0; // Set point
+    float Kp = 15.0 // Konstanta Proporsional (perlu ditunning)
+    float Ki = 0.05 // Konstanta Integral (perlu ditunning)
+    float Kd = 9.0 // Konstanta Derivative (perlu ditunnig)
+
+    int base_speed = 150;
+
+    float lastError = 0;
+    float integral = 0;
+
+    long distance_front, distance_right;
+
+    // Pin Motor
+    int leftWheelForward=5; int rightWheelForward=3;
+    int leftWheelBackward=4; int rightWheelBackward=2;
+
+    void setup() {
+        // Inisialisasi Pin Motor sebagai OUTPUT
+        pinMode(leftWheelForward, OUTPUT);
+        pinMode(leftWheelBackward, OUTPUT);
+        pinMode(rightWheelForward, OUTPUT);
+        pinMode(rightWheelBackward, OUTPUT);
+
+        // Inisialisasi Pin Sensor Ultrasonik
+        pinMode(trig_front, OUTPUT); // Trigger mengirim suara (OUTPUT)
+        pinMode(trig_right, OUTPUT); // Trigger mengirim suara (OUTPUT)
+        
+        pinMode(echo_front, INPUT);  // Echo menerima suara (INPUT)
+        pinMode(echo_right, INPUT);  // Echo menerima suara (INPUT) 
+
+        Serial.begin(9600); 
+        Serial.println("Test Komunikasi Serial");
+
+        // Pastikan Motor Diam saat Baru Dinyalakan
+        digitalWrite(leftWheelForward, LOW);
+        digitalWrite(leftWheelBackward, LOW);
+        digitalWrite(rightWheelForward, LOW);
+        digitalWrite(rightWheelBackward, LOW);
+    }
+
+    void loop() {
+        // 1. Baca Sensor 
+        distance_front = readUltrasonic(trig_front, echo_front);
+        distance_right = readUltrasonic(trig_right, echo_right);
+
+        // 2. LOGIKA PROPORSIONAL
+        
+        if (distance_front < 10 && distance_font > 0) {
+            stopRobot();
+            delay(100);
+            turnLeft(); // Belok kiri tajam untuk menghindari tabrakan
+        } 
+        else {
+            // 1. Hitung Error
+            float error = distance_right - dist_target; 
+
+            // 2. Hitung Integral (Akumulasi Error)
+            integral += error;
+            // Limit integral agar tidak terjadi "Integral Windup"
+            integral = constrain(integral, -50, 50);
+
+            // 3. Hitung Derivative (Perubahan Error)
+            float derivative = error - lastError;
+
+            // 4. Hitung Output PID
+            float correction = (Kp * error) + (Ki * integral) + (Kd * derivative);
+
+            // 5. Update lastError untuk loop berikutnya
+            lastError = error;
+
+            // 6. Terapkan ke Motor
+            // Jika error positif (terlalu jauh), motor kiri ditambah, motor kanan dikurang agar belok kanan
+            int leftSpeed = base_speed + correction;
+            int rightSpeed = base_speed - correction;
+
+            // 4. Batasi nilai PWM agar tetap di range 0-255
+            leftSpeed = constrain(leftSpeed, 0, 255);
+            rightSpeed = constrain(rightSpeed, 0, 255);
+
+            motorMove(leftSpeed, rightSpeed);
+        }
+        delay(100);
+    }
+
+    void motorMove(int pwmLeft, int pwmRight) {
+        analogWrite(leftWheelForward, pwmLeft);
+        digitalWrite(leftWheelBackward, LOW);
+        analogWrite(rightWheelForward, pwmRight);
+        digitalWrite(rightWheelBackward, LOW);
+    }
+
+    long readUltrasonic(int trigPin, int echoPin) {
+        digitalWrite(trigPin, LOW); // Sensor berhenti mengirim gelombang ultrasonik
+        delayMicroseconds(2); 
+        digitalWrite(trigPin, HIGH); // Sensor akan mengirim gelombang ultrasonik
+        delayMicroseconds(10); // Memberi pulsa HIGH selama 10 mikrodetik ke pin TRIG 
+        digitalWrite(trigPin, LOW); // Sensor berhenti mengirim gelombang ultrasonik
+        long duration = pulseIn(echoPin, HIGH, 30000); 
+        // mengukur lama waktu (dalam mikrodetik) pin ECHO menerima sinyal HIGH
+        long distance = duration * 0.034 / 2;
+        /**
+            - Kecepatan suara di udara ≈ 0,0343 cm/µs
+            - selang * 0.0343 → menghitung jarak total tempuh suara (pergi + pulang)
+            - Dibagi 2 → mendapatkan jarak sebenarnya ke objek (hanya satu arah)
+        **/
+
+        return distance;
+    }
+
+    void turnLeft() {
+        digitalWrite(leftWheelForward, LOW);
+        digitalWrite(leftWheelBackward, HIGH); // Roda kiri mundur
+        digitalWrite(rightWheelForward, HIGH); // Roda kanan maju
+        digitalWrite(rightWheelBackward, LOW);
+        delay(300);
+        lastError = 0;
+        integral = 0;
+    }
+```
