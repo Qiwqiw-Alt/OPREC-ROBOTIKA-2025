@@ -23,7 +23,7 @@ YOLO atau You Only Look Once adalah seri model object detection real-time  yang 
 
 ## Apa itu Google Colab?
 Google Colaboratory, atau sering disebut Google Colab, adalah layanan berbasis cloud (komputasi awan) yang disediakan oleh Google secara gratis. Dalam proses pembuatan model Object Detection, Google Colab memegang bebrapa peran penting, yaitu sebagai **Penyediaan GPU Gratis**
-dan **Lingkungan yang Siap Pakai**. Google Collab memberikan akses gratis ke GPU (Graphics Processing Unit) seperti NVIDIA T4. GPU dapat mempercepat proses training hingga 10-20 kali lebih cepat dibandingkan laptop standar. Selain itu, Colab sudah menyediakan library populer seperti OpenCV, TensorFlow, dan PyTorch. Untuk menggunakan Ultralytics, Anda cukup menjalankan satu baris kode instalasi saja (!pip install ultralytics), dan lingkungan kerja langsung siap digunakan.
+dan **Lingkungan yang Siap Pakai**. Google Collab memberikan akses gratis ke GPU (Graphics Processing Unit) seperti NVIDIA T4. GPU dapat mempercepat proses training hingga 10-20 kali lebih cepat dibandingkan laptop standar. Selain itu, Colab sudah menyediakan library populer seperti OpenCV, TensorFlow, dan PyTorch. Untuk menggunakan Ultralytics, cukup menjalankan satu baris kode instalasi saja (!pip install ultralytics), dan lingkungan kerja langsung siap digunakan.
 
 ## Tahapan Melatih Model di Ultralytics HUB dan Google Collab
 ### 1. Upload Dataset
