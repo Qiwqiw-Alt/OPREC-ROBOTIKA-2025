@@ -31,7 +31,6 @@ void setup() {
 }
 
 void loop() {
-    // Update data dari semua sensor
     mySensor.accelUpdate();
     mySensor.gyroUpdate();
     mySensor.magUpdate();
@@ -44,7 +43,6 @@ void loop() {
 
     heading = atan2(-my, -mx) + declinationAngle;
     
-    // Normalisasi Heading (0 - 2*PI)
     if (heading < 0) heading += 2 * PI;
     if (heading > 2 * PI) heading -= 2 * PI;
 
